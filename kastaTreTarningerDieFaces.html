@@ -1,0 +1,58 @@
+<html>
+
+<style type="text/css">
+	body {
+		display: flex;
+		flex-direction: column;
+	}
+	div {
+		
+		display: flex;
+		flex: 1;
+		
+	}
+
+	p {
+		display:inline-block;
+		border: 1px solid black;
+		padding: 10pt;
+		font-size: 100pt;
+		text-align: center;
+		flex: 1;
+	}
+	#cast {
+		flex: 1;
+		padding: 2%;
+	}
+</style>
+
+<body>
+
+<div>
+	<p id="first">.</p>
+	<p id="second">.</p>
+	<p id="third">.</p>
+</div>
+<div>
+	<button id="cast" onclick="cast()">Kasta</button>
+</div>
+
+<script>
+	const faces = ['\u2680', '\u2681','\u2682','\u2683','\u2684','\u2685'] 
+	const targetFirst = document.getElementById("first");
+	const targetSecond = document.getElementById("second");
+	const targetThird = document.getElementById("third");
+	
+	function cast() {
+		let first = Math.floor(Math.random()*6);
+		let second = Math.floor(Math.random()*6);
+		let third = Math.floor(Math.random()*6);	
+		targetFirst.innerHTML = faces[first];
+		targetSecond.innerHTML = faces[second];
+		targetThird.innerHTML = faces[third];
+		}
+
+</script>
+
+</body>
+</html>
