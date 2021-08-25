@@ -1,0 +1,131 @@
+<html>
+
+<style type="text/css">
+	body {
+		display: flex;
+		flex-direction: column;
+    }
+	.screens {
+		display: flex;
+    flex-direction: row;
+		flex: 1;
+    margin-bottom: 5%;
+    }
+  .screen {
+		display: flex;
+    flex-direction: column;
+		flex: 5;
+    }
+	.number {
+		display:inline-block;
+		border: 1px solid black;
+		font-size: 100pt;
+		text-align: center;
+		flex: 1;
+    }
+  .castandleft {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    font-size: 20pt;
+    }
+	#cast {
+		flex: 1;
+		padding: 2%;
+    }
+  #left {
+    flex: 1;
+    text-align: center;
+    }
+  .hold {
+    flex: 1;
+    padding: 5%;
+    }
+</style>
+
+<body>
+
+<div class="screens">
+  <div class="screen">
+    <p class="number" id="first">.</p>
+    <button class="hold" onclick="hold('first')">Hold</button>
+  </div>
+	<div class="screen">
+    <p class="number" id="second">.</p>
+    <button class="hold" onclick="hold('second')">Hold</button>
+  </div>
+	<div class="screen">
+    <p class="number" id="third">.</p>
+    <button class="hold" onclick="hold('third')">Hold</button>
+  </div>
+  <div class="screen">
+    <p class="number" id="fourth">.</p>
+    <button class="hold" onclick="hold('fourth')">Hold</button>
+  </div>
+  <div class="screen">
+    <p class="number" id="fifth">.</p>
+    <button class="hold" onclick="hold('fifth')">Hold</button>
+  </div>
+</div>
+<div class="castandleft">
+	<button id="cast" onclick="cast()">Starta</button>
+  <p id="left">3</p>
+</div>
+
+<script>
+  let unlocked = ['first', 'second', 'third', 'fourth', 'fifth'];
+	const faces = ['\u2680', '\u2681','\u2682','\u2683','\u2684','\u2685']
+  const targetLeft = document.getElementById('left')
+  const targetCast = document.getElementById('cast')
+  let started = false;
+	  
+  let roundsLeft = 3
+  
+  function hold(screen) {
+    if (started) {
+      let target = document.getElementById(screen);
+      if (!unlocked.includes(screen)){
+        target.style.color = "black";
+        unlocked.push(screen)
+        } else {
+        target.style.color = "red"
+        unlocked = unlocked.filter((x) => {return x !== screen})
+        }
+        console.log(unlocked)
+      }
+    }
+  
+  function resetColor () {
+    unlocked.map((position) => {
+      let target = document.getElementById(position);
+      target.style.color = "black";
+      target.innerHTML = '.'
+      }) 
+    }
+  
+	function cast() {
+    if (!started) {
+      targetCast.innerHTML = "Kasta";
+      unlocked = ['first', 'second', 'third', 'fourth', 'fifth'];
+      resetColor();
+      roundsLeft = 3;
+      started = true;
+      return 0;
+      }
+    roundsLeft -- ;
+    targetLeft.innerHTML = roundsLeft;
+    if (roundsLeft < 1) {
+      targetCast.innerHTML = "Nytt omgang? Kom ihag att rakna!"
+      started = false;
+      }
+    unlocked.map((position) => {
+      let faceIndex = Math.floor(Math.random()*6);
+      let target = document.getElementById(position)
+      target.innerHTML = faces[faceIndex];
+    })
+		}
+
+</script>
+
+</body>
+</html>
