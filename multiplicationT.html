@@ -612,6 +612,7 @@ function returnAnswer() {
                 rightAnswer();
                 if (stats.products.length < 1) {
                     stats.level++;
+                    document.getElementById('blevel').value = stats.level
                     changeTable();
                 }
                 newQuestion();
