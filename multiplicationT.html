@@ -649,6 +649,9 @@ function returnAnswer() {
                 newQuestion();
                 clearInterval(timer)
                 timerHeight -= 10;
+                if (timerHeight < o) {
+                  timerHeight = 0;
+                }
                 timerStart()
                 count = 45 - stats.products.length;
                 meter();
