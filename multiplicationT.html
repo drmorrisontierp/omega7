@@ -1,0 +1,673 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Klingberg Multiplikation</title>
+  <meta name="description" content="A site to train multiplication">
+  <meta name="Michael Morrison" content="SitePoint">
+
+  <style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #cce6ff;
+}
+
+.top {
+    margin: 2% 0 2% 40%;
+}
+
+#title {
+    font-size: 2em;
+}
+
+.left {
+    float: left;
+    width: 50%;
+    margin-left: 2%;
+}
+
+.right {
+    width: 50%;
+    margin-left: 45%;
+}
+
+.imgbox {
+    margin: 0 10% 0 10%;
+    display: grid;
+    height: 100%;
+}
+
+table {
+  table-layout: fixed;
+  background-color: #666;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 5px #999;
+}
+td {
+  background-color: #f5f5f0;
+  padding: 1.5% 0 1.5% 0;
+  border: 1px solid black;
+}
+td:hover {
+  background-color: #d6d6c2;
+  font-weight: 800;
+}
+.theader {
+  background-color: #e0e0d1;
+}
+
+.center-fit {
+    border: 2px solid #555;
+    box-shadow: 0 5px #999;
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+}
+
+.q_and_a {
+    margin: 5% 10% 5% 10%;
+    padding: 5%;
+    border: 2px solid #550;
+    background-color: #cae8cb;
+    border-radius: 20%;
+    box-shadow: 0 5px #999;
+}
+
+#answer {
+    background-color: #d9d9d9;
+    width : 35%;
+    position: center;
+    text-indent: 10%;
+    margin: auto;
+    font-size: 2.5em;
+}
+
+#question {
+    float: left;
+    font-size: 2.5em;
+    margin-right: 5%;
+}
+
+.numpad {
+    margin-left: 35%;
+    width: 50%;
+}
+
+.start {
+    float: left;
+    margin-left: 0;
+}
+
+.meter {
+    float: right;
+    font-size: 1.5em;
+    margin-right: 20%;
+    text-align: center;
+    background-color: #e0e0d1;
+    padding: 3%;
+    border: 2px solid #550;
+    box-shadow: 0 5px #999;
+}
+
+.meter_inner {
+  display: flex;
+  
+  width: 20px;
+  height: 100px;
+  border: 2px solid #550;
+}
+#meter_bar {
+  align-self: flex-end;
+  width: 20px;
+  height: 10px;
+  background-color: red;
+  
+  
+}
+
+.numpad2 {
+    width: 50%;
+    margin-left: 32%;
+}
+
+.button {
+    margin: auto;
+    display: inline-block;
+    padding: 3% 5%;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: 2px solid #550;
+    border-radius: 25%;
+    box-shadow: 0 5px #999;
+}
+
+.button:hover {
+    background-color: #3e8e41;
+}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 4px #666;
+    transform: translateY(3px);
+}
+
+#bstart {
+    margin: auto;
+    display: inline-block;
+    padding: 10% 5%;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ff5050;
+    border: 2px solid #550;
+    border-radius: 25%;
+    box-shadow: 0 5px #999;
+}
+
+#bstart:active {
+    background-color: #cc0000;
+    box-shadow: 0 4px #666;
+    transform: translateY(3px);
+}
+
+  </style>
+
+</head>
+
+<body>
+    <div class="top">
+        <h2 id="title">Hej</h2>
+    </div>
+    <div class="left">
+
+        <div class="imgbox">
+            <table class="multiplication" id="table1">
+                <tr id="ten" ></tr>
+                <tr id="nine" ></tr>
+                <tr id="eight" ></tr></tr>
+                <tr id="seven" ></tr>
+                <tr id= "six" ></tr>
+                <tr id="five" ></tr>
+                <tr id="four" ></tr>
+                <tr id="three" ></tr>
+                <tr id="two" ></tr>
+                <tr id="one" ></tr>
+            </table>
+        </div>
+    </div>
+    <div class="right">
+        <div class="q_and_a">
+            <form onsubmit="returnAnswer(); return false;">
+                <label id="question" for="answer">............</label>
+                <input type="text" id="answer" name="answer">
+            </form>
+        </div>
+        <div class="start">
+            <p>
+                <button id="bstart" onclick="start()">BÖRJA!</button>
+                <select id="blevel" value="4" onchange="setLevel(this.value)">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                </select>
+            </p>
+        </div>
+        <div class="meter">
+            <!p id="level"><!/p>
+            <!p id="score"><!/p>
+            <div class="meter_inner">
+              <div id="meter_bar">
+                
+              </div>
+            </div>
+        </div>
+        <div class="numpad">
+            <p>
+                <button class="button" onclick="addValue('1')">1</button>
+                <button class="button" onclick="addValue('2')">2</button>
+                <button class="button" onclick="addValue('3')">3</button>
+            </p>
+            <p>
+                <button class="button" onclick="addValue('4')">4</button>
+                <button class="button" onclick="addValue('5')">5</button>
+                <button class="button" onclick="addValue('6')">6</button>
+            </p>
+            <p>
+                <button class="button" onclick="addValue('7')">7</button>
+                <button class="button" onclick="addValue('8')">8</button>
+                <button class="button" onclick="addValue('9')">9</button>
+            </p>
+        </div>
+
+        <div class="numpad2">
+            <p>
+                <button class="button" onclick="deleteValue()">del</button>
+                <button class="button" onclick="addValue('0')">0</button>
+                <button class="button" onclick="returnAnswer()">enter</button>
+            </p>
+        </div>
+      
+    </div>
+
+    <script type="text/javascript">
+window.store = {
+    localStoreSupport : function() {
+        try {
+            return 'localStorage' in window && window['localStorage'] !== null;
+        } catch (e) {
+            return false;
+        }
+    },
+    set : function(name,value,days) {
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+            var expires = "; expires="+date.toGMTString();
+        }
+        else {
+            var expires = "";
+        }
+        if( this.localStoreSupport() ) {
+            localStorage.setItem(name, value);
+        }
+        else {
+            document.cookie = name+"="+value+expires+"; path=/";
+        }
+    },
+    get : function(name) {
+        if( this.localStoreSupport() ) {
+            return localStorage.getItem(name);
+        }
+        else {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+    },
+    del : function(name) {
+        if( this.localStoreSupport() ) {
+            localStorage.removeItem(name);
+        }
+        else {
+            this.set(name,"",-1);
+        }
+    }
+}
+    
+let toggle = false;
+let stats = get_stats();
+let count;
+let calculatedAnswer;
+let table_y_axis = ['b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
+let verticalMemory = [];
+let horizontalMemory = [];
+let questionText = "";
+let score = document.createTextNode(" / 45");
+let levelText = document.createTextNode("Nivå");
+let levelBoard = document.getElementById("level")
+let scoreBoard = document.getElementById("score");
+//levelBoard.appendChild(levelText);
+//scoreBoard.appendChild(score);
+
+growTable();
+
+function flashColor(id, colorOne, colorTwo) {
+  let target = document.getElementById(id)
+  target.style.backgroundColor = colorTwo;
+  setTimeout(() => {
+    target.style.backgroundColor = colorOne;
+  }, 500)
+}
+
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+}
+
+function setLevel(x) {
+  
+  console.log(x)
+  level = parseInt(x);
+  stats.level = level;
+  changeTable();
+  console.log(stats.level)
+}
+
+function newProducts() {
+    let products = [];
+    for (let a = 2; a < 11; a++) {
+        for (let b = a; b < 11; b++) {
+            let product = a.toString() + " • " + b.toString();
+            products.push(product);
+        }
+    }
+    return products;
+}
+
+
+function newQuestion() {
+    if (stats.products.length == 0) {
+        stats.products = newProducts()
+    }
+    shuffle(stats.products)
+    questionText = stats.products.pop();
+    let ansArray = questionText.split(" • ");
+    calculatedAnswer = parseInt(ansArray[0]) * parseInt(ansArray[1]);
+    return questionText;
+}
+
+
+function replaceText(id, string) {
+    let target = document.getElementById(id);
+    let text = document.createTextNode(string);
+    target.removeChild(target.childNodes[0]);
+    target.appendChild(text);
+}
+
+
+function meter() {
+  console.log(count)
+  let meterHeight = 100*(count/45);
+  console.log(meterHeight.toString() + 'px')
+  document.getElementById('meter_bar').style.height = meterHeight.toString() + 'px';
+  
+  //  let scoreText = count + " / 45";
+  //  let levelText = "Nivå " + stats.level;
+  //  replaceText("score", scoreText);
+  //  replaceText("level", levelText);
+}
+
+
+function growTable() {
+    let rows = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+    for (let i = 0; i < 10; i++) {
+        let row = document.getElementById(rows[i]);
+        for (let e = 0; e < 10; e++) {
+            if (e == 0) {
+                let input = (e + 1) * (i + 1);
+                let _id = "hbtn" + i.toString();
+                let functionCall = "colourHorizontal('" + _id + "')";
+                row.insertCell(e).innerText = input;
+                row.childNodes[e].setAttribute("class", "horizontalButton");
+                row.childNodes[e].setAttribute("id", _id);
+                row.childNodes[e].setAttribute("onClick", functionCall);
+            }
+            else if (i == 0) {
+                let input = (e + 1) * (i + 1);
+                let _id = "vbtn" + e.toString();
+                let functionCall = "colourVertical('" + _id + "')";
+                row.insertCell(e).innerText = input;
+                row.childNodes[e].setAttribute("class", "verticalButton");
+                row.childNodes[e].setAttribute("id", _id);
+                row.childNodes[e].setAttribute("onClick", functionCall);
+            }
+            else {
+                let input = (e + 1) * (i + 1);
+                let _id = table_y_axis[i-1] + e.toString();
+                row.insertCell(e).innerText = input;
+                row.childNodes[e].setAttribute("id", _id);
+                row.childNodes[e].setAttribute("class", "tableBody");
+            }
+        }
+    }
+    document.getElementById('hbtn0').removeAttribute("onclick");
+}
+
+
+function clearTableBody(className) {
+    let tableBodies = document.getElementsByClassName(className);
+    for (let i = 0; i < tableBodies.length; i++) {
+        tableBodies[i].style.backgroundColor = "#f5f5f0";
+        tableBodies[i].style.color = "#000000"
+    }
+}
+
+
+function colourVertical(text) {
+    if (toggle) {
+        clearTableBody("verticalButton")
+        clearTableBody("tableBody")
+        let button = document.getElementById(text);
+        button.style.backgroundColor = "#ff9999";
+        let id_number = text[4];
+        verticalMemory = []
+        for (let i = 0; i < table_y_axis.length; i++) {
+            let _id = table_y_axis[i] + id_number;
+            let tableBody = document.getElementById(_id);
+            verticalMemory.push(tableBody);
+            tableBody.style.backgroundColor = "#ff9999";
+        }
+        for (let i = 0; i < horizontalMemory.length; i++) {
+            horizontalMemory[i].style.backgroundColor = "#ff9999";
+        }
+        for (let i = 0; i < verticalMemory.length; i++) {
+            for (let j = 0; j < horizontalMemory.length; j++) {
+                if (verticalMemory[i] === horizontalMemory[j]) {
+                    verticalMemory[i].style.backgroundColor = "#ff0000";
+                    verticalMemory[i].style.color = "#ffffff";
+                }
+            }
+        }
+        document.getElementById("answer").focus();
+    }
+}
+
+
+function colourHorizontal(text) {
+    if (toggle) {
+        clearTableBody("horizontalButton")
+        clearTableBody("tableBody")
+        let button = document.getElementById(text);
+        button.style.backgroundColor = "#ff9999";
+        let id_number = text[4];
+        horizontalMemory = []
+        for (let i = 0; i < 9; i++) {
+            let _id = table_y_axis[id_number - 1] + (i + 1).toString();
+            let tableBody = document.getElementById(_id);
+            horizontalMemory.push(tableBody);
+            tableBody.style.backgroundColor = "#ff9999";
+        }
+        for (let i = 0; i < verticalMemory.length; i++) {
+            verticalMemory[i].style.backgroundColor = "#ff9999";
+        }
+        for (let i = 0; i < verticalMemory.length; i++) {
+            for (let j = 0; j < horizontalMemory.length; j++) {
+                if (verticalMemory[i] === horizontalMemory[j]) {
+                    verticalMemory[i].style.backgroundColor = "#ff0000";
+                    verticalMemory[i].style.color = "#ffffff";
+                }
+            }
+        }
+        document.getElementById("answer").focus();
+    }
+}
+
+
+function changeTable() {
+    let rows = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+    let max = stats.level;
+    clearTableBody("tableBody");
+    clearTableBody("verticalButton");
+    clearTableBody("horizontalButton");
+    verticalMemory = [];
+    horizontalMemory = [];
+    for (let i = 1; i < 10; i++) {
+        let row = document.getElementById(rows[i]);
+        for (let e = 1; e < 10; e++) {
+            let _id = ((i+1) * (e +1)).toString();
+            row.childNodes[e].innerText = _id;
+        }
+    }
+    for (let i = 1; i < max; i++) {
+        let row = document.getElementById(rows[i]);
+        for (let e = 1; e < max; e++) {
+            let _id = table_y_axis[i - 1] + e.toString();
+            row.childNodes[e].innerText = ''
+        }
+    }
+  /*  for (let i = 1; i < max; i++) {
+        let row = document.getElementById(rows[i]);
+        for (let e = 1; e < max; e++) {
+            row.deleteCell(e);
+            let _id = table_y_axis[i - 1] + e.toString();
+            row.insertCell(e).innerText = "";
+            row.childNodes[e].setAttribute("id", _id);
+            row.childNodes[e].setAttribute("class", "tableBody");
+        }
+    } */
+}
+
+
+function start() {
+    changeTable();
+    let button = document.getElementById("bstart");
+    let buttonText = "STOPPA!";
+    questionText = newQuestion();
+    replaceText("question", questionText);
+    replaceText("bstart", buttonText);
+    count = 45 - stats.products.length;
+    meter();
+    button.setAttribute("onClick", "stop()");
+    document.getElementById("answer").focus();
+    toggle = true;
+}
+
+
+function stop() {
+    clearTableBody("tableBody");
+    clearTableBody("verticalButton");
+    clearTableBody("horizontalButton");
+    verticalMemory = [];
+    horizontalMemory = [];
+    stats.products.push(questionText);
+    let button = document.getElementById("bstart");
+    let buttonText = "BÖRJA!";
+    questionText = "............";
+    replaceText("question", questionText);
+    replaceText("bstart", buttonText);
+    button.setAttribute("onClick", "start()");
+    toggle = false;
+    saveStats()
+}
+
+
+function addValue(val) {
+    if (toggle) {
+        document.getElementById("answer").value += val;
+    }
+
+}
+
+
+function deleteValue() {
+    if (toggle) {
+        let oldString = document.getElementById("answer").value;
+        let newString = oldString.slice(0, -1);
+        document.getElementById("answer").value = newString;
+    }
+}
+
+
+function wrongAnswer() {
+    flashColor('answer', '#d9d9d9', '#ff0000')
+}
+
+
+function rightAnswer() {
+    flashColor('answer', '#d9d9d9', '#008000');
+}
+
+
+function returnAnswer() {
+    if (toggle) {
+        let answer = document.getElementById("answer").value;
+        if (answer) {
+            intAnswer = parseInt(answer);
+            if (intAnswer == calculatedAnswer) {
+                rightAnswer();
+                if (stats.products.length < 1) {
+                    stats.level++;
+                    changeTable();
+                }
+                newQuestion();
+                count = 45 - stats.products.length;
+                meter();
+                replaceText("question", questionText);
+                document.getElementById("answer").value = "";
+                document.getElementById("answer").focus();
+            }
+            else {
+                wrongAnswer();
+                stats.products.push(questionText)
+                if (stats.products.length == 50) {
+                    if (stats.level > 1) {
+                        stats.level--;
+                    }
+                    else {
+                        stats.level = 1;
+                    }
+                    changeTable();
+                    stats.products = newProducts()
+                    count = 45 - stats.products.length
+                }
+                meter();
+                document.getElementById("answer").value = "";
+                document.getElementById("answer").focus();
+            }
+        }
+        else {
+            document.getElementById("answer").focus();
+        }
+    }
+}
+
+
+function saveStats() {
+    let text = JSON.stringify(stats);
+    console.log(text)
+    store.set('savedStats', text)
+}
+
+function get_stats() {
+    let statsText = store.get('savedStats');
+    if (!statsText){
+      statsText = '{"products":[],"product":"","level":1}'
+    console.log(statsText)
+    }
+    let stats = JSON.parse(statsText);
+    console.log(stats)
+    return stats
+}
+
+
+
+    </script>
+
+
+
+</body>
+</html>
