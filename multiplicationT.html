@@ -612,7 +612,7 @@ function returnAnswer() {
                 rightAnswer();
                 if (stats.products.length < 1) {
                     stats.level++;
-                    document.getElementById('blevel').value = stats.level
+                    document.getElementById('blevel').value = stats.level;
                     changeTable();
                 }
                 newQuestion();
@@ -632,6 +632,7 @@ function returnAnswer() {
                     else {
                         stats.level = 1;
                     }
+                    document.getElementById('blevel').value = stats.level
                     changeTable();
                     stats.products = newProducts()
                     count = 45 - stats.products.length
