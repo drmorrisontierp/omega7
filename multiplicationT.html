@@ -430,7 +430,7 @@ function timerStart() {
     timer = setInterval(() => {
       console.log(timerHeight)
       document.getElementById('timer_bar').style.height = timerHeight.toString() + '%'
-      timerHeight += 10;
+      timerHeight += 1;
     }, 1000)
 }
 
