@@ -649,7 +649,7 @@ function returnAnswer() {
                 newQuestion();
                 clearInterval(timer)
                 timerHeight -= 10;
-                if (timerHeight < o) {
+                if (timerHeight < 0) {
                   timerHeight = 0;
                 }
                 timerStart()
