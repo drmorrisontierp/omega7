@@ -650,7 +650,9 @@ function returnAnswer() {
                     changeTable();
                 }
                 newQuestion();
+                clearInterval(timer)
                 timerHeight -= 10;
+                timerStart()
                 count = 45 - stats.products.length;
                 meter();
                 replaceText("question", questionText);
