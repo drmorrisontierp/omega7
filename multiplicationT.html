@@ -418,6 +418,17 @@ function meter() {
   //  replaceText("level", levelText);
 }
 
+function timer() {
+  start : function() {
+    let timerHeight = 0;
+    document.getElementById('timer_bar').style.height = '0%';
+    setInterval(() => {
+      document.getElementById('timer_bar').style.height = timerHeight.toString() + '%'
+      timerHeight += 10;
+      
+    }, 1000)
+  }
+}
 
 function growTable() {
     let rows = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
