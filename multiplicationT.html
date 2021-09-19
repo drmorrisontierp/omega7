@@ -350,6 +350,7 @@ let levelText = document.createTextNode("Nivå");
 let levelBoard = document.getElementById("level")
 let scoreBoard = document.getElementById("score");
 let timer;
+let timerHeight = 0;
 //levelBoard.appendChild(levelText);
 //scoreBoard.appendChild(score);
 
@@ -425,7 +426,7 @@ function timerStart() {
   if (timer) {
     clearInterval(timer);
   }
-    let timerHeight = 0;
+  //  let timerHeight = 0;
     document.getElementById('timer_bar').style.height = '0%';
     timer = setInterval(() => {
       console.log(timerHeight)
