@@ -427,7 +427,7 @@ function timerStart() {
     clearInterval(timer);
   }
   //  let timerHeight = 0;
-    document.getElementById('timer_bar').style.height = '0%';
+  //  document.getElementById('timer_bar').style.height = '0%';
     timer = setInterval(() => {
       console.log(timerHeight)
       document.getElementById('timer_bar').style.height = timerHeight.toString() + '%'
@@ -650,6 +650,7 @@ function returnAnswer() {
                     changeTable();
                 }
                 newQuestion();
+                timerHeight -= 10;
                 count = 45 - stats.products.length;
                 meter();
                 replaceText("question", questionText);
@@ -679,7 +680,7 @@ function returnAnswer() {
         else {
             document.getElementById("answer").focus();
         }
-        timerStart();
+        //timerStart();
     }
 }
 
