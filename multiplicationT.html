@@ -107,6 +107,8 @@ td:hover {
 
 .meter {
     float: right;
+    display: flex;
+    flex-direction: row;
     font-size: 1.5em;
     margin-right: 20%;
     text-align: center;
@@ -422,6 +424,7 @@ function timerStart() {
     let timerHeight = 0;
     document.getElementById('timer_bar').style.height = '0%';
     setInterval(() => {
+      console.log(timerHeight)
       document.getElementById('timer_bar').style.height = timerHeight.toString() + '%'
       timerHeight += 10;
       
