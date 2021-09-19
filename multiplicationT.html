@@ -349,6 +349,7 @@ let score = document.createTextNode(" / 45");
 let levelText = document.createTextNode("Nivå");
 let levelBoard = document.getElementById("level")
 let scoreBoard = document.getElementById("score");
+let timer;
 //levelBoard.appendChild(levelText);
 //scoreBoard.appendChild(score);
 
@@ -423,13 +424,11 @@ function meter() {
 function timerStart() {
     let timerHeight = 0;
     document.getElementById('timer_bar').style.height = '0%';
-    setInterval(() => {
+    timer = setInterval(() => {
       console.log(timerHeight)
       document.getElementById('timer_bar').style.height = timerHeight.toString() + '%'
       timerHeight += 10;
-      
     }, 1000)
-  
 }
 
 function growTable() {
@@ -602,6 +601,7 @@ function stop() {
     replaceText("bstart", buttonText);
     button.setAttribute("onClick", "start()");
     toggle = false;
+    clearInterval(timer)
     saveStats()
 }
 
