@@ -697,7 +697,7 @@ function saveStats() {
 function get_stats() {
     let statsText = store.get('savedStats');
     if (!statsText){
-      statsText = '{"products":[],"product":"","level":1}'
+      statsText = '{"products":[],"product":"","level":1, "timerHeight": 0,}'
     console.log(statsText)
     }
     let stats = JSON.parse(statsText);
