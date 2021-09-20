@@ -705,6 +705,12 @@ function get_stats() {
     return stats
 }
 
+function clearStats() {
+  stats = {"products":[],"product":"","level":1, "timerHeight": 0,};
+  store.del('savedStats');
+  location.reload()
+}
+
 
 
     </script>
