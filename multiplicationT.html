@@ -351,7 +351,7 @@ let levelText = document.createTextNode("Nivå");
 let levelBoard = document.getElementById("level")
 let scoreBoard = document.getElementById("score");
 let timer;
-let timerHeight = 0;
+//let timerHeight = 0;
 //levelBoard.appendChild(levelText);
 //scoreBoard.appendChild(score);
 
@@ -427,9 +427,9 @@ function timerStart() {
   //  let timerHeight = 0;
   //  document.getElementById('timer_bar').style.height = '0%';
     timer = setInterval(() => {
-      console.log(timerHeight)
-      document.getElementById('timer_bar').style.height = timerHeight.toString() + '%'
-      timerHeight += 1;
+      console.log(stats.timerHeight)
+      document.getElementById('timer_bar').style.height = stats.timerHeight.toString() + '%'
+      stats.timerHeight += 1;
     }, 700)
 }
 
@@ -641,7 +641,8 @@ function returnAnswer() {
         if (answer) {
             intAnswer = parseInt(answer);
             if (intAnswer == calculatedAnswer) {
-                rightAnswer();
+                //rightAnswer();
+                flashColor('answer', '#d9d9d9', '#008000');
                 if (stats.products.length < 1) {
                     stats.level++;
                     document.getElementById('blevel').value = stats.level;
@@ -649,9 +650,9 @@ function returnAnswer() {
                 }
                 newQuestion();
                 clearInterval(timer)
-                timerHeight -= 10;
-                if (timerHeight < 0) {
-                  timerHeight = 0;
+                stats.timerHeight -= 10;
+                if (stats.timerHeight < 0) {
+                  stats.timerHeight = 0;
                 }
                 timerStart()
                 count = 45 - stats.products.length;
@@ -661,7 +662,8 @@ function returnAnswer() {
                 document.getElementById("answer").focus();
             }
             else {
-                wrongAnswer();
+                //wrongAnswer();
+                flashColor('answer', '#d9d9d9', '#ff0000')
                 stats.products.push(questionText)
                 if (stats.products.length == 50) {
                     if (stats.level > 1) {
