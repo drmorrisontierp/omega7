@@ -674,7 +674,8 @@ function returnAnswer() {
                     }
                     document.getElementById('blevel').value = stats.level
                     changeTable();
-                    stats.products = newProducts()
+                    stats.products = newProducts();
+                    stats.timerHeight = 0;
                     count = 45 - stats.products.length
                 }
                 meter();
