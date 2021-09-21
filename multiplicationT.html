@@ -647,6 +647,7 @@ function returnAnswer() {
                     stats.level++;
                     document.getElementById('blevel').value = stats.level;
                     changeTable();
+                    stats.timerHeight = 0;
                 }
                 newQuestion();
                 clearInterval(timer)
