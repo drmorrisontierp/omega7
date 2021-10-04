@@ -43,24 +43,24 @@
     
     <script type="text/javascript" charset="utf-8">
       const generateNumbers = () => {
-        let numbers = [];
+        let _numbers = [];
         let x = 0;
         while (x < 4) {
           let i = Math.floor(Math.random()*8 + 2);
-          if (!numbers.includes(i)) {
-            numbers.push(i);
+          if (!_numbers.includes(i)) {
+            _numbers.push(i);
             x++;
           }
         }
         while (x < 8) {
           let i = Math.floor(Math.random()*30 + 2);
-          if (!numbers.includes(i)) {
-            numbers.push(i)
+          if (!_numbers.includes(i)) {
+            _numbers.push(i)
             x++;
           }
         }
-        console.log(numbers)
-        return numbers;
+        console.log('numbers', _numbers)
+        return _numbers;
       }
       
       const generateGridNumbers = (_numbers) => {
