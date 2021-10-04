@@ -74,17 +74,17 @@
           let n = Math.floor(Math.random()*8);
           let o = Math.floor(Math.random()*4);
           let num = eval(_numbers[m] + operators[o] + _numbers[n])
-          console.log('num', num)
-          console.log('o', o)
+          //(console.log('num', num)
+          //console.log('o', o)
           if (m !== n && o !== 4) {
             gridNumbers.push(num);
             x++;
-            console.log('one')
+            //console.log('one')
           }
           if (o === 4 && m%n === 0) {
             gridNumbers.push(num);
             x++;
-            console.log('two')
+           // console.log('two')
           }
         }
         return gridNumbers;
@@ -97,7 +97,7 @@
           let target = document.getElementById(row)
           let r = rows.indexOf(row)
           for (let x = 1; x < 7; x++){
-            console.log(6**r + x)
+          //  console.log(6**r + x)
             let _id = row + x;
             let _button = document.createElement('button');
             _button.id = _id;
