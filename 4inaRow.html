@@ -62,7 +62,8 @@
         return numbers;
       }
       
-      const generateGridNumbers = (numbers) => {
+      const generateGridNumbers = (_numbers) => {
+        
         let x = 0;
         let gridNumbers = [];
         let operators = ['+', '-', '*', '/']
@@ -70,7 +71,8 @@
           let m = Math.floor(Math.random()*8);
           let n = Math.floor(Math.random()*8);
           let o = Math.floor(Math.random()*4);
-          let num = eval(numbers[m] + operators[o] + numbers[n])
+          let num = eval(_numbers[m] + operators[o] + _numbers[n])
+          console.log('num', num)
           if (m !== n && o !== 4) {
             gridNumbers.push(num);
             x++;
