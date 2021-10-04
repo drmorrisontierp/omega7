@@ -70,13 +70,15 @@
           let m = Math.floor(Math.random()*8);
           let n = Math.floor(Math.random()*8);
           let o = Math.floor(Math.random()*4);
-          if (m != n) {
-            let num = eval(numbers[m] + operators[o] + numbers[n])
+          let num = eval(numbers[m] + operators[o] + numbers[n])
+          if (m != n && o != 4) {
             gridNumbers.push(num);
             x++;
           }
-          
-          
+          if (o == 4 && m%n == 0) 
+            gridNumbers.push(num);
+            x++;
+          }
         }
         return gridNumbers;
       }
