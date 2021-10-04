@@ -83,14 +83,14 @@
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
         rows.map((row) => {
           let target = document.getElementById(row)
+          let r = rows.indexOf(row)
           for (let x = 1; x < 7; x++){
             let _id = row + x;
-            let rowNumber = rows.indexOf(row)
             let _button = document.createElement('button');
             _button.id = _id;
             _button.class = 'grid-button';
             _button.onclick = () => chooseElement(_id);
-            _button.innerText = numbers[];
+            _button.innerText = numbers[6**r + x];
             target.appendChild(_button)
           }
         })
