@@ -74,8 +74,8 @@
           let n = Math.floor(Math.random()*8);
           let o = Math.floor(Math.random()*4);
           let num = eval(_numbers[m] + operators[o] + _numbers[n])
-          //(console.log('num', num)
-          //console.log('o', o)
+          (console.log('num', num)
+          console.log('o', o)
           if (m !== n && o !== 4) {
             gridNumbers.push(num);
             x++;
@@ -116,7 +116,7 @@
       
       //main logic
       let numbers = generateNumbers()
-      console.log('numbers', numbers.length)
+      console.log('numbers', numbers)
       let gridNumbers = generateGridNumbers(numbers)
       createGrid(gridNumbers)
       
