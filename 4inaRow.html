@@ -73,7 +73,8 @@
           let m = Math.floor(Math.random()*8);
           let n = Math.floor(Math.random()*8);
           let o = Math.floor(Math.random()*4);
-          let num = eval(_numbers[m] + operators[o] + _numbers[n])
+          let expr = (_numbers[m] + operators[o] + _numbers[n])
+          let num = eval(expr)
           //console.log('num', num)
           //console.log('o', o)
           if (m != n && o != 3) {
