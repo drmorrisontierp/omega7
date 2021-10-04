@@ -94,17 +94,17 @@
       function createGrid(_numbers) {
         //console.log(_numbers)
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
-        rows.map((row) => {
+        rows.map((i, row) => {
           let target = document.getElementById(row)
           let r = rows.indexOf(row)
           for (let x = 1; x < 7; x++){
-          //  console.log(6**r + x)
+            console.log(6**i + x)
             let _id = row + x;
             let _button = document.createElement('button');
             _button.id = _id;
             _button.class = 'grid-button';
             _button.onclick = () => chooseElement(_id);
-            _button.innerText = _numbers[6**r + x];
+            _button.innerText = _numbers[6**i + x];
             target.appendChild(_button)
           }
         })
