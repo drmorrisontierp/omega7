@@ -47,15 +47,19 @@
         let x = 0;
         while (x < 4) {
           let i = Math.floor(Math.random()*8 + 2);
-          numbers.push(i);
-          x++;
+          if (!numbers.includes(i)) {
+            numbers.push(i);
+            x++;
+          }
         }
-        while (x < 7) {
-          let i = Math.floor(Math.random()*20 + 2);
-          numbers.push(30)
-          x++;
+        while (x < 8) {
+          let i = Math.floor(Math.random()*30 + 2);
+          if (!numbers.includes(i)) {
+            numbers.push(i)
+            x++;
+            
+          }
         }
-        numbers.push(10);
       }
       const createGrid = () => {
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
