@@ -42,7 +42,7 @@
     </div>
     
     <script type="text/javascript" charset="utf-8">
-      const generateNumbers = () => {
+      function generateNumbers() {
         console.log('running')
         let _numbers = [];
         let x = 0;
@@ -64,7 +64,7 @@
         return _numbers;
       }
       
-      const generateGridNumbers = (_numbers) => {
+      function generateGridNumbers(_numbers) {
         
         let x = 0;
         let gridNumbers = [];
@@ -90,7 +90,7 @@
         return gridNumbers;
       }
       
-      const createGrid = (_numbers) => {
+      function createGrid(_numbers) {
         console.log(_numbers)
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
         rows.map((row) => {
