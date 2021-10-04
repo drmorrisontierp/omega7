@@ -57,9 +57,9 @@
           if (!numbers.includes(i)) {
             numbers.push(i)
             x++;
-            
           }
         }
+        return numbers;
       }
       const createGrid = () => {
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -83,7 +83,7 @@
       
       
       //main logic
-      generateNumbers()
+      let numbers = generateNumbers()
       createGrid()
       
     </script>
