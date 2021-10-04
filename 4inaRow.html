@@ -74,24 +74,24 @@
           let n = Math.floor(Math.random()*8);
           let o = Math.floor(Math.random()*4);
           let num = eval(_numbers[m] + operators[o] + _numbers[n])
-          console.log('num', num)
-          console.log('o', o)
+          //console.log('num', num)
+          //console.log('o', o)
           if (m != n && o != 3) {
             gridNumbers.push(num);
             x++;
-            console.log('one')
+            //console.log('one')
           }
           if (o == 3 && m%n == 0) {
             gridNumbers.push(num);
             x++;
-           console.log('two')
+           //console.log('two')
           }
         }
         return gridNumbers;
       }
       
       function createGrid(_numbers) {
-        console.log(_numbers)
+        //console.log(_numbers)
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
         rows.map((row) => {
           let target = document.getElementById(row)
@@ -118,6 +118,7 @@
       let numbers = generateNumbers()
       console.log('numbers', numbers)
       let gridNumbers = generateGridNumbers(numbers)
+      console.log(gridNumbers)
       createGrid(gridNumbers)
       
     </script>
