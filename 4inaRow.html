@@ -79,7 +79,7 @@
         return gridNumbers;
       }
       
-      const createGrid = () => {
+      const createGrid = (numbers) => {
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
         rows.map((row) => {
           let target = document.getElementById(row)
@@ -102,7 +102,7 @@
       
       //main logic
       let numbers = generateNumbers()
-      createGrid()
+      createGrid(numbers)
       
     </script>
   </body>
