@@ -85,11 +85,12 @@
           let target = document.getElementById(row)
           for (let x = 1; x < 7; x++){
             let _id = row + x;
+            let rowNumber = rows.indexOf(row)
             let _button = document.createElement('button');
             _button.id = _id;
             _button.class = 'grid-button';
             _button.onclick = () => chooseElement(_id);
-            _button.innerText = 70;
+            _button.innerText = numbers[];
             target.appendChild(_button)
           }
         })
