@@ -89,8 +89,8 @@
         return gridNumbers;
       }
       
-      const createGrid = (numbers) => {
-        console.log(numbers)
+      const createGrid = (_numbers) => {
+        console.log(_numbers)
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
         rows.map((row) => {
           let target = document.getElementById(row)
@@ -102,7 +102,7 @@
             _button.id = _id;
             _button.class = 'grid-button';
             _button.onclick = () => chooseElement(_id);
-            _button.innerText = numbers[6**r + x];
+            _button.innerText = _numbers[6**r + x];
             target.appendChild(_button)
           }
         })
@@ -115,7 +115,7 @@
       
       //main logic
       let numbers = generateNumbers()
-console.log('numbers', numbers)
+      console.log('numbers', numbers)
       let gridNumbers = generateGridNumbers(numbers)
       createGrid(gridNumbers)
       
