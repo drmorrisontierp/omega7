@@ -75,14 +75,14 @@
           let o = Math.floor(Math.random()*4);
           let expr = (_numbers[m] + operators[o] + _numbers[n])
           let num = eval(expr)
-          //console.log('num', num)
+          console.log('num', expr)
           //console.log('o', o)
           if (m != n && o != 3) {
             gridNumbers.push(num);
             x++;
             //console.log('one')
           }
-          if (o == 3 && m%n == 0) {
+          if (m != n && o == 3 && m%n == 0) {
             console.log(m, n)
             gridNumbers.push(num);
             x++;
