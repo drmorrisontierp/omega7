@@ -71,10 +71,12 @@
           let n = Math.floor(Math.random()*8);
           let o = Math.floor(Math.random()*4);
           if (m != n) {
-            eval(numbers[m] + operators[o] + numbers[n])
+            let num = eval(numbers[m] + operators[o] + numbers[n])
+            gridNumbers.push(num);
           }
           
         }
+        return gridNumbers;
       }
       
       const createGrid = () => {
