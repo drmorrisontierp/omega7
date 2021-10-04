@@ -49,10 +49,12 @@
           let target = document.getElementById(row)
           for (let x = 1; x < 7; x++){
             let _id = row + x;
-            let _button = document.createElement(button);
+            let _button = document.createElement('button');
             _button.id = _id;
+            _button.class = 'grid-button'
+            
             _button.innerText = 70;
-            target.appendChild(button)
+            target.appendChild(_button)
             
           }
         })
