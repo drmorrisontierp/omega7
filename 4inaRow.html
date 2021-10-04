@@ -43,7 +43,6 @@
     
     <script type="text/javascript" charset="utf-8">
       function generateNumbers() {
-        
         let _numbers = [];
         let x = 0;
         while (x < 4) {
@@ -60,12 +59,10 @@
             x++;
           }
         }
-        
         return _numbers;
       }
       
       function generateGridNumbers(_numbers) {
-        
         let x = 0;
         let gridNumbers = [];
         let operators = ['+', '-', '*', '/']
@@ -84,7 +81,6 @@
             
             gridNumbers.push(num);
             x++;
-           
           }
         }
         }
@@ -92,7 +88,6 @@
       }
       
       function createGrid(_numbers) {
-        //console.log(_numbers)
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
         rows.map((row, i) => {
           let target = document.getElementById(row)
@@ -108,7 +103,6 @@
           }
         })
       }
-      
       const chooseElement = (_id) => {
         console.log(_id)
       } 
