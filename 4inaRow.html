@@ -37,7 +37,6 @@
     </div>
     
     <script type="text/javascript" charset="utf-8">
-      createGrid()
       
       const createGrid = () => {
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -45,11 +44,13 @@
           let target = document.getElementById(row)
           for (let x = 1; x < 7; x++){
             let _id = row + x;
+            console.log(_id)
             
           }
         })
       }
       
+      createGrid()
     </script>
   </body>
 </html>
