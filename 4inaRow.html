@@ -97,9 +97,9 @@
         rows.map((row, i) => {
           let target = document.getElementById(row)
           let r = rows.indexOf(row)
-          for (let x = 1; x < 7; x++){
+          for (let x = 0; x < 6; x++){
             console.log(6**i + x)
-            let _id = row + x;
+            let _id = row + (x + 1);
             let _button = document.createElement('button');
             _button.id = _id;
             _button.class = 'grid-button';
