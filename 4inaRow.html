@@ -75,7 +75,7 @@
             gridNumbers.push(num);
             x++;
           }
-          if (o == 4 && m%n == 0) {
+          if (o === 4 && m%n === 0) {
             gridNumbers.push(num);
             x++;
           }
@@ -89,7 +89,6 @@
         rows.map((row) => {
           let target = document.getElementById(row)
           let r = rows.indexOf(row)
-          console.log(r)
           for (let x = 1; x < 7; x++){
             console.log(6**r + x)
             let _id = row + x;
