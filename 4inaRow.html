@@ -77,12 +77,12 @@
           let num = eval(expr)
           console.log('num', expr)
           //console.log('o', o)
-          if (m != n && o != 3) {
+          if (m !== n && o !== 3) {
             gridNumbers.push(num);
             x++;
             //console.log('one')
           }
-          if (m != n && o == 3 && m%n == 0) {
+          if (m !== n && o === 3 && m%n === 0) {
             console.log(m, n)
             gridNumbers.push(num);
             x++;
