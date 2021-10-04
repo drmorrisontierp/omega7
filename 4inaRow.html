@@ -73,13 +73,16 @@
           let o = Math.floor(Math.random()*4);
           let num = eval(_numbers[m] + operators[o] + _numbers[n])
           console.log('num', num)
+          console.log('o', o)
           if (m !== n && o !== 4) {
             gridNumbers.push(num);
             x++;
+            console.log('one')
           }
           if (o === 4 && m%n === 0) {
             gridNumbers.push(num);
             x++;
+            console.log('two')
           }
         }
         return gridNumbers;
