@@ -98,7 +98,6 @@
           let target = document.getElementById(row)
           let r = rows.indexOf(row)
           for (let x = 0; x < 6; x++){
-            console.log(6**i + x)
             let _id = row + (x + 1);
             let _button = document.createElement('button');
             _button.id = _id;
@@ -119,7 +118,7 @@
       let numbers = generateNumbers()
       let gridNumbers = generateGridNumbers(numbers)
       
-      //createGrid(gridNumbers)
+      createGrid(gridNumbers)
       
     </script>
   </body>
