@@ -207,7 +207,7 @@
           }
           player ? player = false : player = true;
           
-          player ? playerName = "Player 2" : playerName = "Player One"
+          playerName = player ? "Player 2" : "Player One"
           document.getElementById('player-name').innerHTML = playerName
         }
       }
