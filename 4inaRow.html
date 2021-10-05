@@ -193,8 +193,7 @@
       
       function check() {
         if (lastEntered.length === 3) {
-          let color;
-          player ? color = 'red' : color = 'green'
+          let color = player ? 'red' : 'green';
           if (player === 'two') color = 'green';
           let expr = document.getElementById('exprText').innerHTML;
           let answer = eval(expr)
@@ -205,7 +204,7 @@
             document.getElementById(chosenNumber[0]).disabled = true;
             document.getElementById(chosenNumber[0]).style.backgroundColor = color;
           }
-          player ? player = false : player = true;
+          player = player ? false : true;
           
           playerName = player ? "Player One" : "Player Two";
           document.getElementById('player-name').innerHTML = playerName
