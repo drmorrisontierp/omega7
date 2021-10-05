@@ -203,6 +203,8 @@
             console.log('correct')
             document.getElementById(chosenNumber[0]).disabled = true;
             document.getElementById(chosenNumber[0]).style.backgroundColor = color;
+            player ? scoreCount.playerOne.push[chosenNumber[0]] : scoreCount.playerTwo.push[chosenNumber[0]];
+            console.log(scoreCount)
           }
           player = player ? false : true;
           
@@ -218,6 +220,7 @@
       let lastEntered = [];
       let chosenNumber = ['', 0];
       let player = true;
+      let scoreCount = { playerOne: [], playerTwo: [] };
       createSmallGrid(numbers);
       createGrid(gridNumbers);
       createOperators(operators)
