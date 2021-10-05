@@ -190,12 +190,13 @@
       
       function check() {
         if (lastEntered.length === 3) {
-          if (player === 'one') let color = 'red';
-          if (player === 'two') let color = 'green';
+          let color;
+          if (player === 'one') color = 'red';
+          if (player === 'two') color = 'green';
           let expr = document.getElementById('exprText').innerHTML;
-          const answer = eval(expr)
-          const toCheck = chosenNumber[1]
-          if (answer === toCheck) {
+          let answer = eval(expr)
+          //const toCheck = chosenNumber[1]
+          if (answer === chosenNumber[1]) {
             console.log('correct')
             document.getElementById(chosenNumber[0]).disabled = true;
             document.getElementById(chosenNumber[0]).style.backgroundColor = color;
