@@ -74,7 +74,7 @@
             let _id = row + (x + 1)
             let _button = document.createElement('button');
             _button.id = _id;
-            _button.innerText = numbers[row*4 + x];
+            _button.innerText = numbers[i*4 + x];
             _button.onclick = () => chooseNumber(_id)
             target.appendChild(_button)
           }
