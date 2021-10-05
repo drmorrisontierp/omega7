@@ -152,11 +152,11 @@
       
       function chooseNumber(_id) {
         let target = document.getElementById('exprText');
-        let _number = document.getElementById(_id).innerHTML;
+        lastEntered = document.getElementById(_id).innerHTML;
         let expr = target.innerHTML;
         let x = expr.slice(-1)
         if (x === '' || operators.includes(x)) {
-          expr += _number
+          expr += lastEntered;
           target.innerHTML = expr;
         }
       }
@@ -186,6 +186,7 @@
       let gridNumbers = generateGridNumbers(numbers);
       let operators = ['+', '-', '*', '/'];
       let lastEntered = '';
+      let player = 'playerOne'
       createSmallGrid(numbers);
       createGrid(gridNumbers);
       createOperators(operators)
