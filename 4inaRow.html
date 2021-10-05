@@ -158,8 +158,17 @@
           expr += document.getElementById(_id).innerHTML;
           target.innerHTML = expr;
         }
-          
-      } 
+      }
+      
+      function chooseOperator(_id) {
+        let target = document.getElementById('exprText');
+        let expr = target.innerHTML;
+        let x = expr.slice(-1)
+        if (x !== '' && !operators.includes(x)) {
+          expr += document.getElementById(_id).innerHTML;
+          target.innerHTML = expr;
+        }
+      }
       
       
       //main logic
