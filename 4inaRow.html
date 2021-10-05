@@ -190,7 +190,10 @@
       function check() {
         if (lastEntered.length === 3) {
           let expr = document.getElementById('exprText').innerHTML;
-          let 
+          let answer = eval(expr)
+          if (answer === chosenNumber) {
+            console.log('correct')
+          }
         }
       }
       
