@@ -75,6 +75,7 @@
             _button.id = _id;
             _button.innerText = numbers[row*4 + x];
             _button.onclick = () => chooseNumber(_id)
+            target.appendChild(_button)
           }
             
         })
@@ -121,9 +122,11 @@
           }
         })
       }
+      
       function chooseElement(_id) {
         console.log(_id)
       }
+      
       function chooseNumber(_id) {
         console.log(_id)
       } 
