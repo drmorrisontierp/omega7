@@ -193,8 +193,8 @@
           if (player === 'one') let color = 'red';
           if (player === 'two') let color = 'green';
           let expr = document.getElementById('exprText').innerHTML;
-          let answer = eval(expr)
-          let toCheck = chosenNumber[1]
+          const answer = eval(expr)
+          const toCheck = chosenNumber[1]
           if (answer === toCheck) {
             console.log('correct')
             document.getElementById(chosenNumber[0]).disabled = true;
