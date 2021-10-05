@@ -88,7 +88,6 @@
             _button.onclick = () => chooseNumber(_id)
             target.appendChild(_button)
           }
-            
         })
       }
       
@@ -102,17 +101,15 @@
           let o = numbers[Math.floor(Math.random()*4)];
           let num = eval(m + o + n)
           if (!gridNumbers.includes(num)) {
-          if (m !== n && o !== 3) {
-            gridNumbers.push(num);
-            x++;
-            
+            if (m !== n && o !== 3) {
+              gridNumbers.push(num);
+              x++;
+            }
+            if (m !== n && o === 3 && m%n === 0) {
+              gridNumbers.push(num);
+              x++;
+            }
           }
-          if (m !== n && o === 3 && m%n === 0) {
-            
-            gridNumbers.push(num);
-            x++;
-          }
-        }
         }
         return gridNumbers;
       }
