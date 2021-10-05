@@ -39,7 +39,7 @@
           <div id="operators"></div>
           <div id="other-buttons">
             <button class="process" id="check" onclick="check()">Check</button>
-            <button class="process" id="check" onclick="delete()">delete</button>
+            <button class="process" id="delete" onclick="deleteExpr()">delete</button>
           </div>
           
         </div>
@@ -170,6 +170,14 @@
         }
       }
       
+      function deleteExpr() {
+        let target = document.getElementById('exprText');
+        let expr = target.innerHTML;
+        let x = expr.slice(-1)
+        if (x) {
+          target.innerHTML = expr.slice(0, -1);
+        
+      }
       
       //main logic
       let numbers = generateNumbers()
