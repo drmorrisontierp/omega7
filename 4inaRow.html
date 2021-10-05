@@ -152,10 +152,11 @@
       
       function chooseNumber(_id) {
         let target = document.getElementById('exprText');
+        let _number = document.getElementById(_id).innerHTML;
         let expr = target.innerHTML;
         let x = expr.slice(-1)
         if (x === '' || operators.includes(x)) {
-          expr += document.getElementById(_id).innerHTML;
+          expr += _number
           target.innerHTML = expr;
         }
       }
@@ -171,18 +172,20 @@
       }
       
       function deleteExpr() {
+        let end = lastEntered.length * (-1)
         let target = document.getElementById('exprText');
         let expr = target.innerHTML;
         let x = expr.slice(-1)
         if (x) {
-          target.innerHTML = expr.slice(0, -1);
-        
+          target.innerHTML = expr.slice(0, end);
+        }
       }
       
       //main logic
       let numbers = generateNumbers()
       let gridNumbers = generateGridNumbers(numbers);
       let operators = ['+', '-', '*', '/'];
+      let lastEntered = '';
       createSmallGrid(numbers);
       createGrid(gridNumbers);
       createOperators(operators)
