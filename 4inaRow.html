@@ -172,7 +172,7 @@
       }
       
       function deleteExpr() {
-        let end = lastEntered.length * (-1)
+        let end = lastEntered[-1].length * (-1)
         let target = document.getElementById('exprText');
         let expr = target.innerHTML;
         let x = expr.slice(-1)
@@ -185,7 +185,7 @@
       let numbers = generateNumbers()
       let gridNumbers = generateGridNumbers(numbers);
       let operators = ['+', '-', '*', '/'];
-      let lastEntered = '';
+      let lastEntered = [];
       let player = 'playerOne'
       createSmallGrid(numbers);
       createGrid(gridNumbers);
