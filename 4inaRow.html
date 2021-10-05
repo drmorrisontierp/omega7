@@ -148,6 +148,7 @@
         console.log(_id)
         let target = document.getElementById(_id);
         document.getElementById('chosenNumber').innerHTML = target.innerHTML;
+        chosenNumber = parseInt(target.innerHTML);
       }
       
       function chooseNumber(_id) {
@@ -186,11 +187,19 @@
         }
       }
       
+      function check() {
+        if (lastEntered.length === 3) {
+          let expr = document.getElementById('exprText').innerHTML;
+          let 
+        }
+      }
+      
       //main logic
       let numbers = generateNumbers()
       let gridNumbers = generateGridNumbers(numbers);
       let operators = ['+', '-', '*', '/'];
       let lastEntered = [];
+      let chosenNumber = 0;
       let player = 'playerOne'
       createSmallGrid(numbers);
       createGrid(gridNumbers);
