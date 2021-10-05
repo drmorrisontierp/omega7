@@ -65,7 +65,11 @@
       }
       
       function createSmallGrid() {
-        
+        smallGridIds = ['SA', 'SB'];
+        smallGridIds.map((row, i) => {
+          let target = document.getElementById(row);
+          let _button = document.createElement('button');
+        })
       }
       
       function generateGridNumbers(_numbers) {
