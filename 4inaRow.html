@@ -132,7 +132,15 @@
       }
       
       function createOperators(operators) {
-        
+        let target = document.getElementById('operators')
+        operators.map((operator, i) => {
+          let _id = "O" + (i + 1);
+          let _button = document.createElement('button');
+          _button.id = _id;
+          _button.class = 'operator-button';
+          _button.onclick = () => chooseOperator();
+          target.appendChild(_button);
+        })
       }
       
       function chooseElement(_id) {
