@@ -194,6 +194,8 @@
           let answer = eval(expr)
           if (answer === chosenNumber[1]) {
             console.log('correct')
+            document.getElementById(chosenNumber[0]).disabled = true;
+            document.getElementById(chosenNumber[0]).style.backgroundColor = red;
           }
         }
       }
