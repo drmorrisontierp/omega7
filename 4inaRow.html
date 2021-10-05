@@ -148,7 +148,8 @@
         console.log(_id)
         let target = document.getElementById(_id);
         document.getElementById('chosenNumber').innerHTML = target.innerHTML;
-        chosenNumber = parseInt(target.innerHTML);
+        chosenNumber[0] = _id;
+        chosenNumber[1] = parseInt(target.innerHTML);
       }
       
       function chooseNumber(_id) {
