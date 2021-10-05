@@ -16,6 +16,9 @@
   <body>
     <div class="screen">
       <div class="left">
+        <div class="player">
+          <p id="player-name">Player One</p>
+        </div>
         <div class="board">
           <div class="board-row" id="A"></div>
           <div class="board-row" id="B"></div>
@@ -191,7 +194,7 @@
       function check() {
         if (lastEntered.length === 3) {
           let color;
-          if (player === 'one') color = 'red';
+          player ? color = 'red': color = 'green'
           if (player === 'two') color = 'green';
           let expr = document.getElementById('exprText').innerHTML;
           let answer = eval(expr)
@@ -202,6 +205,10 @@
             document.getElementById(chosenNumber[0]).disabled = true;
             document.getElementById(chosenNumber[0]).style.backgroundColor = color;
           }
+          player ? player = false; player = true;
+          
+          player ?  playerName = "Player 2" : playerName = "Player One"
+          document.getElementById('player-name').innerHTML = playerName
         }
       }
       
@@ -211,7 +218,7 @@
       let operators = ['+', '-', '*', '/'];
       let lastEntered = [];
       let chosenNumber = ['', 0];
-      let player = 'one'
+      let player = true;
       createSmallGrid(numbers);
       createGrid(gridNumbers);
       createOperators(operators)
