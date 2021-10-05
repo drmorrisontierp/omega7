@@ -176,7 +176,7 @@
       }
       
       function deleteExpr() {
-        let end = lastEntered[-1] * (-1)
+        let end = lastEntered.slice(-1) * (-1)
         console.log(end)
         let target = document.getElementById('exprText');
         let expr = target.innerHTML;
