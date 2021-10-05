@@ -152,7 +152,8 @@
       
       function chooseNumber(_id) {
         let target = document.getElementById('exprText');
-        lastEntered = document.getElementById(_id).innerHTML;
+        textLength = document.getElementById(_id).innerHTML.length;
+        lastEntered.push(textLength)
         let expr = target.innerHTML;
         let x = expr.slice(-1)
         if (x === '' || operators.includes(x)) {
