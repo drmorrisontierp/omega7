@@ -138,6 +138,7 @@
           let _button = document.createElement('button');
           _button.id = _id;
           _button.class = 'operator-button';
+          _button.innerHTML = operator;
           _button.onclick = () => chooseOperator();
           target.appendChild(_button);
         })
@@ -160,6 +161,7 @@
       let operators = ['+', '-', '*', '/'];
       createSmallGrid(numbers);
       createGrid(gridNumbers);
+      createOperators(operators)
       
     </script>
   </body>
