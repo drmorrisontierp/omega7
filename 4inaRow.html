@@ -139,7 +139,7 @@
           _button.id = _id;
           _button.class = 'operator-button';
           _button.innerHTML = operator;
-          _button.onclick = () => chooseOperator();
+          _button.onclick = () => chooseOperator(_id);
           target.appendChild(_button);
         })
       }
