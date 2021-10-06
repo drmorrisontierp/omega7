@@ -94,14 +94,14 @@
         })
       }
       
-      function generateGridNumbers(_numbers) {
+      function generateGridNumbers(_numbers, operators) {
         let x = 0;
         let gridNumbers = [];
-        let operators = ['+', '-', '*', '/']
+        //let operators = ['+', '-', '*', '/']
         while (x < 36) {
           let m = _numbers[Math.floor(Math.random()*8)];
           let n = _numbers[Math.floor(Math.random()*8)];
-          let o = operators[Math.floor(Math.random()*4)];
+          let o = operators[Math.floor(Math.random()*operators.length)];
           let num = eval(m + o + n)
           console.log(m + o + n + '=' + num)
           if (!gridNumbers.includes(num)) {
@@ -248,9 +248,9 @@
     }
       
       //main logic
+      let operators = [ '*', '/'];
       let numbers = generateNumbers()
-      let gridNumbers = generateGridNumbers(numbers);
-      let operators = ['+', '-', '*', '/'];
+      let gridNumbers = generateGridNumbers(numbers, operators);
       let lastEntered = [];
       let chosenNumber = ['', 0];
       let player = true;
