@@ -61,14 +61,14 @@
         let _numbers = [];
         let x = 0;
         while (x < 8) {
-          let i = Math.floor(Math.random()*8 + 1);
+          let i = Math.floor(Math.random()*9 + 2);
           if (!_numbers.includes(i)) {
             _numbers.push(i);
             x++;
           }
         }
         while (x < 10) {
-          let i = Math.floor(Math.random()*30 + 9);
+          let i = Math.floor((Math.random()*3 + 1)*10);
           if (!_numbers.includes(i)) {
             _numbers.push(i)
             x++;
