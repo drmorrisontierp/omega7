@@ -107,23 +107,23 @@
           let strNum = num.toString();
           console.log(strNum)
        //   console.log(m + o + n + '=' + num)
-       if (!gridNumbers.includes(num)) {
-         if (strNum.length < 3){
-            
-            //  if (o != '/') {
-          //    console.log(o)
-              gridNumbers.push(num);
-              x++;
+          if (!gridNumbers.includes(num)) {
+            if (strNum.includes('.')){
+              if (strNum.length < 3){
+                gridNumbers.push(num);
+                x++;
+                }
               }
-           //   if (o == '/' && parseInt(m)%parseInt(n) == 0) {
-             //   gridNumbers.push(num);
-              //  x++;
-            //}
-            
+            if (!strNum.includes('.')){
+              if (strNum.length < 3){
+                gridNumbers.push(num);
+                x++;
+                }
+              }
+            }  
           }
-        }
         return gridNumbers;
-      }
+        }
       
       function createGrid(_numbers) {
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
