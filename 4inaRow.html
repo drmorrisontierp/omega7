@@ -230,7 +230,8 @@
       
       function checkFIR(test) {
         let counter = 0;
-        let sortedTest = test.sort();
+        for (key in test) {
+        let sortedTest = test[key].sort();
         for (let x = 0; x < sortedTest.length - 1; x++) {
           if (sortedTest[x+1] - sortedTest[x] === 1) {
             counter += 1;
@@ -238,8 +239,8 @@
             counter = 0
           }
         }
-        return counter >= 3 ? true : false;
-      }
+        return counter >= 3 ? true : continue;
+      }}
       
       //main logic
       let numbers = generateNumbers()
