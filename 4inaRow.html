@@ -149,7 +149,6 @@
       }
       
       function chooseElement(_id) {
-        console.log(_id)
         let target = document.getElementById(_id);
         document.getElementById('chosenNumber').innerHTML = target.innerHTML;
         chosenNumber[0] = _id;
@@ -165,7 +164,6 @@
           expr += choice;
           lastEntered.push(choice.length)
           target.innerHTML = expr;
-          console.log(lastEntered)
         }
       }
       
@@ -183,7 +181,6 @@
       
       function deleteExpr() {
         let end = lastEntered.pop() * (-1);
-        console.log(end)
         let target = document.getElementById('exprText');
         let expr = target.innerHTML;
         let x = expr.slice(-1)
@@ -199,10 +196,10 @@
           if (player === 'two') color = 'green';
           let expr = document.getElementById('exprText').innerHTML;
           let answer = eval(expr)
-          console.log(answer, chosenNumber[0], chosenNumber[1])
+       //   console.log(answer, chosenNumber[0], chosenNumber[1])
           let toCheckId = chosenNumber[0]
           if (answer === chosenNumber[1]) {
-            console.log('correct')
+      //      console.log('correct')
             document.getElementById(toCheckId).disabled = true;
             document.getElementById(toCheckId).style.backgroundColor = color;
             let saveScore = player ? scoreCount.playerOne : scoreCount.playerTwo;
