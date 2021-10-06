@@ -208,6 +208,7 @@
             saveScore.vertical[toCheckId.charAt(1)].push(toCheckId.charAt(0))
             saveScore.horizontal[toCheckId.charAt(0)].push(parseInt(toCheckId.charAt(1)))
             console.log(scoreCount)
+            checkWinner();
           }
           player = player ? false : true;
           
@@ -222,9 +223,8 @@
         if (target.allCorrect.length > 3) {
           flag.push(checkFIR(target.vertical));
           flag.push(checkFIR(target.horizontal));
-          
-          
         }
+        console.log(flag)
       }
       
       function checkFIR(test) {
