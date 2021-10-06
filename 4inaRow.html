@@ -205,7 +205,8 @@
             document.getElementById(toCheckId).style.backgroundColor = color;
             let saveScore = player ? scoreCount.playerOne : scoreCount.playerTwo;
             saveScore.allCorrect.push(toCheckId);
-            saveScore.vertical[toCheckId.charAt(1)] = toCheckId
+            saveScore.vertical[toCheckId.charAt(1)].push(toCheckId)
+            saveScore.horizontal[toCheckId.charAt(0)].push(toCheckId)
             console.log(scoreCount)
           }
           player = player ? false : true;
