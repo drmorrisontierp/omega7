@@ -239,8 +239,12 @@
             counter = 0
           }
         }
-        return counter >= 3 ? true : continue;
-      }}
+        if (counter >= 3) {
+          return true
+        }
+      }
+      return false;
+    }
       
       //main logic
       let numbers = generateNumbers()
