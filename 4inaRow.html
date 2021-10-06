@@ -198,14 +198,14 @@
           let expr = document.getElementById('exprText').innerHTML;
           let answer = eval(expr)
           console.log(answer, chosenNumber[0], chosenNumber[1])
-          //const toCheck = chosenNumber[1]
+          let toCheckId = chosenNumber[0]
           if (answer === chosenNumber[1]) {
             console.log('correct')
-            document.getElementById(chosenNumber[0]).disabled = true;
-            document.getElementById(chosenNumber[0]).style.backgroundColor = color;
+            document.getElementById(toCheckId).disabled = true;
+            document.getElementById(toCheckId).style.backgroundColor = color;
         //    player ? scoreCount.playerOne.allCorrect.push(chosenNumber[0]) : scoreCount.playerTwo.allCorrect.push(chosenNumber[0]);
             let saveScore = player ? scoreCount.playerOne : scoreCount.playerTwo;
-            saveScore.allCorrect.push(chosenNumber[0])
+            saveScore.allCorrect.push(toCheckId);
             console.log(scoreCount)
           }
           player = player ? false : true;
