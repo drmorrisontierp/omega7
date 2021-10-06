@@ -252,8 +252,8 @@
       return false;
     }
     
-    function checkDiag(A, B, n, m) {
-      
+    function checkDiag(A, BD, n, m) {
+      BD.map((B) => {
       let i = 0, j = 0;
       while (i < n && j < m) {
         if (A[i] == B[j]) {
@@ -265,6 +265,7 @@
           j = 0;
         }
     }
+      })
     return false;
   }
       
