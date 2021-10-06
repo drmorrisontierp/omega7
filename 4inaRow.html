@@ -229,7 +229,7 @@
         if (target.allCorrect.length > 3) {
           flag.push(checkFIR(target.vertical));
           flag.push(checkFIR(target.horizontal));
-          flag.push(checkDiag(target.allCorrect, diagonals, target.allCorrect.length, 4));
+          flag.push(checkDiag(target.allCorrect));
         }
         console.log(flag)
       }
@@ -252,22 +252,20 @@
       return false;
     }
     
-    function checkDiag(A, BD, n, m) {
-      BD.map((B) => {
-      let i = 0, j = 0;
-      while (i < n && j < m) {
-        if (A[i] == B[j]) {
-          i++;
-          j++;
-          if (j == m) return true;
-        } else {
-          i = i - j + 1;
-          j = 0;
+    function checkDiag(test) {
+      for (group of diagonals) {
+        let counter = 0
+        for (let e1 of group) {
+          for (let e2 of test ) {
+            if (e1 == e2) {
+              counter ++
+              }
+            }
+          }
+        if (counter == 4) return true;
         }
-    }
-      })
-    return false;
-  }
+        return false;
+      }
       
       //main logic
       const operators = ['*', '/',];
