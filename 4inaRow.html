@@ -217,8 +217,12 @@
       }
       
       function checkWinner() {
+        let flag = []
         let target = player ? scoreCount.playerOne : scoreCount.playerTwo;
         if (target.allCorrect.length > 3) {
+          flag.push(checkFIR(target.vertical));
+          flag.push(checkFIR(target.horizontal));
+          
           
         }
       }
