@@ -220,7 +220,18 @@
       let lastEntered = [];
       let chosenNumber = ['', 0];
       let player = true;
-      let scoreCount = { playerOne: [], playerTwo: [] };
+      let scoreCount = {
+        playerOne: {
+          all: [],
+          vertical: [],
+          horizontal: []
+        }
+        playerTwo: {
+          all: [],
+          vertical: [],
+          horizontal: []
+        }
+      };
       createSmallGrid(numbers);
       createGrid(gridNumbers);
       createOperators(operators)
