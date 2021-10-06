@@ -216,6 +216,13 @@
         }
       }
       
+      function checkWinner() {
+        let target = player ? scoreCount.playerOne : scoreCount.playerTwo;
+        if (target.allCorrect.length > 3) {
+          
+        }
+      }
+      
       //main logic
       let numbers = generateNumbers()
       let gridNumbers = generateGridNumbers(numbers);
