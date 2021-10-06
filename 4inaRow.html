@@ -60,7 +60,7 @@
       function generateNumbers() {
         let _numbers = [];
         let x = 0;
-        while (x < 7) {
+        while (x < 6) {
           let i = Math.floor(Math.random()*8 + 2);
           if (!_numbers.includes(i)) {
             _numbers.push(i);
@@ -105,7 +105,7 @@
           let num = eval(m + o + n)
        //   console.log(m + o + n + '=' + num)
        if (!gridNumbers.includes(num)) {
-            if (parseInt(m) != parseInt(n)) { 
+            
               if (o != '/') {
           //    console.log(o)
               gridNumbers.push(num);
@@ -115,7 +115,7 @@
                 gridNumbers.push(num);
                 x++;
             }
-            }
+            
           }
         }
         return gridNumbers;
