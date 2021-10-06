@@ -203,9 +203,9 @@
             console.log('correct')
             document.getElementById(toCheckId).disabled = true;
             document.getElementById(toCheckId).style.backgroundColor = color;
-        //    player ? scoreCount.playerOne.allCorrect.push(chosenNumber[0]) : scoreCount.playerTwo.allCorrect.push(chosenNumber[0]);
             let saveScore = player ? scoreCount.playerOne : scoreCount.playerTwo;
             saveScore.allCorrect.push(toCheckId);
+            saveScore.vertical[toCheckId.charAtt(1)] = toCheckId
             console.log(scoreCount)
           }
           player = player ? false : true;
