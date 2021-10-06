@@ -83,11 +83,11 @@
         smallGridIds.map((row, i) => {
           let target = document.getElementById(row);
           let rowIndex = smallGridIds.indexOf(row);
-          for (let x = 0; x < 4; x ++) {
+          for (let x = 0; x < 5; x ++) {
             let _id = row + (x + 1)
             let _button = document.createElement('button');
             _button.id = _id;
-            _button.innerText = numbers[i*4 + x];
+            _button.innerText = numbers[i*5 + x];
             _button.onclick = () => chooseNumber(_id)
             target.appendChild(_button)
           }
