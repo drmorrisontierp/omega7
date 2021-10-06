@@ -229,6 +229,7 @@
         if (target.allCorrect.length > 3) {
           flag.push(checkFIR(target.vertical));
           flag.push(checkFIR(target.horizontal));
+          flag.push(checkDiag(target.allCorrect));
         }
         console.log(flag)
       }
@@ -249,6 +250,14 @@
         }
       }
       return false;
+    }
+    
+    function checkDiag(test) {
+      diagonals.map((diag) => {
+        if (test.includes(diag)) {
+          return true;
+        }
+      })
     }
       
       //main logic
