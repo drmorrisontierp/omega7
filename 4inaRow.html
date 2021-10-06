@@ -192,6 +192,7 @@
       }
       
       function check() {
+        const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
         if (lastEntered.length === 3) {
           let color = player ? 'red' : 'green';
           if (player === 'two') color = 'green';
@@ -205,7 +206,7 @@
             document.getElementById(toCheckId).style.backgroundColor = color;
             let saveScore = player ? scoreCount.playerOne : scoreCount.playerTwo;
             saveScore.allCorrect.push(toCheckId);
-            saveScore.vertical[toCheckId.charAt(1)].push(toCheckId.charAt(0))
+            saveScore.vertical[toCheckId.charAt(1)].push(rows.indexOf(toCheckId.charAt(0)))
             saveScore.horizontal[toCheckId.charAt(0)].push(parseInt(toCheckId.charAt(1)))
             console.log(scoreCount)
             checkWinner();
