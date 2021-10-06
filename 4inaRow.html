@@ -138,9 +138,9 @@
         })
       }
       
-      function createOperators(operators) {
+      function createOperators(_operators) {
         let target = document.getElementById('operators')
-        operators.map((operator, i) => {
+        _operators.map((operator, i) => {
           let _id = "O" + (i + 1);
           let _button = document.createElement('button');
           _button.id = _id;
@@ -248,9 +248,9 @@
     }
       
       //main logic
-      let operators = ['+', '-', '*', '/'];
-      let numbers = generateNumbers()
-      let gridNumbers = generateGridNumbers(numbers, operators);
+      const operators = ['+', '-', '*', '/'];
+      const numbers = generateNumbers()
+      const gridNumbers = generateGridNumbers(numbers, operators);
       let lastEntered = [];
       let chosenNumber = ['', 0];
       let player = true;
