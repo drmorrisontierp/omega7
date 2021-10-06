@@ -159,7 +159,7 @@
         let target = document.getElementById(_id);
         document.getElementById('chosenNumber').innerHTML = target.innerHTML;
         chosenNumber[0] = _id;
-        chosenNumber[1] = parseInt(target.innerHTML);
+        chosenNumber[1] = parseFloat(target.innerHTML);
       }
       
       function chooseNumber(_id) {
