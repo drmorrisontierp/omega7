@@ -223,6 +223,19 @@
         }
       }
       
+      function checkFIR(test) {
+        let counter = 0;
+        let sortedTest = test.sort();
+        for (let x = 0; x < sortedTest.length - 1; x++) {
+          if (sortedTest[x+1] - sortedTest[x] === 1) {
+            counter += 1;
+          } else {
+            counter = 0
+          }
+        }
+        return counter >= 3 ? true : false;
+      }
+      
       //main logic
       let numbers = generateNumbers()
       let gridNumbers = generateGridNumbers(numbers);
