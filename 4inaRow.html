@@ -105,14 +105,16 @@
           let num = eval(m + o + n)
           console.log(m + o + n + '=' + num)
           if (!gridNumbers.includes(num)) {
-            if (m != n && o != 3) {
+            if (parseInt(m) != parseInt(n)) { 
+              if (o != '/') {
               console.log(o)
               gridNumbers.push(num);
               x++;
             }
-            if (m != n && o == 3 && m%n == 0) {
+            if (o == '/' && parseInt(m)%parseInt(n) == 0) {
               gridNumbers.push(num);
               x++;
+            }
             }
           }
         }
