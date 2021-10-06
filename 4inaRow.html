@@ -61,7 +61,7 @@
         let _numbers = [];
         let x = 0;
         while (x < 7) {
-          let i = Math.floor(Math.random()*8 + 2);
+          let i = Math.floor(Math.random()*8 + 1);
           if (!_numbers.includes(i)) {
             _numbers.push(i);
             x++;
@@ -104,6 +104,7 @@
           let o = _operators[Math.floor(Math.random()*_operators.length)];
           let num = eval(m + o + n)
           let strNum = num.toString();
+          console.log(strNum)
        //   console.log(m + o + n + '=' + num)
        if (!gridNumbers.includes(num)) {
          if (strNum.length <= 2){
