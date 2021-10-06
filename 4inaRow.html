@@ -98,15 +98,12 @@
       function generateGridNumbers(_numbers, _operators) {
         let x = 0;
         let gridNumbers = [];
-        //let operators = ['+', '-', '*', '/']
         while (x < 36) {
           let m = _numbers[Math.floor(Math.random()*_numbers.length)];
           let n = _numbers[Math.floor(Math.random()*_numbers.length)];
           let o = _operators[Math.floor(Math.random()*_operators.length)];
           let num = eval(m + o + n)
           let strNum = num.toString();
-        //  console.log(strNum)
-       //   console.log(m + o + n + '=' + num)
           if (!gridNumbers.includes(num)) {
             if (strNum.includes('.')){
               if (strNum.length < 4){
@@ -163,26 +160,30 @@
       }
       
       function chooseNumber(_id) {
-        let target = document.getElementById('exprText');
-        let choice = document.getElementById(_id).innerHTML;
-        let expr = target.innerHTML;
-        let x = expr.slice(-1)
-        if (x === '' || operators.includes(x)) {
-          expr += choice;
-          lastEntered.push(choice.length)
-          target.innerHTML = expr;
+        if (lastEntered.length < 4) {
+          let target = document.getElementById('exprText');
+          let choice = document.getElementById(_id).innerHTML;
+          let expr = target.innerHTML;
+          let x = expr.slice(-1)
+          if (x === '' || operators.includes(x)) {
+            expr += choice;
+            lastEntered.push(choice.length)
+            target.innerHTML = expr;
+          }
         }
       }
       
       function chooseOperator(_id) {
-        let target = document.getElementById('exprText');
-        let expr = target.innerHTML;
-        let choice = document.getElementById(_id).innerHTML;
-        let x = expr.slice(-1)
-        if (x !== '' && !operators.includes(x)) {
-          expr += document.getElementById(_id).innerHTML;
-          target.innerHTML = expr;
-          lastEntered.push(choice.length)
+        if (lastEntered.length < 3) {
+          let target = document.getElementById('exprText');
+          let expr = target.innerHTML;
+          let choice = document.getElementById(_id).innerHTML;
+          let x = expr.slice(-1)
+          if (x !== '' && !operators.includes(x)) {
+            expr += document.getElementById(_id).innerHTML;
+            target.innerHTML = expr;
+            lastEntered.push(choice.length)
+          }
         }
       }
       
@@ -197,10 +198,11 @@
       }
       
       function check() {
+        clearInteval(startTime)
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
         if (lastEntered.length === 3) {
           let color = player ? 'red' : 'green';
-          if (player === 'two') color = 'green';
+     //     if (player === 'two') color = 'green';
           let expr = document.getElementById('exprText').innerHTML;
           let answer = eval(expr)
         // console.log(answer, chosenNumber[0], chosenNumber[1])
@@ -220,6 +222,7 @@
           
           playerName = player ? "Player One" : "Player Two";
           document.getElementById('player-name').innerHTML = playerName
+          startTime()
         }
       }
       
@@ -253,28 +256,29 @@
       return false;
     }
     
-    function checkDiag(test) {
-      for (group of diagonals) {
-        let counter = 0
-        for (let e1 of group) {
-          for (let e2 of test ) {
-            if (e1 == e2) {
-              counter ++
+      function checkDiag(test) {
+        for (group of diagonals) {
+          let counter = 0
+          for (let e1 of group) {
+            for (let e2 of test ) {
+              if (e1 == e2) {
+                counter ++
+                }
               }
             }
+            if (counter == 4) return true;
           }
-        if (counter == 4) return true;
+          return false;
         }
-        return false;
-      }
       
       function timerStart() {
         let startTime = 20;
         newTimer = setInterval(() => {
           document.getElementById('timer-text').innerHTML = startTime;
           startTime -= 1;
-        }, 1000)
-      }
+          }, 1000)
+        }
+      
       
       //main logic
       const operators = ['*', '/',];
