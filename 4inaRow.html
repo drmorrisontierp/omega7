@@ -346,7 +346,7 @@
           saveScore.vertical[toCheckId.charAt(1)].push(rows.indexOf(toCheckId.charAt(0)) + 1)
           saveScore.horizontal[toCheckId.charAt(0)].push(parseInt(toCheckId.charAt(1)))
           console.log(scoreCount)
-          checkWinner();
+          winner = checkWinner();
         }
         newPlayer()
       }
@@ -360,7 +360,13 @@
         flag.push(checkFIR(target.horizontal));
         flag.push(checkDiag(target.allCorrect));
       }
-      console.log(flag)
+      for (item of flag) {
+        if (item) {
+          return true
+        }
+      }
+      
+      return false
 
     }
 
