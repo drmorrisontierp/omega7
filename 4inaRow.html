@@ -221,6 +221,7 @@
       
       function check() {
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
+        clearInterval(myTimer)
         if (lastEntered.length === 3) {
           let color = player ? 'red' : 'green';
           if (player === 'two') color = 'green';
@@ -243,6 +244,7 @@
           
           playerName = player ? "Player One" : "Player Two";
           document.getElementById('player-name').innerHTML = playerName
+          timerStart()
         }
       }
       
