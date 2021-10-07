@@ -31,7 +31,7 @@
     .board {
       border: solid 1pt black;
       border-radius: 5pt;
-      background-color: #80a2ed;
+      background-color: rgba(183,202,244,0.907);
     }
     
     .numbers {
@@ -64,6 +64,7 @@
     
     .grid-button {
       width: 100%;
+      
       margin: 1%;
     }
     
@@ -356,6 +357,7 @@
       player = player ? false : true;
       playerName = player ? "Player One" : "Player Two";
         document.getElementById('player-name').innerHTML = playerName
+      let bcolor = player ? rgba(183,202,244,0.907) : 
       timerStart();
     }
 
