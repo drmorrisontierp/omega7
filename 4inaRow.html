@@ -31,6 +31,8 @@
     .player {
       flex: 1;
       border: solid 1px black;
+      border-radius: 5px;
+      margin: 3%;
       background-color: rgba(183,202,244,0.907);
     }
     
@@ -372,9 +374,7 @@
           return true
         }
       }
-      
       return false
-
     }
 
     function checkFIR(test) {
@@ -429,6 +429,7 @@
       console.log(document.getElementsByClassName('numbers')[0])
       document.getElementsByClassName('board')[0].style.backgroundColor = bcolor;
       document.getElementsByClassName('numbers')[0].style.backgroundColor = bcolor;
+      document.getElementsByClassName('player')[0].style.backgroundColor = bcolor;
       timerStart();
     }
 
