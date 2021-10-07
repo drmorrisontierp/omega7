@@ -26,6 +26,7 @@
       .row {
         display: flex;
         flex-direction: row;
+        width: 100%;
       }
       
       .grid-button {
@@ -221,7 +222,7 @@
       
       function check() {
         const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
-        clearInterval(myTimer)
+        clearInterval(newTimer)
         if (lastEntered.length === 3) {
           let color = player ? 'red' : 'green';
           if (player === 'two') color = 'green';
