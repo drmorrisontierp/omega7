@@ -402,7 +402,7 @@
       newTimer = setInterval(() => {
         document.getElementById('timer-text').innerHTML = startTime;
         startTime -= 1;
-        if (startTime == 0) newPlayer();
+        if (startTime == -1) newPlayer();
       }, 1000)
     }
 
