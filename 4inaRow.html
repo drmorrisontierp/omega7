@@ -350,7 +350,7 @@
       clearInterval(newTimer);
       clearAll(true)
       player = player ? false : true;
-      playerName = player ? "Player One" : "Player Two";
+      playerName = player ? playerNames[0] : playerNames[1];
       document.getElementById('player-name').innerHTML = playerName;
       let bcolor = player ? 'rgba(183,202,244,0.907)' : 'rgba(192,149,138,0.902)';
       console.log(document.getElementsByClassName('numbers')[0])
