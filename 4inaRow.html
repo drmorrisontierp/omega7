@@ -289,12 +289,6 @@
           checkWinner();
         }
         newPlayer()
-        /*clearAll(true)
-        player = player ? false : true;
-
-        playerName = player ? "Player One" : "Player Two";
-        document.getElementById('player-name').innerHTML = playerName
-        timerStart()*/
       }
     }
 
@@ -372,6 +366,7 @@
     let lastEntered = [];
     let chosenNumber = ['', 0];
     let player = true;
+    let playerNames = ['Player One', 'Player Two']
     let scoreCount = {
       playerOne: {
         allCorrect: [],
