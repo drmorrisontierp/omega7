@@ -346,7 +346,11 @@
           saveScore.vertical[toCheckId.charAt(1)].push(rows.indexOf(toCheckId.charAt(0)) + 1)
           saveScore.horizontal[toCheckId.charAt(0)].push(parseInt(toCheckId.charAt(1)))
           console.log(scoreCount)
-          winner = checkWinner();
+          let hasWon = checkWinner();
+          if (hasWon) {
+            let winner = player ? playerNames[0] : playerNames[1];
+            let text = 'Congratulations to ' + winner + 'for a fine win!'
+          }
         }
         newPlayer()
       }
