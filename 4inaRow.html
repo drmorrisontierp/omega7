@@ -213,21 +213,21 @@
     function generateNumbers() {
       let _numbers = [];
       let x = 0;
-      while (x < 7) {
+      while (x < 5) {
         let i = Math.floor(Math.random() * 8 + 2);
         if (!_numbers.includes(i)) {
           _numbers.push(i);
           x++;
         }
       }
-      /*while (x < 10) {
-        let i = (Math.floor(Math.random() * 3 + 1)) * 10;
+      while (x < 8) {
+        let i = Math.floor(Math.random() * 9 + 10);
         if (!_numbers.includes(i)) {
           _numbers.push(i)
           x++;
         }
-      }*/
-      _numbers = [..._numbers, 10, 15, 20];
+      }
+      _numbers = [..._numbers, 10, 20];
       return _numbers;
     }
 
