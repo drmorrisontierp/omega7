@@ -368,10 +368,10 @@
 
         let expr = document.getElementById('exprText').innerHTML;
         let answer = eval(expr)
-          // console.log(answer, chosenNumber[0], chosenNumber[1])
+
         let toCheckId = chosenNumber[0]
         if (answer === chosenNumber[1]) {
-          //      console.log('correct')
+
           document.getElementById(toCheckId).disabled = true;
           document.getElementById(toCheckId).style.backgroundColor = color;
           let saveScore = player ? scoreCount.playerOne : scoreCount.playerTwo;
@@ -382,7 +382,7 @@
           let hasWon = checkWinner();
           if (hasWon) {
             let winner = player ? playerNames[0] : playerNames[1];
-            let text = 'Congratulations to ' + winner + 'for a fine win!';
+            let text = 'Congratulations to ' + winner + ' for a fine win!';
             document.getElementById('player-name').innerHTML = text;
             return 0
           }
