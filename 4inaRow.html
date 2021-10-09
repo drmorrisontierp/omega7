@@ -469,7 +469,11 @@
     console.log(width, height);*/
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
-    const gridNumbers = generateGridNumbers(numbers, operators);
+    //const gridNumbers = generateGridNumbers(numbers, operators);
+    const gridNumbers;
+    let breaker = setInterval(() => {
+      generateNumbers = generateGridNumbers(numbers, operators)
+    }, 1000)
     let lastEntered = [];
     let chosenNumber = ['', 0];
     let player = true;
