@@ -213,6 +213,7 @@
     function generateNumbers() {
       let _numbers = [];
       let x = 0;
+      
       while (x < 5) {
         let i = Math.floor(Math.random() * 8 + 2);
         if (!_numbers.includes(i)) {
@@ -252,8 +253,10 @@
     function generateGridNumbers(_numbers, _operators) {
       let x = 0;
       let gridNumbers = [];
+      let breaker = false;
+      setTimeout(() => {breaker = true}, 1000)
       //let operators = ['+', '-', '*', '/']
-      while (x < 36) {
+      while (x < 36 && !breaker) {
         let m = _numbers[Math.floor(Math.random() * _numbers.length)];
         let n = _numbers[Math.floor(Math.random() * _numbers.length)];
         let o = _operators[Math.floor(Math.random() * _operators.length)];
@@ -276,7 +279,6 @@
           }
         }
       }
-      clearInterval(breaker)
       return gridNumbers;
     }
 
@@ -470,11 +472,11 @@
     console.log(width, height);*/
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
-    //const gridNumbers = generateGridNumbers(numbers, operators);
+    const gridNumbers = generateGridNumbers(numbers, operators);
     let gridNumbers = [];
-    let breaker = setInterval(() => {
-      gridNumbers = generateGridNumbers(numbers, operators)
-    }, 1000)
+    //let breaker = setInterval(() => {
+     // gridNumbers = generateGridNumbers(numbers, operators)
+    //}, 1000)
     let lastEntered = [];
     let chosenNumber = ['', 0];
     let player = true;
