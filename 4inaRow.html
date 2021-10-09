@@ -261,7 +261,7 @@
         let strNum = num.toString();
         //  console.log(strNum)
         //   console.log(m + o + n + '=' + num)
-        if (!gridNumbers.includes(num) && n == m) {
+        if (!gridNumbers.includes(num) && n != m) {
           if (strNum.includes('.')) {
             if (strNum.length < 4) {
               gridNumbers.push(num);
