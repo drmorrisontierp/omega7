@@ -254,9 +254,9 @@
       let x = 0;
       let gridNumbers = [];
       let breaker = false;
-      setTimeout(() => {breaker = true}, 1000)
       //let operators = ['+', '-', '*', '/']
       while (x < 36 && !breaker) {
+      setTimeout(() => {breaker = true}, 1000)
         let m = _numbers[Math.floor(Math.random() * _numbers.length)];
         let n = _numbers[Math.floor(Math.random() * _numbers.length)];
         let o = _operators[Math.floor(Math.random() * _operators.length)];
