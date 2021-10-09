@@ -464,17 +464,11 @@
     }
 
     //main logic
- /*   const width  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    document.getElementsByClassName('screen')[0].style.height = height.toString + 'px'
-    console.log(width, height);*/
+
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
     const gridNumbers = generateGridNumbers(numbers, operators);
-    //let gridNumbers = [];
-    //let breaker = setInterval(() => {
-     // gridNumbers = generateGridNumbers(numbers, operators)
-    //}, 1000)
+   
     let lastEntered = [];
     let chosenNumber = ['', 0];
     let player = true;
