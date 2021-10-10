@@ -582,7 +582,7 @@ grid-row-gap: 5px;
       clearAll(true);
       clearInterval(newTimer);
       let target = document.getElementsByClassName('grid-button');
-      for (element of target) {
+      for (let element of target) {
         console.log(element)
         element.remove()
       }
