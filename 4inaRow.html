@@ -469,7 +469,6 @@
       document.getElementsByClassName('player')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
       document.getElementById('get-ready').innerHTML = 'GET READY!&nbsp;';
       let buttons = document.getElementsByClassName('grid-button');
-      console.log(buttons)
       for (button of buttons) {
         button.disabled = true
       }
@@ -479,9 +478,9 @@
     function newPlayer() {
       clearInterval(newTimer);
       let buttons = document.getElementsByClassName('grid-button');
-      buttons.map((button) => {
-        button.disabled = true
-      })
+      for (button of buttons) {
+        button.disabled = false
+      }
       document.getElementById('get-ready').innerHTML = 'GO!&nbsp;';
       let bcolor = player ? 'rgba(183,202,244,0.907)' : 'rgba(192,149,138,0.902)';
       console.log(document.getElementsByClassName('numbers')[0])
