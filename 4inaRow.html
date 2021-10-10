@@ -10,13 +10,14 @@
     height: 100%;
     margin: 0;
   }
-    .screen {
+    #screen {
       display: flex;
       flex-direction: row;
       background-color: #b3c2c6;
       border-radius: 5pt;
       border: solid 1pt black;
-      height: 100%;
+      height: 730px;
+      width: 1360px;
     }
     
     .left {
@@ -24,6 +25,7 @@
       flex-direction: column;
       flex: 1.5;
       margin: 5%;
+      height: 100%;
     
     }
     
@@ -32,6 +34,7 @@
       flex-direction: column;
       flex: 1;
       margin: 5%;
+      height: 100%;
     }
     
     .player {
@@ -58,7 +61,26 @@
       border: solid 1pt black;
       border-radius: 5pt;
       background-color: rgba(183,202,244,0.907);
-      flex: 8;
+      flex: 6;
+    }
+    
+    .current-score {
+      border: solid 1px black;
+      border-radius: 5px;
+      background-color: rgba(214,227,182,0.904);
+      width: 30%;
+      margin: 3%;
+      flex: 2;
+    }
+    
+    .player-score {
+      margin: 3%;
+      display: flex;
+      flex-direction: row;
+    }
+    
+    .player-score-text {
+      margin: 0;
     }
     
     .timer {
@@ -102,7 +124,6 @@
       margin: 3%;
       border: solid 1px black;
       flex: 2;
-      height: 100%;
     }
     
     .choice {
@@ -111,8 +132,6 @@
       border: solid 1px black;
       margin: 3%;
       padding: 2%;
-     /* height: 100%;*/
-    
     }
     
     .check-buttons {
@@ -144,7 +163,7 @@
     }
     
     #check {
-      flex: 1;
+      flex: 2;
       background-color: rgba(99,209,111,0.906);
       width: 100%;
     }
@@ -164,7 +183,7 @@
 </head>
 
 <body>
-  <div class="screen">
+  <div id="screen">
     <div class="left">
       <div class="player">
         <p id="player-name">Player One</p>
@@ -177,11 +196,24 @@
         <div class="board-row" id="E"></div>
         <div class="board-row" id="F"></div>
       </div>
+      <div class="current-score">
+        <div class="player-score">
+          <p class="player-score-text" id="player-one-label">Player one:&nbsp;</p>
+          <p class="player-score-text" id="player-one-score">0</p>  
+        </div>
+        <div class="player-score">
+          <p class="player-score-text" id="player-two-label">Player two:&nbsp;</p>
+          <p class="player-score-text" id="player-two-score">0</p>  
+        </div>
+      </div>
     </div>
     <div class="right">
       <div class="timer">
+        
+        <p class="timer-text" id="get-ready">GET READY!:&nbsp;</p>
         <p class="timer-text">Time remaining:&nbsp;</p>
         <p class="timer-text" id="timer-text">30</p>
+        <p class="timer-text" id="timer-text">5</p>
         <p class="timer-text">s</p>
       </div>
       <div class="numbers">
@@ -213,21 +245,22 @@
     function generateNumbers() {
       let _numbers = [];
       let x = 0;
-      while (x < 7) {
+      
+      while (x < 6) {
         let i = Math.floor(Math.random() * 8 + 2);
         if (!_numbers.includes(i)) {
           _numbers.push(i);
           x++;
         }
       }
-      /*while (x < 10) {
-        let i = (Math.floor(Math.random() * 3 + 1)) * 10;
+      while (x < 8) {
+        let i = Math.floor(Math.random() * 9 + 11);
         if (!_numbers.includes(i)) {
           _numbers.push(i)
           x++;
         }
-      }*/
-      _numbers = [..._numbers, 10, 15, 20];
+      }
+      _numbers = [..._numbers, 10, 20];
       return _numbers;
     }
 
@@ -261,7 +294,7 @@
         let strNum = num.toString();
         //  console.log(strNum)
         //   console.log(m + o + n + '=' + num)
-        if (!gridNumbers.includes(num)) {
+        if (!gridNumbers.includes(num) && n != m) {
           if (strNum.includes('.')) {
             if (strNum.length < 4) {
               gridNumbers.push(num);
@@ -321,10 +354,12 @@
       let choice = document.getElementById(_id).innerHTML;
       let expr = target.innerHTML;
       let x = expr.slice(-1)
-      if (x === '' || operators.includes(x)) {
-        expr += choice;
-        lastEntered.push(choice.length)
-        target.innerHTML = expr;
+      if (lastEntered.length < 4) {
+        if (x === '' || operators.includes(x)) {
+          expr += choice;
+          lastEntered.push(choice.length)
+          target.innerHTML = expr;
+        }
       }
     }
 
@@ -333,10 +368,12 @@
       let expr = target.innerHTML;
       let choice = document.getElementById(_id).innerHTML;
       let x = expr.slice(-1)
-      if (x !== '' && !operators.includes(x)) {
-        expr += document.getElementById(_id).innerHTML;
-        target.innerHTML = expr;
-        lastEntered.push(choice.length)
+      if (lastEntered.length < 4) {
+        if (x !== '' && !operators.includes(x)) {
+          expr += document.getElementById(_id).innerHTML;
+          target.innerHTML = expr;
+          lastEntered.push(choice.length)
+        }
       }
     }
 
@@ -367,10 +404,10 @@
 
         let expr = document.getElementById('exprText').innerHTML;
         let answer = eval(expr)
-          // console.log(answer, chosenNumber[0], chosenNumber[1])
+
         let toCheckId = chosenNumber[0]
         if (answer === chosenNumber[1]) {
-          //      console.log('correct')
+
           document.getElementById(toCheckId).disabled = true;
           document.getElementById(toCheckId).style.backgroundColor = color;
           let saveScore = player ? scoreCount.playerOne : scoreCount.playerTwo;
@@ -383,10 +420,14 @@
             let winner = player ? playerNames[0] : playerNames[1];
             let text = 'Congratulations to ' + winner + ' for a fine win!';
             document.getElementById('player-name').innerHTML = text;
+            player ? scores.playerOne += 1 : scores.playerTwo += 1;
+            let score = player ? scores.playerOne : scores.playerTwo;
+            let _id = player ? 'player-one-score' : 'player-two-score';
+            document.getElementById(_id).innerHTML = score;
             return 0
           }
         }
-        newPlayer()
+        getReady()
       }
     }
 
@@ -439,41 +480,76 @@
       return false;
     }
 
-    function timerStart() {
-      let startTime = 30;
+    function timerStart(x, flag) {
+      let startTime = x;
       newTimer = setInterval(() => {
         document.getElementById('timer-text').innerHTML = startTime;
         startTime -= 1;
-        if (startTime == -1) newPlayer();
+        if (startTime == -1 && flag) newPlayer();
+        if (startTime == -1 && !flag) getReady();
       }, 1000)
     }
-
-    function newPlayer() {
-      clearInterval(newTimer);
+    
+    function getReady() {
+      try {
+        clearInterval(newTimer);
+      } catch (e) {}
       clearAll(true)
       player = player ? false : true;
       playerName = player ? playerNames[0] : playerNames[1];
       document.getElementById('player-name').innerHTML = playerName;
+      document.getElementsByClassName('board')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
+      document.getElementsByClassName('numbers')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
+      document.getElementsByClassName('player')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
+      document.getElementById('get-ready').innerHTML = 'GET READY!&nbsp;';
+      let buttons = document.getElementsByClassName('grid-button');
+      for (button of buttons) {
+        button.disabled = true
+      }
+      timerStart(5, true)
+    }
+
+    function newPlayer() {
+      clearInterval(newTimer);
+      let buttons = document.getElementsByClassName('grid-button');
+      for (button of buttons) {
+        button.disabled = false
+      }
+      document.getElementById('get-ready').innerHTML = 'GO!&nbsp;';
       let bcolor = player ? 'rgba(183,202,244,0.907)' : 'rgba(192,149,138,0.902)';
       console.log(document.getElementsByClassName('numbers')[0])
       document.getElementsByClassName('board')[0].style.backgroundColor = bcolor;
       document.getElementsByClassName('numbers')[0].style.backgroundColor = bcolor;
       document.getElementsByClassName('player')[0].style.backgroundColor = bcolor;
-      timerStart();
+      timerStart(30, false);
     }
 
     //main logic
- /*   const width  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    document.getElementsByClassName('screen')[0].style.height = height.toString + 'px'
-    console.log(width, height);*/
+    var w = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+
+    var h = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+    
+    console.log(w, h)
+    
+    document.getElementById('screen').style.height = h + 'px'
+    document.getElementById('screen').style.width = h + 'px'
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
     const gridNumbers = generateGridNumbers(numbers, operators);
+    let scores = { playerOne: 0, playerTwo: 0};
     let lastEntered = [];
     let chosenNumber = ['', 0];
-    let player = true;
-    let playerNames = ['Player One', 'Player Two']
+    let player = false;
+    let playerNames = ['Player One', 'Player Two'];
+    playerNames[0] = prompt("Enter player one's name")
+    playerNames[1] = prompt("Enter player two's name")
+    document.getElementById('player-name').innerHTML = playerNames[0];
+    document.getElementById('player-one-label').innerHTML = playerNames[0] + ':&nbsp;';
+    document.getElementById('player-two-label').innerHTML = playerNames[1] + ':&nbsp;';
     let scoreCount = {
       playerOne: {
         allCorrect: [],
@@ -537,7 +613,7 @@
     createSmallGrid(numbers);
     createGrid(gridNumbers);
     createOperators(operators);
-    timerStart()
+    getReady()
   </script>
 </body>
 
