@@ -574,6 +574,9 @@ grid-row-gap: 5px;
     
     document.getElementById('screen').style.height = h + 'px'
     document.getElementById('screen').style.width = w + 'px'
+    window.addEventListener("orientationchange", function() {
+  alert(window.orientation);
+}, false);
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
     const gridNumbers = generateGridNumbers(numbers, operators);
