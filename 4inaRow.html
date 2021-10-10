@@ -566,6 +566,13 @@ grid-row-gap: 5px;
       timerStart(30, false);
     }
  
+    function newGame() {
+      document.getElementById('check').innerHTML = "Check";
+      document.getElementById('check').onclick = () => check();
+      reset(2)
+      
+    }
+    
     
     function reset(flag) {
       clearAll(true);
