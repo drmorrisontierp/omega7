@@ -444,13 +444,20 @@
       return false;
     }
 
-    function timerStart() {
-      let startTime = 30;
+    function timerStart(x) {
+      let startTime = x;
       newTimer = setInterval(() => {
         document.getElementById('timer-text').innerHTML = startTime;
         startTime -= 1;
         if (startTime == -1) newPlayer();
       }, 1000)
+    }
+    
+    function getReady() {
+      document.getElementsByClassName('board')[0].style.backgroundColor = rgba(28,37,26,0.855);
+      document.getElementsByClassName('numbers')[0].style.backgroundColor = rgba(28,37,26,0.855);
+      document.getElementsByClassName('player')[0].style.backgroundColor = rgba(28,37,26,0.855);
+      timerStart(15)
     }
 
     function newPlayer() {
@@ -475,7 +482,7 @@
    
     let lastEntered = [];
     let chosenNumber = ['', 0];
-    let player = true;
+    let player = false;
     let playerNames = ['Player One', 'Player Two']
     playerNames[0] = prompt("Enter player one's name")
     playerNames[1] = prompt("Enter player two's name")
