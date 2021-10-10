@@ -245,7 +245,7 @@ grid-row-gap: 5px;
         </div>
       </div>
       <div class="reset">
-        <button id="reset-button" onclick="reset()">Reset</button>
+        <button id="reset-button" onclick="reset(true)">Reset</button>
       </div>
     </div>
     <div class="right">
@@ -565,8 +565,9 @@ grid-row-gap: 5px;
     }
  
     
-    function reset() {
+    function reset(flag) {
       clearAll(true);
+      if (flag) {
       clearInterval(newTimer);
       let _id = '';
       for (let x of ['A', 'B', 'C', 'D', 'E', 'F']) {
@@ -583,6 +584,7 @@ grid-row-gap: 5px;
       }
       document.getElementById('O1').remove();
       document.getElementById('O2').remove();
+      }
       document.getElementById('player-one-score').innerHTML = 0;
       document.getElementById('player-two-score').innerHTML = 0;
         
@@ -732,7 +734,7 @@ grid-row-gap: 5px;
       ['C5', 'D4', 'E3', 'F2'],
       ['C6', 'D5', 'E4', 'F3'],
     ]
-    reset(true)
+    reset(false)
     //createSmallGrid(numbers);
     //createGrid(gridNumbers);
     //createOperators(operators);
