@@ -65,12 +65,17 @@
       border: solid 0px black;
       border-radius: 5px;
       background-color: rgba(214,227,182,0.904);
+      width: 30%;
     }
     
     .player-score {
       margin: 0;
       display: flex;
       flex-direction: row;
+    }
+    
+    .player-score-text {
+      margin: 0;
     }
     
     .timer {
@@ -191,12 +196,12 @@
       </div>
       <div class="current-score">
         <div class="player-score">
-          <p id="player-one-label">Player one:&nbsp;</p>
-          <p id="player-one-score">0</p>  
+          <p class="player-score-text" id="player-one-label">Player one:&nbsp;</p>
+          <p class="player-score-text" id="player-one-score">0</p>  
         </div>
         <div class="player-score">
-          <p id="player-two-label">Player two:&nbsp;</p>
-          <p id="player-two-score">0</p>  
+          <p class="player-score-text" id="player-two-label">Player two:&nbsp;</p>
+          <p class="player-score-text" id="player-two-score">0</p>  
         </div>
       </div>
     </div>
