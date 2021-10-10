@@ -464,6 +464,8 @@ grid-row-gap: 5px;
             let score = player ? scores.playerOne : scores.playerTwo;
             let _id = player ? 'player-one-score' : 'player-two-score';
             document.getElementById(_id).innerHTML = score;
+            document.getElementById('check').innerHTML = "Press for new game, best of three?";
+            document.getElementById('check').onclick = () => newGame();
             return 0
           }
         }
