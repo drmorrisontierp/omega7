@@ -560,12 +560,12 @@ grid-row-gap: 5px;
       document.getElementsByClassName('player')[0].style.backgroundColor = bcolor;
       timerStart(30, false);
     }
-function rotateScreen() {
-  var w = window.innerWidth
+  function rotateScreen() {
+    w = window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth;
 
-    var h = window.innerHeight
+    h = window.innerHeight
     || document.documentElement.clientHeight
     || document.body.clientHeight;
     
@@ -575,6 +575,8 @@ function rotateScreen() {
     document.getElementById('screen').style.width = w + 'px'
 }
     //main logic
+    let w;
+    let h;
     rotateScreen()
     window.addEventListener("orientationchange", function() {
       rotateScreen()
