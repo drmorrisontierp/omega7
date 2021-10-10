@@ -583,8 +583,10 @@ grid-row-gap: 5px;
       clearInterval(newTimer);
       let target = document.getElementsByClassName('board-row');
       for (let element of target) {
+        console.log(element)
         for (let child of element.children) {
           element.removeChild(child)
+          
         }
       }
       scoreCount = {
