@@ -418,6 +418,10 @@
             let winner = player ? playerNames[0] : playerNames[1];
             let text = 'Congratulations to ' + winner + ' for a fine win!';
             document.getElementById('player-name').innerHTML = text;
+            player ? scores.playerOne += 1 : scores.playerTwo += 1;
+            let score = player ? scores.playerOne : scores.playerTwo;
+            let _id = player ? 'player-one-score' : 'player-two-score';
+            document.getElementById(_id).innerHTML = 
             return 0
           }
         }
@@ -523,11 +527,11 @@
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
     const gridNumbers = generateGridNumbers(numbers, operators);
-   
+    let scores = { playerOne: 0, playerTwo: 0};
     let lastEntered = [];
     let chosenNumber = ['', 0];
     let player = false;
-    let playerNames = ['Player One', 'Player Two']
+    let playerNames = ['Player One', 'Player Two'];
     playerNames[0] = prompt("Enter player one's name")
     playerNames[1] = prompt("Enter player two's name")
     document.getElementById('player-name').innerHTML = playerNames[0];
