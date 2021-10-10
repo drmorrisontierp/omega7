@@ -578,11 +578,13 @@ grid-row-gap: 5px;
       for (let x of ['SA', 'SB']) {
         for (let y of [1, 2, 3, 4, 5]) {
           _id = x + y;
-          document.getElementById(_id).remove()
+          document.getElementById(_id).remove();
         }
       }
-      document.getElementById('O1').remove()
-      document.getElementById('O2').remove()
+      document.getElementById('O1').remove();
+      document.getElementById('O2').remove();
+      document.getElementById('player-one-score').innerHTML = 0;
+      document.getElementById('player-two-score').innerHTML = 0;
         
       
       scoreCount = {
