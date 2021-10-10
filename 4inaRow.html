@@ -457,7 +457,7 @@
     }
     
     function getReady() {
-      clearInterval(newTimer);
+      if (newTimer) clearInterval(newTimer);
       clearAll(true)
       player = player ? false : true;
       playerName = player ? playerNames[0] : playerNames[1];
