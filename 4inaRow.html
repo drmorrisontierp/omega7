@@ -560,7 +560,7 @@ grid-row-gap: 5px;
       document.getElementsByClassName('player')[0].style.backgroundColor = bcolor;
       timerStart(30, false);
     }
-  function rotateScreen() {
+  /*function rotateScreen() {
     w = window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth;
@@ -573,15 +573,27 @@ grid-row-gap: 5px;
     
     document.getElementById('screen').style.height = h + 'px'
     document.getElementById('screen').style.width = w + 'px'
-}
-    //main logic
-    let w;
-    let h;
-    rotateScreen()
-    window.addEventListener("orientationchange", function() {
-      rotateScreen()
-      alert(w);
-      }, false);
+    }*/
+  //main logic
+    let  w = window.innerWidth
+      || document.documentElement.clientWidth
+      || document.body.clientWidth;
+
+    let h = window.innerHeight
+      || document.documentElement.clientHeight
+      || document.body.clientHeight;
+    
+    console.log(w, h)
+    
+    document.getElementById('screen').style.height = h + 'px'
+    document.getElementById('screen').style.width = w + 'px'
+   // let w;
+    //let h;
+    //rotateScreen()
+    //window.addEventListener("orientationchange", function() {
+     // rotateScreen()
+     // alert(w);
+    //  }, false);
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
     const gridNumbers = generateGridNumbers(numbers, operators);
