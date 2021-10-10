@@ -532,7 +532,9 @@
     || document.documentElement.clientHeight
     || document.body.clientHeight;
     
-    document.getElementById('screen').style.height = w + 'px'
+    console.log(w, h)
+    
+    document.getElementById('screen').style.height = h + 'px'
     document.getElementById('screen').style.width = h + 'px'
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
