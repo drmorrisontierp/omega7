@@ -183,7 +183,7 @@
 </head>
 
 <body>
-  <div class="screen">
+  <div id="screen">
     <div class="left">
       <div class="player">
         <p id="player-name">Player One</p>
@@ -524,7 +524,16 @@
     }
 
     //main logic
+    var w = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
 
+    var h = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+    
+    document.getElementById('screen').style.height = h + 'px'
+    document.getElementById('screen').style.width = w + 'px'
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
     const gridNumbers = generateGridNumbers(numbers, operators);
