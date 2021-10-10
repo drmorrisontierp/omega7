@@ -322,10 +322,12 @@
       let choice = document.getElementById(_id).innerHTML;
       let expr = target.innerHTML;
       let x = expr.slice(-1)
-      if (x === '' || operators.includes(x)) {
-        expr += choice;
-        lastEntered.push(choice.length)
-        target.innerHTML = expr;
+      if (lastEntered.length < 4) {
+        if (x === '' || operators.includes(x)) {
+          expr += choice;
+          lastEntered.push(choice.length)
+          target.innerHTML = expr;
+        }
       }
     }
 
@@ -334,10 +336,12 @@
       let expr = target.innerHTML;
       let choice = document.getElementById(_id).innerHTML;
       let x = expr.slice(-1)
-      if (x !== '' && !operators.includes(x)) {
-        expr += document.getElementById(_id).innerHTML;
-        target.innerHTML = expr;
-        lastEntered.push(choice.length)
+      if (lastEntered.length < 4) {
+        if (x !== '' && !operators.includes(x)) {
+          expr += document.getElementById(_id).innerHTML;
+          target.innerHTML = expr;
+          lastEntered.push(choice.length)
+        }
       }
     }
 
