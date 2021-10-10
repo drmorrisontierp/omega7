@@ -563,20 +563,7 @@ grid-row-gap: 5px;
       document.getElementsByClassName('player')[0].style.backgroundColor = bcolor;
       timerStart(30, false);
     }
-  /*function rotateScreen() {
-    w = window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth;
-
-    h = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight;
-    
-    console.log(w, h)
-    
-    document.getElementById('screen').style.height = h + 'px'
-    document.getElementById('screen').style.width = w + 'px'
-    }*/
+ 
     
     function reset() {
       clearAll(true);
@@ -594,6 +581,10 @@ grid-row-gap: 5px;
           document.getElementById(_id).remove()
         }
       }
+      document.getElementById('O1').remove()
+      document.getElementById('O2').remove()
+        
+      
       scoreCount = {
         playerOne: {
           allCorrect: [],
@@ -662,13 +653,7 @@ grid-row-gap: 5px;
     
     document.getElementById('screen').style.height = h + 'px'
     document.getElementById('screen').style.width = w + 'px'
-   // let w;
-    //let h;
-    //rotateScreen()
-    //window.addEventListener("orientationchange", function() {
-     // rotateScreen()
-     // alert(w);
-    //  }, false);
+    
     const operators = ['*', '/', '/' ];
     let numbers = generateNumbers()
     let gridNumbers = generateGridNumbers(numbers, operators);
