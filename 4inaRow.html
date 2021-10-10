@@ -244,6 +244,9 @@ grid-row-gap: 5px;
           <p class="player-score-text" id="player-two-score">0</p>  
         </div>
       </div>
+      <div class="reset">
+        <button id="reset-button" onclick="reset()">Reset</button>
+      </div>
     </div>
     <div class="right">
       <div class="timer">
@@ -574,6 +577,70 @@ grid-row-gap: 5px;
     document.getElementById('screen').style.height = h + 'px'
     document.getElementById('screen').style.width = w + 'px'
     }*/
+    
+    function reset() {
+      clearAll(true);
+      clearInterval(newTimer);
+      let target = document.getElementsByClassName('grid-button');
+      for (element of target) {
+        console.log(element)
+        element.remove()
+      }
+      scoreCount = {
+        playerOne: {
+          allCorrect: [],
+          vertical: {
+            '1': [],
+            '2': [],
+            '3': [],
+            '4': [],
+            '5': [],
+            '6': [],
+          },
+          horizontal: {
+            'A': [],
+            'B': [],
+            'C': [],
+            'D': [],
+            'E': [],
+            'F': [],
+          },
+        },
+        playerTwo: {
+          allCorrect: [],
+          vertical: {
+            '1': [],
+            '2': [],
+            '3': [],
+            '4': [],
+            '5': [],
+            '6': [],
+          },
+          horizontal: {
+            'A': [],
+            'B': [],
+            'C': [],
+            'D': [],
+            'E': [],
+            'F': [],
+          }
+        }
+      };
+      numbers = generateNumbers()
+      gridNumbers = generateGridNumbers(numbers, operators);
+      scores = { playerOne: 0, playerTwo: 0};
+      player = false;
+      playerNames[0] = prompt("Enter player one's name")
+      playerNames[1] = prompt("Enter player two's name")
+      document.getElementById('player-name').innerHTML = playerNames[0];
+      document.getElementById('player-one-label').innerHTML = playerNames[0] + ':&nbsp;';
+      document.getElementById('player-two-label').innerHTML = playerNames[1] + ':&nbsp;';
+      createSmallGrid(numbers);
+      createGrid(gridNumbers);
+      createOperators(operators);
+      getReady()
+      }
+    
   //main logic
     let  w = window.innerWidth
       || document.documentElement.clientWidth
@@ -595,8 +662,8 @@ grid-row-gap: 5px;
      // alert(w);
     //  }, false);
     const operators = ['*', '/', '/' ];
-    const numbers = generateNumbers()
-    const gridNumbers = generateGridNumbers(numbers, operators);
+    let numbers = generateNumbers()
+    let gridNumbers = generateGridNumbers(numbers, operators);
     let scores = { playerOne: 0, playerTwo: 0};
     let lastEntered = [];
     let chosenNumber = ['', 0];
