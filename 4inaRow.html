@@ -560,9 +560,8 @@ grid-row-gap: 5px;
       document.getElementsByClassName('player')[0].style.backgroundColor = bcolor;
       timerStart(30, false);
     }
-
-    //main logic
-    var w = window.innerWidth
+function rotateScreen() {
+  var w = window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth;
 
@@ -574,9 +573,13 @@ grid-row-gap: 5px;
     
     document.getElementById('screen').style.height = h + 'px'
     document.getElementById('screen').style.width = w + 'px'
+}
+    //main logic
+    rotateScreen()
     window.addEventListener("orientationchange", function() {
-  alert(window.orientation);
-}, false);
+      rotateScreen()
+      console.log(window.orientation);
+      }, false);
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
     const gridNumbers = generateGridNumbers(numbers, operators);
