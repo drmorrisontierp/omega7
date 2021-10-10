@@ -183,7 +183,7 @@
           <p id="player-one-score">0</p>  
         </div>
         <div class="player-score">
-          <p id="player-two-label">Player one:&nbsp;</p>
+          <p id="player-two-label">Player two:&nbsp;</p>
           <p id="player-two-score">0</p>  
         </div>
       </div>
@@ -513,6 +513,8 @@
     playerNames[0] = prompt("Enter player one's name")
     playerNames[1] = prompt("Enter player two's name")
     document.getElementById('player-name').innerHTML = playerNames[0];
+    document.getElementById('player-one-label').innerHTML = playerNames[0];
+    document.getElementById('player-two-label').innerHTML = playerNames[1];
     let scoreCount = {
       playerOne: {
         allCorrect: [],
