@@ -469,9 +469,10 @@
       document.getElementsByClassName('player')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
       document.getElementById('get-ready').innerHTML = 'GET READY!&nbsp;';
       let buttons = document.getElementsByClassName('grid-button');
-      buttons.map((button) => {
+      console.log(buttons)
+      for (button of buttons) {
         button.disabled = true
-      })
+      }
       timerStart(10, true)
     }
 
