@@ -657,58 +657,61 @@ grid-row-gap: 5px;
     document.getElementById('screen').style.width = w + 'px'
     
     const operators = ['*', '/', '/' ];
-    let numbers = generateNumbers()
-    let gridNumbers = generateGridNumbers(numbers, operators);
+    let numbers = [];
+    //let numbers = generateNumbers()
+    let gridNumbers = [];
+    //let gridNumbers = generateGridNumbers(numbers, operators);
     let scores = { playerOne: 0, playerTwo: 0};
     let lastEntered = [];
     let chosenNumber = ['', 0];
     let player = false;
     let playerNames = ['Player One', 'Player Two'];
-    playerNames[0] = prompt("Enter player one's name")
-    playerNames[1] = prompt("Enter player two's name")
-    document.getElementById('player-name').innerHTML = playerNames[0];
-    document.getElementById('player-one-label').innerHTML = playerNames[0] + ':&nbsp;';
-    document.getElementById('player-two-label').innerHTML = playerNames[1] + ':&nbsp;';
-    let scoreCount = {
-      playerOne: {
-        allCorrect: [],
-        vertical: {
-          '1': [],
-          '2': [],
-          '3': [],
-          '4': [],
-          '5': [],
-          '6': [],
-        },
-        horizontal: {
-          'A': [],
-          'B': [],
-          'C': [],
-          'D': [],
-          'E': [],
-          'F': [],
-        },
-      },
-      playerTwo: {
-        allCorrect: [],
-        vertical: {
-          '1': [],
-          '2': [],
-          '3': [],
-          '4': [],
-          '5': [],
-          '6': [],
-        },
-        horizontal: {
-          'A': [],
-          'B': [],
-          'C': [],
-          'D': [],
-          'E': [],
-          'F': [],
-        }
-      }
-    };
+  //  playerNames[0] = prompt("Enter player one's name")
+  //  playerNames[1] = prompt("Enter player two's name")
+  //  document.getElementById('player-name').innerHTML = playerNames[0];
+  //  document.getElementById('player-one-label').innerHTML = playerNames[0] + ':&nbsp;';
+  //  document.getElementById('player-two-label').innerHTML = playerNames[1] + ':&nbsp;';
+    let scoreCount = {}
+  //  let scoreCount = {
+  //  playerOne: {
+  //      allCorrect: [],
+  //      vertical: {
+  //        '1': [],
+  //        '2': [],
+  //        '3': [],
+  //        '4': [],
+  //        '5': [],
+  //        '6': [],
+  //      },
+  //      horizontal: {
+  //        'A': [],
+  //        'B': [],
+  //        'C': [],
+  //        'D': [],
+  //        'E': [],
+  //        'F': [],
+  //      },
+  //    },
+  //    playerTwo: {
+  //      allCorrect: [],
+  //      vertical: {
+  //        '1': [],
+  //        '2': [],
+  //        '3': [],
+  //        '4': [],
+  //        '5': [],
+  //        '6': [],
+  //      },
+  //      horizontal: {
+  //        'A': [],
+  //        'B': [],
+  //        'C': [],
+  //        'D': [],
+  //        'E': [],
+  //        'F': [],
+  //      }
+  //    }
+  //  };
     const diagonals = [
       ['A1', 'B2', 'C3', 'D4'],
       ['A2', 'B3', 'C4', 'D5'],
@@ -729,10 +732,11 @@ grid-row-gap: 5px;
       ['C5', 'D4', 'E3', 'F2'],
       ['C6', 'D5', 'E4', 'F3'],
     ]
-    createSmallGrid(numbers);
-    createGrid(gridNumbers);
-    createOperators(operators);
-    getReady()
+    reset(true)
+    //createSmallGrid(numbers);
+    //createGrid(gridNumbers);
+    //createOperators(operators);
+    //getReady()
   </script>
 </body>
 
