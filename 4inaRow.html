@@ -578,7 +578,7 @@ function rotateScreen() {
     rotateScreen()
     window.addEventListener("orientationchange", function() {
       rotateScreen()
-      console.log(window.orientation);
+      alert(window.orientation, w, h);
       }, false);
     const operators = ['*', '/', '/' ];
     const numbers = generateNumbers()
