@@ -245,7 +245,7 @@ grid-row-gap: 5px;
         </div>
       </div>
       <div class="reset">
-        <button id="reset-button" onclick="reset(true)">Reset</button>
+        <button id="reset-button" onclick="reset(1)">Reset</button>
       </div>
     </div>
     <div class="right">
@@ -567,7 +567,7 @@ grid-row-gap: 5px;
     
     function reset(flag) {
       clearAll(true);
-      if (flag) {
+      if (flag === 1) {
       clearInterval(newTimer);
       let _id = '';
       for (let x of ['A', 'B', 'C', 'D', 'E', 'F']) {
@@ -734,7 +734,7 @@ grid-row-gap: 5px;
       ['C5', 'D4', 'E3', 'F2'],
       ['C6', 'D5', 'E4', 'F3'],
     ]
-    reset(false)
+    reset(0)
     //createSmallGrid(numbers);
     //createGrid(gridNumbers);
     //createOperators(operators);
