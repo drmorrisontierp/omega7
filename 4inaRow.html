@@ -180,8 +180,10 @@
     </div>
     <div class="right">
       <div class="timer">
+        
+        <p class="timer-text" id="get-ready">GET READY!:&nbsp;</p>
         <p class="timer-text">Time remaining:&nbsp;</p>
-        <p class="timer-text" id="timer-text">30</p>
+        <p class="timer-text" id="timer-text">10</p>
         <p class="timer-text">s</p>
       </div>
       <div class="numbers">
@@ -444,34 +446,37 @@
       return false;
     }
 
-    function timerStart(x) {
+    function timerStart(x, flag) {
       let startTime = x;
       newTimer = setInterval(() => {
         document.getElementById('timer-text').innerHTML = startTime;
         startTime -= 1;
-        if (startTime == -1) newPlayer();
+        if (startTime == -1 && flag) newPlayer();
+        if (startTime == -1 && !flag) getReady();
       }, 1000)
     }
     
     function getReady() {
-      document.getElementsByClassName('board')[0].style.backgroundColor = 'rgba(28,37,26,0.855)';
-      document.getElementsByClassName('numbers')[0].style.backgroundColor = 'rgba(28,37,26,0.855)';
-      document.getElementsByClassName('player')[0].style.backgroundColor = 'rgba(28,37,26,0.855)';
-      timerStart(15)
-    }
-
-    function newPlayer() {
       clearInterval(newTimer);
       clearAll(true)
       player = player ? false : true;
       playerName = player ? playerNames[0] : playerNames[1];
       document.getElementById('player-name').innerHTML = playerName;
+      document.getElementsByClassName('board')[0].style.backgroundColor = 'rgba(28,37,26,0.855)';
+      document.getElementsByClassName('numbers')[0].style.backgroundColor = 'rgba(28,37,26,0.855)';
+      document.getElementsByClassName('player')[0].style.backgroundColor = 'rgba(28,37,26,0.855)';
+      document.getElementById('get-ready').innerHTML = 'GET READY!&nbsp;';
+      timerStart(15, true)
+    }
+
+    function newPlayer() {
+      
       let bcolor = player ? 'rgba(183,202,244,0.907)' : 'rgba(192,149,138,0.902)';
       console.log(document.getElementsByClassName('numbers')[0])
       document.getElementsByClassName('board')[0].style.backgroundColor = bcolor;
       document.getElementsByClassName('numbers')[0].style.backgroundColor = bcolor;
       document.getElementsByClassName('player')[0].style.backgroundColor = bcolor;
-      timerStart();
+      timerStart(30, false);
     }
 
     //main logic
@@ -482,7 +487,7 @@
    
     let lastEntered = [];
     let chosenNumber = ['', 0];
-    let player = false;
+    let player = true;
     let playerNames = ['Player One', 'Player Two']
     playerNames[0] = prompt("Enter player one's name")
     playerNames[1] = prompt("Enter player two's name")
