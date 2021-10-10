@@ -162,7 +162,7 @@
     }
     
     #check {
-      flex: 1;
+      flex: 2;
       background-color: rgba(99,209,111,0.906);
       width: 100%;
     }
@@ -421,7 +421,7 @@
             player ? scores.playerOne += 1 : scores.playerTwo += 1;
             let score = player ? scores.playerOne : scores.playerTwo;
             let _id = player ? 'player-one-score' : 'player-two-score';
-            document.getElementById(_id).innerHTML = 
+            document.getElementById(_id).innerHTML = score;
             return 0
           }
         }
