@@ -459,9 +459,7 @@
     function getReady() {
       try {
         clearInterval(newTimer);
-      } catch (e) {
-        continue
-      }
+      } catch (e) {}
       clearAll(true)
       player = player ? false : true;
       playerName = player ? playerNames[0] : playerNames[1];
@@ -470,11 +468,11 @@
       document.getElementsByClassName('numbers')[0].style.backgroundColor = 'rgba(28,37,26,0.855)';
       document.getElementsByClassName('player')[0].style.backgroundColor = 'rgba(28,37,26,0.855)';
       document.getElementById('get-ready').innerHTML = 'GET READY!&nbsp;';
-      timerStart(15, true)
+      timerStart(10, true)
     }
 
     function newPlayer() {
-      
+      clearInterval(newTimer);
       let bcolor = player ? 'rgba(183,202,244,0.907)' : 'rgba(192,149,138,0.902)';
       console.log(document.getElementsByClassName('numbers')[0])
       document.getElementsByClassName('board')[0].style.backgroundColor = bcolor;
