@@ -369,6 +369,8 @@
         _button.className = 'grid-button';
         _button.onclick = () => chooseElement(key);
         _button.innerText = value;
+        let gridarea = "{ grid-area:" + row.toString() + "/" + column.toString() + "/" + row.toString() + "/" + column.toString() + "}"
+        _button.setAttribute('style', gridarea)
         target.appendChild(_button)
         _button.style.gridRowStart = row;
         _button.style.gridRowEnd = row;
