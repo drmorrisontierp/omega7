@@ -384,6 +384,7 @@
     
     function createGridDict(_numbers) {
       const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
+      let gridDict = {}
       let pointer = 0
       rows.map((row, i) => {
         let r = rows.indexOf(row)
@@ -676,7 +677,7 @@
       gridNumbers = generateGridNumbers(numbers, operators);
       createSmallGrid(numbers);
       gridNumbersDict = createGridDict(gridNumbers)
-      createGrid(gridNumbers);
+      createGrid(gridNumbersDict);
       createOperators(operators);
       getReady()
       }
