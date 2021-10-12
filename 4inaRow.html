@@ -40,7 +40,7 @@
 	  .right {
       grid-area: 1 / 7 / 1 / 9;
       display: grid; 
-      grid-template-columns: repeat(5, 1fr); 
+      grid-template-columns: 1fr; 
       grid-template-rows: repeat(6, 1fr); 
       grid-column-gap: 0px;
       grid-row-gap: 10px;
@@ -113,7 +113,7 @@
     /* right */
     
     .numbers {
-      grid-area: 2 / 1 / 4 / 6;
+      grid-area: 1 / 1 / 2 / 1;
       display: grid; 
       grid-template-columns: repeat(5, 1fr); 
       grid-template-rows: repeat(2, 1fr); 
@@ -130,17 +130,17 @@
     #SB { grid-area: 2 / 1 / 3 / 6; } 
     
     .buttons {
+      grid-area: 3 / 1 / 3 / 1;
       display: grid; 
       grid-template-columns: repeat(5, 1fr); 
       grid-template-rows: 1fr; 
       grid-column-gap: 0px;
       grid-row-gap: 5px;
-      grid-area: 4 / 1 / 5 / 6;
       font-size: 2vw;
     }
     
     .input {
-      grid-area: 5 / 1 / 6 / 6;
+      grid-area: 4 / 1 / 5 / 1;
       display: flex;
       flex-direction: row;
       border: solid 1px black;
@@ -158,7 +158,7 @@
     }
     
     .check-buttons {
-      grid-area: 6 / 1 / 7 / 6;
+      grid-area: 6 / 1 / 6 / 1;
       display: flex;
     }
     
