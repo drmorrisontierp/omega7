@@ -359,18 +359,21 @@
     }
 
     function createGrid(_numbers) {
-      const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
-        let target = document.getElementById(row)
+      const rows = { 'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6 };
+      let target = document.getElementById(board);
       for (const [key, value] of Object.entries(_numbers)) {
-        let r = rows.indexOf(row)
-        for (let x = 0; x < 6; x++) {
-          let _id = row + (x + 1);
-          let _button = document.createElement('button');
-          _button.id = _id;
-          _button.className = 'grid-button';
-          _button.onclick = () => chooseElement(_id);
-          _button.innerText = _numbers[6 * i + x];
-          target.appendChild(_button)
+        let row = rows[key.charAt(0)];
+        let column = key.charAt(1);
+        let _button = document.createElement('button');
+        _button.id = key;
+        _button.className = 'grid-button';
+        _button.onclick = () => chooseElement(key);
+        _button.innerText = value;
+        _button.style.gridRowStart = row;
+        _button.style.gridRowEnd = row;
+        _button.style.gridColumnStart = column;
+        _button.style.gridColumnEnd = column;
+        target.appendChild(_button)
         }
       })
     }
