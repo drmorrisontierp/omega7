@@ -363,6 +363,7 @@
       let target = document.getElementById('board');
       for (const [key, value] of Object.entries(_numbers)) {
         let row = rows[key.charAt(0)];
+        connsole.log(row)
         let column = key.charAt(1);
         let _button = document.createElement('button');
         _button.id = key;
