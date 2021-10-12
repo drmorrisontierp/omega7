@@ -14,29 +14,29 @@
   
     #screen { 
       display: grid;
-	  background-color: #b3c2c6;
+      background-color: #b3c2c6;
       border-radius: 5pt;
       border: solid 1pt black;
-      grid-template-columns: repeat(5, 1fr); 
-      grid-template-rows: repeat(4, 1fr); 
-      grid-column-gap: 10px;
+      grid-template-columns: repeat(10, 1fr); 
+      grid-template-rows: 1fr; 
+      grid-column-gap: 5px;
       grid-row-gap: 0px; 
       }
       
     .left {
-      grid-area: 1 / 1 / 4 / 4;
+      grid-area: 1 / 5 / 1 / 1;
       display: grid; 
-      grid-template-columns: repeat(8, 1fr); 
-      grid-template-rows: repeat(8, 1fr); 
+      grid-template-columns: repeat(6, 1fr); 
+      grid-template-rows: repeat(7, 1fr); 
       grid-column-gap: 0px;
-      grid-row-gap: 5px;
+      grid-row-gap: 10pxx;
       margin: 5%;
 	  }
 	  
     
     
     .player {
-      grid-area: 1 / 2 / 2 / 8;
+      grid-area: 1 / 6  / 1 / 1;
       border: solid 1px black;
       border-radius: 5px;
       background-color: rgba(183,202,244,0.907);
@@ -49,7 +49,7 @@
     }
     
     .board {
-      grid-area: 2 / 1 / 8 / 9;
+      grid-area: 1 / 6 / 2 / 7;
       display: grid; 
       grid-template-columns: repeat(6, 1fr); 
       grid-template-rows: repeat(6, 1fr); 
@@ -69,34 +69,11 @@
     #E { grid-area: 5 / 1 / 6 / 7; } 
     #F { grid-area: 6 / 1 / 7 / 7; } 
     
-    
-    .current-score {
-      grid-area: 8 / 1 / 9 / 5;
-      border: solid 1px black;
-      border-radius: 5px;
-      background-color: rgba(214,227,182,0.904);
-      font-size: 2vw;
+    .timer {
+      grid-area: 6 / 1 / 1 / 1;
     }
     
-    .reset {
-      grid-area: 8 / 6 / 9 / 9;
-      display: flex;
-      
-    }
-    .reset-button {
-      flex: 1
-      font-size: 3vw;
-      }
-      
-    .player-score {
-      margin: 3%;
-      display: flex;
-      flex-direction: row;
-    }
     
-    .player-score-text {
-      margin: 0;
-    }
     
     .right {
       grid-area: 1 / 4 / 4 / 6;
@@ -107,7 +84,7 @@
       grid-row-gap: 10px;
       margin: 5%;
       }
-      
+  /*    
     .timer {
       grid-area: 1 / 1 / 2 / 6;
       display: flex;
@@ -126,7 +103,7 @@
     #timer-text {
       font-weight: bold;
     }
-    
+    */
     
     .numbers {
       grid-area: 2 / 1 / 4 / 6;
@@ -183,6 +160,34 @@
       margin: 0;
       padding: 0;
       width: 100%;
+    }
+    
+    .current-score {
+      grid-area: 8 / 1 / 9 / 5;
+      border: solid 1px black;
+      border-radius: 5px;
+      background-color: rgba(214,227,182,0.904);
+      font-size: 2vw;
+    }
+    
+    .reset {
+      grid-area: 8 / 6 / 9 / 9;
+      display: flex;
+      
+    }
+    .reset-button {
+      flex: 1
+      font-size: 3vw;
+      }
+      
+    .player-score {
+      margin: 3%;
+      display: flex;
+      flex-direction: row;
+    }
+    
+    .player-score-text {
+      margin: 0;
     }
     
     .board-row {
