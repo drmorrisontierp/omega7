@@ -8,71 +8,169 @@
   <style type="text/css">
   html body {
     height: 100%;
+    width: 100%;
     margin: 0;
   }
-    #screen {
-      display: flex;
-      flex-direction: row;
+  
+    #screen { 
+      display: grid;
       background-color: #b3c2c6;
       border-radius: 5pt;
       border: solid 1pt black;
-      height: 730px;
-      width: 1360px;
-    }
-    
+      grid-template-columns: repeat(10, 1fr); 
+      grid-template-rows: 1fr; 
+      grid-column-gap: 5px;
+      grid-row-gap: 0px; 
+      }
+      
     .left {
-      display: flex;
-      flex-direction: column;
-      flex: 1.5;
+      grid-area: 1 / 1 / 1 / 5;
+      display: grid; 
+      grid-template-columns: repeat(6, 1fr); 
+      grid-template-rows: repeat(7, 1fr); 
+      grid-column-gap: 0px;
+      grid-row-gap: 10pxx;
       margin: 5%;
-      height: 100%;
-    
+      border: solid 0px black;
+      width: 100%;
+	  }
+	  
+	  .timer {
+      grid-area: 1 / 6 / 1 / 6;
     }
-    
-    .right {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
+	  
+	  .right {
+      grid-area: 1 / 7 / 1 / 9;
+      display: grid; 
+      grid-template-columns: 1fr; 
+      grid-template-rows: repeat(6, 1fr); 
+      grid-column-gap: 0px;
+      grid-row-gap: 10px;
       margin: 5%;
-      height: 100%;
-    }
-    
-    .player {
-      display: flex;
-      align-items: center;
-      flex: 1;
+      }
+	  
+    #current-score {
+      grid-area: 1 / 10 / 1 / 10;
       border: solid 1px black;
       border-radius: 5px;
-      margin: 3%;
-      background-color: rgba(183,202,244,0.907);
+      background-color: rgba(214,227,182,0.904);
     }
+    
+    /* left */
+    .player {
+      grid-area: 1 / 1  / 1 / 6;
+      border: solid 1px black;
+      border-radius: 5px;
+      background-color: rgba(183,202,244,0.907);
+      }
+      
     
     #player-name {
       text-align: center;
+    }
+    
+    #board {
+      grid-area: 2 / 1 / 7 / 6;
+      display: grid; 
+      grid-template-columns: repeat(6, 1fr); 
+      grid-template-rows: repeat(6, 1fr); 
+      grid-column-gap: 5px;
+      grid-row-gap: 5px;
+      border: solid 1pt black;
+      border-radius: 5pt;
+      background-color: rgba(183,202,244,0.907)
+    } 
+    
+    
+    
+    
+    
+    
+    
+  /*    
+    .timer {
+      grid-area: 1 / 1 / 2 / 6;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: solid 1px black;
+      border-radius: 5px;
+      background-color: rgba(214,227,182,0.904);
+      font-size: 2vw;
+    }
+    
+    .timer-text {
       margin: 2%;
+    }
+    
+    #timer-text {
+      font-weight: bold;
+    }
+    */
+    
+    /* right */
+    
+    #numbers {
+      grid-area: 1 / 1 / 2 / 1;
+      display: grid; 
+      grid-template-columns: repeat(5, 1fr); 
+      grid-template-rows: repeat(2, 1fr); 
+      grid-column-gap: 5px;
+      grid-row-gap: 5px;
+      border: solid 1pt black;
+      border-radius: 5pt;
+      background-color: rgba(183,202,244,0.907);
+      padding: 5px;
+    }
+    
+    #buttons {
+      grid-area: 3 / 1 / 3 / 1;
+      display: grid; 
+      grid-template-columns: repeat(5, 1fr); 
+      grid-template-rows: 1fr; 
+      grid-column-gap: 0px;
+      grid-row-gap: 5px;
+    }
+    
+    #input {
+      grid-area: 4 / 1 / 5 / 1;
+      display: flex;
+      flex-direction: row;
+      border: solid 1px black;
+    }
+    
+    .choice {
+      display: flex;
+      flex: 1;
+      border: solid 1px black;
+      margin: 3%;
+      padding: 2%;
+      background-color: rgba(214,227,182,0.904);
+      text-align: center;
+    }
+    
+    #check-buttons {
+      grid-area: 6 / 1 / 6 / 1;
+      display: flex;
+    }
+    
+    
+    .input-text {
+      margin: 0;
+      padding: 0;
       width: 100%;
     }
     
     
-    .board {
-      align-items: center;
+    .reset {
+      grid-area: 8 / 6 / 9 / 9;
       display: flex;
-      flex-direction: column;
-      border: solid 1pt black;
-      border-radius: 5pt;
-      background-color: rgba(183,202,244,0.907);
-      flex: 6;
+      
     }
-    
-    .current-score {
-      border: solid 1px black;
-      border-radius: 5px;
-      background-color: rgba(214,227,182,0.904);
-      width: 30%;
-      margin: 3%;
-      flex: 2;
-    }
-    
+    .reset-button {
+      flex: 1
+      }
+      
     .player-score {
       margin: 3%;
       display: flex;
@@ -83,69 +181,6 @@
       margin: 0;
     }
     
-    .timer {
-      margin: 3%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      border: solid 1px black;
-      border-radius: 5px;
-      background-color: rgba(214,227,182,0.904);
-      flex: 1;
-    }
-    
-    .timer-text {
-      margin: 2%;
-    }
-    
-    #timer-text {
-      font-weight: bold;
-    }
-    
-    
-    .numbers {
-      flex: 2;
-      margin: 3%;
-      border: solid 1pt black;
-      border-radius: 5pt;
-      background-color: rgba(183,202,244,0.907);
-    }
-    
-    .buttons {
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-      margin: 3%;
-    }
-    
-    .input {
-      display: flex;
-      flex-direction: row;
-      margin: 3%;
-      border: solid 1px black;
-      flex: 2;
-    }
-    
-    .choice {
-      display: flex;
-      flex: 1;
-      border: solid 1px black;
-      margin: 3%;
-      padding: 2%;
-    }
-    
-    .check-buttons {
-      flex: 1;
-      margin: 3%;
-    }
-    
-    
-    .input-text {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-    }
-    
     .board-row {
       display: flex;
       flex-direction: row;
@@ -153,32 +188,35 @@
     }
     
     .other-buttons {
+      grid-area: 1 / 3 / 2 / 6;
       display: flex;
       flex-direction: row;
     }
     
     #operators {
+      grid-area: 1 / 1 / 2 / 3;
       display: flex;
       flex-direction: row;
     }
     
     #check {
-      flex: 2;
       background-color: rgba(99,209,111,0.906);
       width: 100%;
     }
     
     .grid-button {
       width: 100%;
-      margin: 1%;
-      font-size: 1em;
+      margin-right: 5px;
+      margin-left: 5px;
     }
     
     .operator-button {
       width: 100%;
       margin: 1%;
-      font-size: 1em;
     }
+ 
+   /* button {font-size: 2vw;} */
+    
   </style>
 </head>
 
@@ -188,15 +226,44 @@
       <div class="player">
         <p id="player-name">Player One</p>
       </div>
-      <div class="board">
-        <div class="board-row" id="A"></div>
-        <div class="board-row" id="B"></div>
-        <div class="board-row" id="C"></div>
-        <div class="board-row" id="D"></div>
-        <div class="board-row" id="E"></div>
-        <div class="board-row" id="F"></div>
+      <div id="board">
       </div>
-      <div class="current-score">
+      
+      
+    </div>
+    <div class="timer">
+        
+        <p class="timer-text" id="get-ready">GET READY!:&nbsp;</p>
+        <p class="timer-text">Time remaining:&nbsp;</p>
+        <p class="timer-text" id="timer-text">5</p>
+        <p class="timer-text">s</p>
+      </div>
+    <div class="right">
+      
+      <div id="numbers">
+        <div class="board-row" id="SA"></div>
+        <div class="board-row" id="SB"></div>
+      </div>
+      <div id="buttons">
+        <div id="operators"></div>
+        <div class="other-buttons">
+          <button class="operator-button" id="clearAll" onclick="clearAll(false)">Clear</button>
+          <button class="operator-button" id="delete" onclick="deleteExpr()">delete</button>
+        </div>
+      </div>
+      <div id="input">
+        <div class="choice">
+          <p class="input-text" id="chosenNumber"></p>
+        </div>
+        <div class="choice">
+          <p class="input-text" id="exprText"></p>
+        </div>
+      </div>
+      <div id="check-buttons">
+        <button class="check" id="check" onclick="check()">Check</button>
+      </div>
+    </div>
+    <div id="current-score">
         <div class="player-score">
           <p class="player-score-text" id="player-one-label">Player one:&nbsp;</p>
           <p class="player-score-text" id="player-one-score">0</p>  
@@ -205,40 +272,10 @@
           <p class="player-score-text" id="player-two-label">Player two:&nbsp;</p>
           <p class="player-score-text" id="player-two-score">0</p>  
         </div>
+        <div class="reset">
+        <button id="reset-button" onclick="reset(1)">Reset</button>
       </div>
-    </div>
-    <div class="right">
-      <div class="timer">
-        
-        <p class="timer-text" id="get-ready">GET READY!:&nbsp;</p>
-        <p class="timer-text">Time remaining:&nbsp;</p>
-        <p class="timer-text" id="timer-text">30</p>
-        <p class="timer-text" id="timer-text">5</p>
-        <p class="timer-text">s</p>
       </div>
-      <div class="numbers">
-        <div class="board-row" id="SA"></div>
-        <div class="board-row" id="SB"></div>
-      </div>
-      <div class="buttons">
-        <div id="operators"></div>
-        <div class="other-buttons">
-          <button class="operator-button" id="clearAll" onclick="clearAll(false)">Clear</button>
-          <button class="operator-button" id="delete" onclick="deleteExpr()">delete</button>
-        </div>
-      </div>
-      <div class="input">
-        <div class="choice">
-          <p class="input-text" id="chosenNumber"></p>
-        </div>
-        <div class="choice">
-          <p class="input-text" id="exprText"></p>
-        </div>
-      </div>
-      <div class="check-buttons">
-        <button class="check" id="check" onclick="check()">Check</button>
-      </div>
-    </div>
   </div>
 
   <script type="text/javascript" charset="utf-8">
@@ -266,7 +303,31 @@
 
     function createSmallGrid(numbers) {
       console.log(numbers)
-      smallGridIds = ['SA', 'SB'];
+      const smallGridIds = { 'SA': 1, 'SB': 2};
+      let smallGridDict = {};
+      let pointer = 0;
+      let target = document.getElementById('numbers');
+      for (const [key, value] of Object.entries(smallGridIds)) {
+        let row = value;
+        for (let x = 1; x < 6; x++) {
+          let _id = key + x;
+          let _button = document.createElement('button');
+          _button.className = "grid-button";
+          _button.id = _id;
+          _button.innerText = numbers[pointer];
+          _button.onclick = () => chooseNumber(_id)
+          _button.style.gridRowStart = row;
+          _button.style.gridRowEnd = row;
+          _button.style.gridcolumnStart = x;
+          _button.style.gridcolumnEnd = x;
+          target.appendChild(_button)
+          pointer ++;
+        }
+      }
+    }
+    /*function createSmallGrid(numbers) {
+      console.log(numbers)
+      smallGridIds = { 'SA': 1, 'SB': 2};
       smallGridIds.map((row, i) => {
         let target = document.getElementById(row);
         let rowIndex = smallGridIds.indexOf(row);
@@ -280,10 +341,12 @@
           target.appendChild(_button)
         }
       })
-    }
+    }*/
 
-    function generateGridNumbers(_numbers, _operators) {
+    function generateGridNumbers(_numbers, _operators, _temp = false) {
       let x = 0;
+      let y = 0;
+      let flag = false;
       let gridNumbers = [];
       //let operators = ['+', '-', '*', '/']
       while (x < 36) {
@@ -308,25 +371,61 @@
             }
           }
         }
+        y ++;
+        
+        if (y > 100000) {
+            flag = true;
+            break
+        }
       }
-      return gridNumbers;
+      if (flag) {
+        console.log("again", _numbers, _operators)
+        return generateGridNumbers(_numbers, _operators)
+        
+      } else {
+        console.log(gridNumbers)
+        return gridNumbers;
+        
+      }
     }
 
     function createGrid(_numbers) {
+      const rowsDict = { 'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6 };
+      let target = document.getElementById('board');
+      for (const [key, value] of Object.entries(_numbers)) {
+        console.log(key)
+        let row = rowsDict[key.charAt(0)];
+        let column = key.charAt(1);
+        let _button = document.createElement('button');
+        _button.id = key;
+        _button.className = 'grid-button';
+        _button.onclick = () => chooseElement(key);
+        _button.innerText = value;
+    //    let gridarea = "{ grid-area:" + row.toString() + "/" + column.toString() + "/" + row.toString() + "/" + column.toString() + "}"
+  //      _button.setAttribute('style', gridarea)
+        _button.style.gridRowStart = row;
+        _button.style.gridRowEnd = row;
+        _button.style.gridColumnStart = column;
+        _button.style.gridColumnEnd = column;
+        target.appendChild(_button)
+        }
+      
+    }
+    
+    
+    function createGridDict(_numbers) {
       const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
+      let gridDict = {}
+      let pointer = 0
       rows.map((row, i) => {
-        let target = document.getElementById(row)
         let r = rows.indexOf(row)
-        for (let x = 0; x < 6; x++) {
-          let _id = row + (x + 1);
-          let _button = document.createElement('button');
-          _button.id = _id;
-          _button.className = 'grid-button';
-          _button.onclick = () => chooseElement(_id);
-          _button.innerText = _numbers[6 * i + x];
-          target.appendChild(_button)
+        for (let x = 1; x < 7; x ++) {
+          let _id = row + x;
+          gridDict[_id] = _numbers[pointer]
+          pointer ++;
         }
       })
+      return gridDict
     }
 
     function createOperators(_operators) {
@@ -354,7 +453,7 @@
       let choice = document.getElementById(_id).innerHTML;
       let expr = target.innerHTML;
       let x = expr.slice(-1)
-      if (lastEntered.length < 4) {
+      if (lastEntered.length < 3) {
         if (x === '' || operators.includes(x)) {
           expr += choice;
           lastEntered.push(choice.length)
@@ -368,7 +467,7 @@
       let expr = target.innerHTML;
       let choice = document.getElementById(_id).innerHTML;
       let x = expr.slice(-1)
-      if (lastEntered.length < 4) {
+      if (lastEntered.length < 3) {
         if (x !== '' && !operators.includes(x)) {
           expr += document.getElementById(_id).innerHTML;
           target.innerHTML = expr;
@@ -424,6 +523,8 @@
             let score = player ? scores.playerOne : scores.playerTwo;
             let _id = player ? 'player-one-score' : 'player-two-score';
             document.getElementById(_id).innerHTML = score;
+            document.getElementById('check').innerHTML = "Press for new game, best of three?";
+            document.getElementById('check').onclick = () => newGame();
             return 0
           }
         }
@@ -498,8 +599,8 @@
       player = player ? false : true;
       playerName = player ? playerNames[0] : playerNames[1];
       document.getElementById('player-name').innerHTML = playerName;
-      document.getElementsByClassName('board')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
-      document.getElementsByClassName('numbers')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
+      document.getElementById('board').style.backgroundColor = 'rgba(95,122,93,0.804)';
+      document.getElementById('numbers').style.backgroundColor = 'rgba(95,122,93,0.804)';
       document.getElementsByClassName('player')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
       document.getElementById('get-ready').innerHTML = 'GET READY!&nbsp;';
       let buttons = document.getElementsByClassName('grid-button');
@@ -523,73 +624,128 @@
       document.getElementsByClassName('player')[0].style.backgroundColor = bcolor;
       timerStart(30, false);
     }
+ 
+    function newGame() {
+      document.getElementById('check').innerHTML = "Check";
+      document.getElementById('check').onclick = () => check();
+      reset(2)
+      
+    }
+    
+    
+    function reset(flag) {
+      clearAll(true);
+      if (flag === 1 || flag === 2) {
+        clearInterval(newTimer);
+        let _id = '';
+        for (let x of ['A', 'B', 'C', 'D', 'E', 'F']) {
+          for (let y of [1, 2, 3, 4, 5, 6]) {
+            _id = x + y;
+            document.getElementById(_id).remove()
+          }
+        }
+        for (let x of ['SA', 'SB']) {
+          for (let y of [1, 2, 3, 4, 5]) {
+            _id = x + y;
+            document.getElementById(_id).remove();
+          }
+        }
+        document.getElementById('O1').remove();
+        document.getElementById('O2').remove();
+      }
+      scoreCount = {
+        playerOne: {
+          allCorrect: [],
+          vertical: {
+            '1': [],
+            '2': [],
+            '3': [],
+            '4': [],
+            '5': [],
+            '6': [],
+          },
+          horizontal: {
+            'A': [],
+            'B': [],
+            'C': [],
+            'D': [],
+            'E': [],
+            'F': [],
+          },
+        },
+        playerTwo: {
+          allCorrect: [],
+          vertical: {
+            '1': [],
+            '2': [],
+            '3': [],
+            '4': [],
+            '5': [],
+            '6': [],
+          },
+          horizontal: {
+            'A': [],
+            'B': [],
+            'C': [],
+            'D': [],
+            'E': [],
+            'F': [],
+          }
+        }
+      };
+      if (flag === 0 || flag === 1) {
+        scores = { playerOne: 0, playerTwo: 0};
+        player = false;
+        playerNames[0] = prompt("Enter player one's name")
+        playerNames[1] = prompt("Enter player two's name")
+        document.getElementById('player-name').innerHTML = playerNames[0];
+        document.getElementById('player-one-label').innerHTML = playerNames[0] + ':&nbsp;';
+        document.getElementById('player-two-label').innerHTML = playerNames[1] + ':&nbsp;';
+        document.getElementById('player-one-score').innerHTML = 0;
+        document.getElementById('player-two-score').innerHTML = 0;
+      }
+      numbers = generateNumbers()
+      gridNumbers = generateGridNumbers(numbers, operators);
+      createSmallGrid(numbers);
+      gridNumbersDict = createGridDict(gridNumbers)
+      console.log(gridNumbersDict)
+      createGrid(gridNumbersDict);
+      createOperators(operators);
+      getReady()
+      }
+    
+  //main logic
+    let  w = window.innerWidth
+      || document.documentElement.clientWidth
+      || document.body.clientWidth;
 
-    //main logic
-    var w = window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth;
-
-    var h = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight;
+    let h = window.innerHeight
+      || document.documentElement.clientHeight
+      || document.body.clientHeight;
     
     console.log(w, h)
     
     document.getElementById('screen').style.height = h + 'px'
-    document.getElementById('screen').style.width = h + 'px'
+    document.getElementById('screen').style.width = w + 'px'
+    
     const operators = ['*', '/', '/' ];
-    const numbers = generateNumbers()
-    const gridNumbers = generateGridNumbers(numbers, operators);
+    let numbers = [];
+    let gridNumbersDict = {};
+    //let numbers = generateNumbers()
+    let gridNumbers = [];
+    //let gridNumbers = generateGridNumbers(numbers, operators);
     let scores = { playerOne: 0, playerTwo: 0};
     let lastEntered = [];
     let chosenNumber = ['', 0];
     let player = false;
     let playerNames = ['Player One', 'Player Two'];
-    playerNames[0] = prompt("Enter player one's name")
-    playerNames[1] = prompt("Enter player two's name")
-    document.getElementById('player-name').innerHTML = playerNames[0];
-    document.getElementById('player-one-label').innerHTML = playerNames[0] + ':&nbsp;';
-    document.getElementById('player-two-label').innerHTML = playerNames[1] + ':&nbsp;';
-    let scoreCount = {
-      playerOne: {
-        allCorrect: [],
-        vertical: {
-          '1': [],
-          '2': [],
-          '3': [],
-          '4': [],
-          '5': [],
-          '6': [],
-        },
-        horizontal: {
-          'A': [],
-          'B': [],
-          'C': [],
-          'D': [],
-          'E': [],
-          'F': [],
-        },
-      },
-      playerTwo: {
-        allCorrect: [],
-        vertical: {
-          '1': [],
-          '2': [],
-          '3': [],
-          '4': [],
-          '5': [],
-          '6': [],
-        },
-        horizontal: {
-          'A': [],
-          'B': [],
-          'C': [],
-          'D': [],
-          'E': [],
-          'F': [],
-        }
-      }
-    };
+  //  playerNames[0] = prompt("Enter player one's name")
+  //  playerNames[1] = prompt("Enter player two's name")
+  //  document.getElementById('player-name').innerHTML = playerNames[0];
+  //  document.getElementById('player-one-label').innerHTML = playerNames[0] + ':&nbsp;';
+  //  document.getElementById('player-two-label').innerHTML = playerNames[1] + ':&nbsp;';
+    let scoreCount = {}
+  
     const diagonals = [
       ['A1', 'B2', 'C3', 'D4'],
       ['A2', 'B3', 'C4', 'D5'],
@@ -610,10 +766,12 @@
       ['C5', 'D4', 'E3', 'F2'],
       ['C6', 'D5', 'E4', 'F3'],
     ]
-    createSmallGrid(numbers);
-    createGrid(gridNumbers);
-    createOperators(operators);
-    getReady()
+    reset(0)
+    
+    //createSmallGrid(numbers);
+    //createGrid(gridNumbers);
+    //createOperators(operators);
+    //getReady()
   </script>
 </body>
 
