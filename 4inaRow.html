@@ -112,7 +112,7 @@
     
     /* right */
     
-    .numbers {
+    #numbers {
       grid-area: 1 / 1 / 2 / 1;
       display: grid; 
       grid-template-columns: repeat(5, 1fr); 
@@ -312,7 +312,31 @@
 
     function createSmallGrid(numbers) {
       console.log(numbers)
-      smallGridIds = ['SA', 'SB'];
+      const smallGridIds = { 'SA': 1, 'SB': 2};
+      let smallGridDict = {};
+      let pointer = 0;
+      let target = document.getElementById('numbers');
+      for (const [key, value] of Object.entries(smallGridIds)) {
+        let row = value;
+        for (let x = 1; x < 6; x++) {
+          let _id = key + x;
+          let _button = document.createElement('button');
+          _button.className = "grid-button";
+          _button.id = _id;
+          _button.innerText = numbers[pointer];
+          _button.onclick = () => chooseNumber(_id)
+          _button.style.gridRowStart = row;
+          _button.style.gridRowEnd = row;
+          _button.style.gridcolumnStart = x;
+          _button.style.gridcolumnEnd = x;
+          target.appendChild(_button)
+          pointer ++;
+        }
+      }
+    }
+    /*function createSmallGrid(numbers) {
+      console.log(numbers)
+      smallGridIds = { 'SA': 1, 'SB': 2};
       smallGridIds.map((row, i) => {
         let target = document.getElementById(row);
         let rowIndex = smallGridIds.indexOf(row);
@@ -326,7 +350,7 @@
           target.appendChild(_button)
         }
       })
-    }
+    }*/
 
     function generateGridNumbers(_numbers, _operators, _temp = false) {
       let x = 0;
