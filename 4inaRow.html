@@ -38,9 +38,10 @@
       grid-area: 1 / 6 / 1 / 6;
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: repeat(5, 1fr);
+      grid-template-rows: repeat(7, 1fr);
       grid-column-gap: 0px;
       grid-row-gap: 10px;
+      justify-content: center;
     }
     
     .right {
@@ -96,6 +97,31 @@
       text-align: center;
       font-size: 1.5vw;
       font-weight: bold;
+    }
+    
+    #timer-body {
+      grid-area: 2 / 1 / 8 / 1 ;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      
+    }
+    #outer-bar {
+      display: flex;
+      flex-direction: column;
+      background-color: #cccccc;
+      border: 1px solid black;
+      height: 100%;
+      width: 30%;
+      justify-content: flex-end;
+    }
+    #fill {
+      border: 1px solid black;
+      background-color: blue;
+      height: 0%;
+      
     }
     /* ------right-------- */
     
@@ -215,7 +241,12 @@
       <p class="timer-text" id="get-ready">GET READY!:&nbsp;</p>
       <!p class="timer-text" id="time-remaining">
       </!p>
-      <p class="timer-text" id="timer-text">5</p>
+      <div id="timer-body" >
+        <div id="outer-bar">
+          <div id="fill"></div>
+        </div>
+        
+      </div>
 
     </div>
     <div class="right">
@@ -575,13 +606,24 @@
       return false;
     }
 
-    function timerStart(x, flag) {
-      let startTime = x;
+    function timerUp() {
+      document.getElementById("fill").style.backGroundColor = "green";
+      let y = 0;
       newTimer = setInterval(() => {
-        document.getElementById("timer-text").innerHTML = startTime.toString() + " sec";
-        startTime -= 1;
-        if (startTime == -1 && flag) newPlayer();
-        if (startTime == -1 && !flag) getReady();
+        document.getElementById("fill").style.height = y.toString() + "%";
+        document.getElementById("fill").style.transition = "hieght 1s";
+        y += 20;
+        if ( y > 100) newPlayer();
+      }, 1000);
+    }
+    
+    function timerDown() {
+      document.getElementById("fill").style.backGroundColor = "blue";
+      let y = 100;
+      newTimer = setInterval(() => {
+        document.getElementById("fill").style.height = y.toString() + "%";
+        y -= 4;
+        if ( y < 0) getReady();
       }, 1000);
     }
 
@@ -604,7 +646,7 @@
       for (button of buttons) {
         button.disabled = true;
       }
-      timerStart(5, true);
+      timerUp();
     }
 
     function newPlayer() {
@@ -621,7 +663,7 @@
       document.getElementById("board").style.backgroundColor = bcolor;
       document.getElementById("numbers").style.backgroundColor = bcolor;
       document.getElementById("player").style.backgroundColor = bcolor;
-      timerStart(30, false);
+      timerDown();
     }
 
     function newGame() {
