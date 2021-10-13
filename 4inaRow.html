@@ -328,10 +328,9 @@
       })
     }
 
-    function generateGridNumbers(_numbers, _operators) {
+    function generateGridNumbers(_numbers, _operators, _temp = false) {
       let x = 0;
       let y = 0;
-      let _temp = false;
       let flag = false;
       let gridNumbers = [];
       //let operators = ['+', '-', '*', '/']
@@ -369,9 +368,8 @@
         }
       }
       if (flag) {
-        _temp = true;
         console.log("again", _numbers, _operators)
-        generateGridNumbers(_numbers, _operators)
+        generateGridNumbers(_numbers, _operators, true)
         
       } else {
         return gridNumbers;
