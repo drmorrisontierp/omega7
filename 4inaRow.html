@@ -117,7 +117,7 @@
       display: grid; 
       grid-template-columns: repeat(5, 1fr); 
       grid-template-rows: repeat(2, 1fr); 
-      grid-column-gap: 0px;
+      grid-column-gap: 5px;
       grid-row-gap: 5px;
       border: solid 1pt black;
       border-radius: 5pt;
@@ -357,12 +357,13 @@
           }
         }
         y ++;
-        if (y > 100000) {
+        if (y > 100) {
           flag = true;
           break
         }
       }
       if (flag) {
+        console.log("again")
         generateGridNumbers(_numbers, _operators)
         
       } else {
