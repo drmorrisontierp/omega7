@@ -427,6 +427,7 @@
         if (x === "" || operators.includes(x)) {
           expr += choice;
           lastEntered.push(choice.length);
+          enteredNumbers.push(choice)
           target.innerHTML = expr;
         }
       }
@@ -442,6 +443,7 @@
           expr += document.getElementById(_id).innerHTML;
           target.innerHTML = expr;
           lastEntered.push(choice.length);
+          enteredNumbers.push(choice);
         }
       }
     }
@@ -453,12 +455,14 @@
       let x = expr.slice(-1);
       if (x) {
         target.innerHTML = expr.slice(0, end);
+        enteredNumbers.pop();
       }
     }
 
     function clearAll(flag) {
       document.getElementById("exprText").innerHTML = "";
       lastEntered = [];
+      enteredNumbers = [];
 
       if (flag) {
         chosenNumber = ["", 0];
@@ -468,13 +472,26 @@
 
     function check() {
       const rows = ["A", "B", "C", "D", "E", "F"];
-      clearInterval(newTimer);
+
       if (lastEntered.length === 3) {
+        console.log(enteredNumbers)
+        clearInterval(newTimer);
         let color = player ? "rgb(32,83,194)" : "rgb(222,66,63)";
 
         let expr = document.getElementById("exprText").innerHTML;
-        let answer = eval(expr);
-
+        //let answer = eval(expr);
+        let answer;
+        switch (enteredNumbers[1]) {
+          case "/":
+            answer = parseFloat(enteredNumbers[0]) / parseFloat(enteredNumbers[2]);
+            console.log("ran 1")
+            break;
+          case "*":
+            answer = parseFloat(enteredNumbers[0]) * parseFloat(enteredNumbers[2]);
+            console.log("ran 2")
+            break;
+        }
+        console.log(answer, chosenNumber[1])
         let toCheckId = chosenNumber[0];
         if (answer === chosenNumber[1]) {
           document.getElementById(toCheckId).disabled = true;
@@ -711,8 +728,8 @@
 
     console.log(w, h);
 
-    document.getElementById('screen').style.height = (h - 100).toString() + 'px'
-    document.getElementById('screen').style.width = (w - 200).toString() + 'px'
+    //document.getElementById('screen').style.height = (h - 100).toString() + 'px'
+    //document.getElementById('screen').style.width = (w - 200).toString() + 'px'
 
     const operators = ["*", "/", "/"];
     let numbers = [];
