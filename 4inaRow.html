@@ -357,19 +357,15 @@
           }
         }
         y ++;
-        if (!_temp && y > 100) {
-            flag = true;
-            console.log(y)
-            break
-        }
-        if (_temp && y > 100000) {
+        
+        if (y > 100000) {
             flag = true;
             break
         }
       }
       if (flag) {
         console.log("again", _numbers, _operators)
-        return generateGridNumbers(_numbers, _operators, true)
+        return generateGridNumbers(_numbers, _operators)
         
       } else {
         console.log(gridNumbers)
