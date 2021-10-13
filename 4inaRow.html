@@ -331,6 +331,7 @@
     function generateGridNumbers(_numbers, _operators) {
       let x = 0;
       let y = 0;
+      let flag = false;
       let gridNumbers = [];
       //let operators = ['+', '-', '*', '/']
       while (x < 36) {
@@ -361,7 +362,13 @@
           break
         }
       }
-      flag ? generateGridNumbers(_numbers, _operators) : return gridNumbers;
+      if (flag) {
+        generateGridNumbers(_numbers, _operators)
+        
+      } else {
+        return gridNumbers;
+        
+      }
     }
 
     function createGrid(_numbers) {
