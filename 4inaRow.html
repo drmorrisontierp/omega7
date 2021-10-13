@@ -330,6 +330,7 @@
 
     function generateGridNumbers(_numbers, _operators) {
       let x = 0;
+      let y = 0;
       let gridNumbers = [];
       //let operators = ['+', '-', '*', '/']
       while (x < 36) {
@@ -354,8 +355,13 @@
             }
           }
         }
+        y ++;
+        if (y > 100000) {
+          flag = true;
+          break
+        }
       }
-      return gridNumbers;
+      flag ? generateGridNumbers(_numbers, _operators) : return gridNumbers;
     }
 
     function createGrid(_numbers) {
