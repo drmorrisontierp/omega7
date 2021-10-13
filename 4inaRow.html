@@ -48,7 +48,7 @@
       margin: 5%;
       }
 	  
-    .current-score {
+    #current-score {
       grid-area: 1 / 10 / 1 / 10;
       border: solid 1px black;
       border-radius: 5px;
@@ -126,10 +126,7 @@
       padding: 5px;
     }
     
-    #SA { grid-area: 1 / 1 / 2 / 6; } 
-    #SB { grid-area: 2 / 1 / 3 / 6; } 
-    
-    .buttons {
+    #buttons {
       grid-area: 3 / 1 / 3 / 1;
       display: grid; 
       grid-template-columns: repeat(5, 1fr); 
@@ -139,7 +136,7 @@
       font-size: 2vw;
     }
     
-    .input {
+    #input {
       grid-area: 4 / 1 / 5 / 1;
       display: flex;
       flex-direction: row;
@@ -157,7 +154,7 @@
       text-align: center;
     }
     
-    .check-buttons {
+    #check-buttons {
       grid-area: 6 / 1 / 6 / 1;
       display: flex;
     }
@@ -253,14 +250,14 @@
         <div class="board-row" id="SA"></div>
         <div class="board-row" id="SB"></div>
       </div>
-      <div class="buttons">
+      <div id="buttons">
         <div id="operators"></div>
         <div class="other-buttons">
           <button class="operator-button" id="clearAll" onclick="clearAll(false)">Clear</button>
           <button class="operator-button" id="delete" onclick="deleteExpr()">delete</button>
         </div>
       </div>
-      <div class="input">
+      <div id="input">
         <div class="choice">
           <p class="input-text" id="chosenNumber"></p>
         </div>
@@ -268,11 +265,11 @@
           <p class="input-text" id="exprText"></p>
         </div>
       </div>
-      <div class="check-buttons">
+      <div id="check-buttons">
         <button class="check" id="check" onclick="check()">Check</button>
       </div>
     </div>
-    <div class="current-score">
+    <div id="current-score">
         <div class="player-score">
           <p class="player-score-text" id="player-one-label">Player one:&nbsp;</p>
           <p class="player-score-text" id="player-one-score">0</p>  
