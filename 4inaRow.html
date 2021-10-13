@@ -249,7 +249,7 @@
       </div>
     <div class="right">
       
-      <div class="numbers">
+      <div id="numbers">
         <div class="board-row" id="SA"></div>
         <div class="board-row" id="SB"></div>
       </div>
@@ -581,8 +581,8 @@
       player = player ? false : true;
       playerName = player ? playerNames[0] : playerNames[1];
       document.getElementById('player-name').innerHTML = playerName;
-      document.getElementsByClassName('board')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
-      document.getElementsByClassName('numbers')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
+      document.getElementById('board').style.backgroundColor = 'rgba(95,122,93,0.804)';
+      document.getElementById('numbers').style.backgroundColor = 'rgba(95,122,93,0.804)';
       document.getElementsByClassName('player')[0].style.backgroundColor = 'rgba(95,122,93,0.804)';
       document.getElementById('get-ready').innerHTML = 'GET READY!&nbsp;';
       let buttons = document.getElementsByClassName('grid-button');
