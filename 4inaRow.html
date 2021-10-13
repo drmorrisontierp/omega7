@@ -331,6 +331,7 @@
     function generateGridNumbers(_numbers, _operators) {
       let x = 0;
       let y = 0;
+      let _temp = false;
       let flag = false;
       let gridNumbers = [];
       //let operators = ['+', '-', '*', '/']
@@ -357,13 +358,18 @@
           }
         }
         y ++;
+        if (!temp) {
         if (y > 100) {
           flag = true;
           break
+        }} else {
+          if (y > 100000) {
+            flag = true;
+            break
         }
-      }
+      }}
       if (flag) {
-        console.log("again")
+        console.log("again", _numbers, _operators)
         generateGridNumbers(_numbers, _operators)
         
       } else {
