@@ -358,17 +358,17 @@
           }
         }
         y ++;
-        if (!temp) {
-        if (y > 100) {
-          flag = true;
-          break
-        }} else {
-          if (y > 100000) {
+        if (!_temp) && y > 100) {
             flag = true;
             break
         }
-      }}
+        if (_temp && y > 100000) {
+            flag = true;
+            break
+        }
+      }
       if (flag) {
+        _temp = true;
         console.log("again", _numbers, _operators)
         generateGridNumbers(_numbers, _operators)
         
