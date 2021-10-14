@@ -189,10 +189,18 @@
       flex: 1;
     }
     
+    #player-one-score {
+      grid-area: 1 / 1 / 1 / 1;
+    }
+    
+    #player-two-score {
+      grid-area: 1 / 1 / 1 / 1;
+    }
+    
     .player-score {
-      margin: 3%;
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 6fr;
     }
     
     .player-score-text {
