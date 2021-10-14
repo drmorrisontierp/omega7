@@ -525,6 +525,7 @@
         }
         let toCheckId = chosenNumber[0];
         if (answer === chosenNumber[1]) {
+          disabledNumbers.push(toCheckId);
           document.getElementById(toCheckId).disabled = true;
           document.getElementById(toCheckId).style.backgroundColor = color;
           let saveScore = player ?
@@ -747,6 +748,7 @@
         document.getElementById("player-one-score").innerHTML = 0;
         document.getElementById("player-two-score").innerHTML = 0;
       }
+      disabledNumbers = [];
       numbers = generateNumbers();
       gridNumbers = generateGridNumbers(numbers, operators);
       createSmallGrid(numbers);
