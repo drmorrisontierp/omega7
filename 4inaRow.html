@@ -509,7 +509,6 @@
       const rows = ["A", "B", "C", "D", "E", "F"];
 
       if (lastEntered.length === 3) {
-        console.log(enteredNumbers)
         clearInterval(newTimer);
         let color = player ? "rgb(32,83,194)" : "rgb(222,66,63)";
 
@@ -524,7 +523,6 @@
             answer = parseFloat(enteredNumbers[0]) * parseFloat(enteredNumbers[2]);
             break;
         }
-        console.log(answer, chosenNumber[1])
         let toCheckId = chosenNumber[0];
         if (answer === chosenNumber[1]) {
           document.getElementById(toCheckId).disabled = true;
@@ -613,7 +611,6 @@
       let y = 0;
       newTimer = setInterval(() => {
         document.getElementById("fill").style.height = y.toString() + "%";
-       // document.getElementById("fill").style.transition = "hieght 1s";
         y += 1;
         if ( y > 100) newPlayer();
       }, 50);
@@ -788,7 +785,6 @@
     let player = false;
     let playerNames = ["Player One", "Player Two"];
     let scoreCount = {};
-
     const diagonals = [
       ["A1", "B2", "C3", "D4"],
       ["A2", "B3", "C4", "D5"],
