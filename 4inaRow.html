@@ -598,7 +598,7 @@
             player ? (scores.playerOne += 1) : (scores.playerTwo += 1);
             let score = player ? scores.playerOne : scores.playerTwo;
             let _id = player ? "player-one-score" : "player-two-score";
-            document.getElementById(_id).innerHTML = score;
+          //  document.getElementById(_id).innerHTML = score;
             document.getElementById("check").innerHTML =
               "Press for new game, best of three?";
             document.getElementById("check").onclick = () => newGame();
@@ -798,8 +798,8 @@
           playerNames[0] + ":&nbsp;";
         document.getElementById("player-two-label").innerHTML =
           playerNames[1] + ":&nbsp;";
-        document.getElementById("player-one-score").innerHTML = 0;
-        document.getElementById("player-two-score").innerHTML = 0;
+        //document.getElementById("player-one-score").innerHTML = 0;
+        //document.getElementById("player-two-score").innerHTML = 0;
       }
       disabledNumbers = [];
       numbers = generateNumbers();
