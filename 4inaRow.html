@@ -121,11 +121,6 @@
       border: 1px solid black;
       background-color: blue;
       height: 0%;
-      transition: height 1s;
-      
-    }
-    #fill:hover {
-      height: 50%;
     }
     /* ------right-------- */
     
@@ -616,9 +611,9 @@
       newTimer = setInterval(() => {
         document.getElementById("fill").style.height = y.toString() + "%";
         document.getElementById("fill").style.transition = "hieght 1s";
-        y += 20;
+        y += 5;
         if ( y > 100) newPlayer();
-      }, 1000);
+      }, 250);
     }
     
     function timerDown() {
@@ -626,9 +621,9 @@
       let y = 100;
       newTimer = setInterval(() => {
         document.getElementById("fill").style.height = y.toString() + "%";
-        y -= 4;
+        y -= 1;
         if ( y < 0) getReady();
-      }, 1000);
+      }, 300);
     }
 
     function getReady() {
