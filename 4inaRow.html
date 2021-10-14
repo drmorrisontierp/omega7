@@ -613,7 +613,7 @@
       let y = 0;
       newTimer = setInterval(() => {
         document.getElementById("fill").style.height = y.toString() + "%";
-        document.getElementById("fill").style.transition = "hieght 1s";
+       // document.getElementById("fill").style.transition = "hieght 1s";
         y += 1;
         if ( y > 100) newPlayer();
       }, 50);
@@ -624,9 +624,9 @@
       let y = 100;
       newTimer = setInterval(() => {
         document.getElementById("fill").style.height = y.toString() + "%";
-        y -= 1;
+        y -= 0.5;
         if ( y < 0) getReady();
-      }, 300);
+      }, 150);
     }
 
     function getReady() {
