@@ -611,9 +611,9 @@
       newTimer = setInterval(() => {
         document.getElementById("fill").style.height = y.toString() + "%";
         document.getElementById("fill").style.transition = "hieght 1s";
-        y += 5;
+        y += 1;
         if ( y > 100) newPlayer();
-      }, 250);
+      }, 50);
     }
     
     function timerDown() {
