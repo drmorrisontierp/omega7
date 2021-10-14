@@ -653,8 +653,9 @@
       clearInterval(newTimer);
       let buttons = document.getElementsByClassName("grid-button");
       for (button of buttons) {
-        if (!disabledNumbers.includes(button.id))
-        button.disabled = false;
+        if (!disabledNumbers.includes(button.id)){
+          button.disabled = false;
+        }
       }
       document.getElementById("get-ready").innerHTML = "GO!&nbsp;";
       let bcolor = player ?
