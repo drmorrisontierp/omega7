@@ -56,6 +56,9 @@
     
     #current-score {
       grid-area: 1 / 10 / 1 / 10;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
       border: solid 1px black;
       border-radius: 5px;
       background-color: rgba(214, 227, 182, 0.904);
@@ -175,6 +178,7 @@
       padding: 0;
       width: 100%;
     }
+    /*--------current score--------*/
     
     .reset {
       grid-area: 8 / 6 / 9 / 9;
@@ -195,6 +199,8 @@
       margin: 0;
     }
     
+    
+    /*-------buttons------*/
     .other-buttons {
       grid-area: 1 / 3 / 2 / 6;
       display: flex;
@@ -277,7 +283,7 @@
       </div>
     </div>
     <div id="current-score">
-      <div id="player-one-score">
+      <div class="player-score">
         <div id="p15"></div>        
         <div id="p14"></div>        
         <div id="p13"></div>        
@@ -285,7 +291,7 @@
         <div id="p11"></div>
         <div id="p1-text"><p class="player-score-text" id="player-one-label"></p></div>
       </div>
-      <div id="player-two-score">
+      <div class="player-score">
         <div id="p25"></div>        
         <div id="p24"></div>        
         <div id="p23"></div>        
