@@ -182,10 +182,13 @@
     
     .reset {
       grid-area: 10 / 1 / 11 / 3;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
     }
     
     .reset-button {
+      grid-area: 1 / 1 / 1 / 1;
       width: 100%;
     }
     
