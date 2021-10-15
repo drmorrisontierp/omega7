@@ -154,14 +154,20 @@
     
     #input {
       grid-area: 4 / 1 / 6 / 1;
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
       border: solid 1px black;
     }
     
+    #c1 {
+      grid-area: 1 / 1 / 1 / 2;
+    }
+    #c1 {
+      grid-area: 1 / 2 / 1 / 3;
+    }
     .choice {
       display: flex;
-      flex: 1;
       border: solid 1px black;
       margin: 3%;
       padding: 2%;
@@ -329,10 +335,10 @@
         </div>
       </div>
       <div id="input">
-        <div class="choice">
+        <div class="choice" id="c1">
           <p class="input-text" id="chosenNumber"></p>
         </div>
-        <div class="choice">
+        <div class="choice" id="c2">
           <p class="input-text" id="exprText"></p>
         </div>
       </div>
