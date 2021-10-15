@@ -609,7 +609,7 @@
             player ? (scores.playerOne += 1) : (scores.playerTwo += 1);
             let score = player ? scores.playerOne : scores.playerTwo;
             let color = player ? "blue" : "red";
-            let _id = player ? "p1" + score
+            let _id = player ? "p1" + score : "p2" + score
             document.getElementById(_id).style.backgroundColor = color;
             document.getElementById("check").innerHTML =
               "Press for new game, best of three?";
