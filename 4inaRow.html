@@ -623,8 +623,11 @@
 
     function createOperators(_operators) {
       let target = document.getElementById("operators");
+      let usedOperators = [];
       if (_operators.length > 1) {
-        let usedOperators = _operators.slice(0, 2)
+        usedOperators = _operators.slice(0, 2)
+      } else {
+        usedOperators = _operators
       }
       usedOperators.map((operator, i) => {
         let _id = "O" + (i + 1);
