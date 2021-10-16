@@ -816,6 +816,9 @@
       clearAll(true);
       player = player ? false : true;
       playerName = player ? playerNames[0] : playerNames[1];
+      let sbcolor = player ? 'blue' : 'red';
+      let stcolor = player ? 'white' : 'black';
+
       document.getElementById("player-name").innerHTML = playerName;
       document.getElementById("board").style.backgroundColor =
         "rgba(95,122,93,0.804)";
@@ -824,6 +827,8 @@
       document.getElementById("player").style.backgroundColor = "rgba(95,122,93,0.804)";
       document.getElementById("buttons").style.backgroundColor = "rgba(95,122,93,0.804)";
       document.getElementById("get-ready").innerHTML = "GET READY!";
+      document.getElementById("timer-text").style.backgroundColor = sbcolor;
+      document.getElementById("timer-text").style.color = stcolor;
       let buttons = document.getElementsByClassName("grid-button");
       for (button of buttons) {
         button.disabled = true;
@@ -843,15 +848,15 @@
       let bcolor = player ?
         "rgba(183,202,244,0.907)" :
         "rgba(192,149,138,0.902)";
-      let sbcolor = player ? 'blue' : 'red';
-      let stcolor = player ? 'white' : 'black';
+   //   let sbcolor = player ? 'blue' : 'red';
+    //  let stcolor = player ? 'white' : 'black';
 
       document.getElementById("board").style.backgroundColor = bcolor;
       document.getElementById("numbers").style.backgroundColor = bcolor;
       document.getElementById("player").style.backgroundColor = bcolor;
       document.getElementById("buttons").style.backgroundColor = bcolor;
-      document.getElementById("timer-text").style.backgroundColor = sbcolor;
-      document.getElementById("timer-text").style.color = stcolor;
+     // document.getElementById("timer-text").style.backgroundColor = sbcolor;
+     // document.getElementById("timer-text").style.color = stcolor;
       timerDown();
     }
 
