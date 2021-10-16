@@ -546,7 +546,12 @@
       while (x < 36) {
         let m = _numbers[Math.floor(Math.random() * _numbers.length)];
         let n = _numbers[Math.floor(Math.random() * _numbers.length)];
-        let o = _operators[Math.floor(Math.random() * _operators.length)];
+        if(_operators.length < 1) {
+          let o = _operators[Math.floor(Math.random() * _operators.length)];
+          
+        } else {
+          o = _operators[0]
+        }
         let num = eval(m + o + n);
         let strNum = num.toString();
         if (!gridNumbers.includes(num) && n != m) {
