@@ -366,7 +366,7 @@
         <div class="p3" id="p13"><p></p></div>        
         <div class="p2" id="p12"><p></p></div>        
         <div class="p1" id="p11"><p></p></div>
-        <div class="player-text-div" class="p1td"><p class="player-score-text" id="player-one-label"></p></div>
+        <div class="player-text-div" id="p1td"><p class="player-score-text" id="player-one-label"></p></div>
       </div>
       <div class="player-score" id="player-two-score">
         <div class="p5" id="p25"><p></p></div>        
@@ -374,7 +374,7 @@
         <div class="p3" id="p23"><p></p></div>        
         <div class="p2" id="p22"><p></p></div>        
         <div class="p1" id="p21"><p></p></div>
-        <div class="player-text-div" class="p2td"><p class="player-score-text" id="player-two-label"></p></div>
+        <div class="player-text-div" id="p2td"><p class="player-score-text" id="player-two-label"></p></div>
       </div>
       <div class="reset">
         <button id="reset-button" onclick="reset(1)">Reset</button>
@@ -833,9 +833,9 @@
         playerNames[1] = prompt("Enter player two's name");
         document.getElementById("player-name").innerHTML = playerNames[0];
         document.getElementById("player-one-label").innerHTML = playerNames[0];
-        document.getElementById("p1td").style.backgroundColor = 'light-blue'
+        document.getElementById("p1td").style.backgroundColor = 'blue'
         document.getElementById("player-two-label").innerHTML = playerNames[1];
-        document.getElementById("p2td").style.backgroundColor = 'pink'
+        document.getElementById("p2td").style.backgroundColor = 'red'
         //document.getElementById("player-one-score").innerHTML = 0;
         //document.getElementById("player-two-score").innerHTML = 0;
       }
