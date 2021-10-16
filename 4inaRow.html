@@ -26,6 +26,7 @@
       display: grid;
       padding: 5px;
       border: solid 1px black;
+      border-radius: 5px;
       height: 100%;
       background-color: #cccccc;
       
@@ -41,6 +42,9 @@
       grid-template-rows: 1fr;
       grid-column-gap: 10px;
     }
+    /*-----popup------*/
+    
+    /*-----screen-----*/
     
     .left {
       grid-area: 1 / 1 / 1 / 6;
@@ -346,6 +350,8 @@
         <input type="text" name="player-one" id="player-one" value="" />
         <label for="player-two">player-two</label>
         <input type="text" name="player-two" id="player-two" value="" />
+        <label for="level">level</label>
+        <input type="range" name="level" id="level" min="1" max="3" value="1" />
         <button type="submit">OK</button>
       </form>
     </div>
