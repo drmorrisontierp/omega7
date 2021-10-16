@@ -926,12 +926,16 @@
           },
         },
       };
-      if (flag === 0 || flag === 1) {
+      if (flag === 1) {
+        document.getElementById('popup').style.zIndex = 2;
+        break
+      }
+      if (flag === 0) {
         scores = {
           playerOne: 0,
           playerTwo: 0,
         };
-        player = false;
+      //  player = false;
         //playerNames[0] = prompt("Enter player one's name");
         //playerNames[1] = prompt("Enter player two's name");
         document.getElementById("player-name").innerHTML = playerNames[0];
