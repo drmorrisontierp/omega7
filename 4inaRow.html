@@ -351,7 +351,7 @@
         <label for="player-two">player-two</label>
         <input type="text" name="player-two" id="player-two" value="" />
         <label for="level">level</label>
-        <input type="range" name="level" id="level" min="1" max="3" value="1" onoutput="level.value = levelText.value"/>
+        <input type="range" name="level" id="level" min="1" max="3" value="1" oninput="levelText.value = level.value"/>
         <output name="level-text" id="levelText" for="level">1</output>
         <button type="submit">OK</button>
       </form>
