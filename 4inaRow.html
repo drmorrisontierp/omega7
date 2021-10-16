@@ -477,6 +477,10 @@
       playerNames[1] = document.getElementById('player-two').value;
       document.getElementById('popup').style.zIndex = -1;
       level = document.getElementById('level').value;
+      switch(level) {
+        case 1 :
+          operators = ['*']
+      }
       reset(0)
       
     }
@@ -484,7 +488,7 @@
     function generateNumbers() {
       let _numbers = [];
       let x = 0;
-      if (level == 1) {
+      if (level === 1) {
         _numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 20]
         return _numbers;
       }
