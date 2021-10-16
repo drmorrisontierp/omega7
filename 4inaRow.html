@@ -541,13 +541,14 @@
     function generateGridNumbers(_numbers, _operators) {
       let x = 0;
       let y = 0;
+      let o;
       let flag = false;
       let gridNumbers = [];
       while (x < 36) {
         let m = _numbers[Math.floor(Math.random() * _numbers.length)];
         let n = _numbers[Math.floor(Math.random() * _numbers.length)];
         if(_operators.length < 1) {
-          let o = _operators[Math.floor(Math.random() * _operators.length)];
+          o = _operators[Math.floor(Math.random() * _operators.length)];
           
         } else {
           o = _operators[0]
