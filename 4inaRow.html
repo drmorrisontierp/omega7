@@ -143,7 +143,7 @@
       font-weight: bold;
     }
     
-    .timer-text {
+    #timer-text {
       grid-area: 1 / 1 / 2 / 1;
       display: flex;
       align-items: center;
@@ -839,15 +839,19 @@
           button.disabled = false;
         }
       }
-      document.getElementById("get-ready").innerHTML = "GO!&nbsp;";
+      document.getElementById("get-ready").innerHTML = "GO!";
       let bcolor = player ?
         "rgba(183,202,244,0.907)" :
         "rgba(192,149,138,0.902)";
+      let sbcolor = player ? 'blue' : 'red';
+      let stcolor = player ? 'white' : 'black';
 
       document.getElementById("board").style.backgroundColor = bcolor;
       document.getElementById("numbers").style.backgroundColor = bcolor;
       document.getElementById("player").style.backgroundColor = bcolor;
       document.getElementById("buttons").style.backgroundColor = bcolor;
+      document.getElementById("timer-text").style.backgroundColor = sbcolor;
+      document.getElementById("timer-text").style.color = stcolor;
       timerDown();
     }
 
