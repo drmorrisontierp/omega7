@@ -478,9 +478,9 @@
       document.getElementById('popup').style.zIndex = -1;
       level = document.getElementById('level').value;
       console.log(level)
-      if (level == 1 ) {
-          operators = ['*', '+']
-      }
+      //if (level == 1 ) {
+      //    operators = ['*', '+']
+      //}
       console.log(operators)
       reset(0)
       
@@ -548,12 +548,7 @@
       while (x < 36) {
         let m = _numbers[Math.floor(Math.random() * _numbers.length)];
         let n = _numbers[Math.floor(Math.random() * _numbers.length)];
-        if(_operators.length < 1) {
-          o = _operators[Math.floor(Math.random() * _operators.length)];
-          
-        } else {
-          o = _operators[0]
-        }
+        o = _operators[Math.floor(Math.random() * _operators.length)];
         let num = eval(m + o + n);
         let strNum = num.toString();
         if (!gridNumbers.includes(num) && n != m) {
@@ -631,11 +626,7 @@
     function createOperators(_operators) {
       let target = document.getElementById("operators");
       let usedOperators = [];
-      if (_operators.length > 1) {
-        usedOperators = _operators.slice(0, 2)
-      } else {
-        usedOperators = _operators
-      }
+        usedOperators = _operators.slice(0, 2);
       usedOperators.map((operator, i) => {
         let _id = "O" + (i + 1);
         let _button = document.createElement("button");
