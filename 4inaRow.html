@@ -477,8 +477,7 @@
       playerNames[1] = document.getElementById('player-two').value;
       document.getElementById('popup').style.zIndex = -1;
       level = document.getElementById('level').value;
-      switch(level) {
-        case 1 :
+      if (level == 1 ) {
           operators = ['*']
       }
       reset(0)
