@@ -622,7 +622,10 @@
 
     function createOperators(_operators) {
       let target = document.getElementById("operators");
-      _operators.slice(0, 2).map((operator, i) => {
+      if (_operators.length > 1) {
+        let usedOperators = _operators.slice(0, 2)
+      }
+      usedOperators.map((operator, i) => {
         let _id = "O" + (i + 1);
         let _button = document.createElement("button");
         _button.id = _id;
