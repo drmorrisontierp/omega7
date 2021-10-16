@@ -93,12 +93,12 @@
     
     #get-ready {
       grid-area: 1 / 1 / 2 / 1;
-      text-align: center;
+      display: flex;
+      align-items: center;
       font-size: 1.5vw;
     }
     
     #timer-text {
-      grid-area: 2 / 1 / 2 / 1;
       text-align: center;
       font-size: 1.5vw;
       font-weight: bold;
@@ -328,8 +328,6 @@
     </div>
     <div class="timer">
       <p class="timer-text" id="get-ready">GET READY!</p>
-      <!p class="timer-text" id="time-remaining">
-      </!p>
       <div id="timer-body" >
         <div id="outer-bar">
           <div id="fill"></div>
