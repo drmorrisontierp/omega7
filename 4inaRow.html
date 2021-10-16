@@ -345,16 +345,22 @@
 <body>
   <div id="app">
     <div id="popup">
-      <form id="settings" action="" method="get" accept-charset="utf-8">
+      <div id="player-one-form">
         <label for="player-one">player-one</label>
         <input type="text" name="player-one" id="player-one" value="" />
+      </div>
+      <div id="player-two-form">
         <label for="player-two">player-two</label>
         <input type="text" name="player-two" id="player-two" value="" />
+      </div>
+        <div id="level-form">
         <label for="level">level</label>
         <input type="range" name="level" id="level" min="1" max="3" value="1" oninput="levelText.value = level.value"/>
         <output name="level-text" id="levelText" for="level">1</output>
-        <button type="submit">OK</button>
-      </form>
+      </div>
+      <div id="button-form">
+        <button id="start" onclick="start()">Start</button>
+      </div>
     </div>
   <div id="screen">
     <div class="left">
@@ -433,6 +439,15 @@
 <script>eruda.add(erudaDom);</script>
 <script>eruda.add(erudaCode);</script>
   <script type="text/javascript" charset="utf-8">
+  
+    function start() {
+      playerNames[0] = document.getElementById('player-one').value;
+      playerNames[1] = document.getElementById('player-two').value;
+      document.getElementById('popup').zIndex = 1;
+      reset(0)
+      
+    }
+  
     function generateNumbers() {
       let _numbers = [];
       let x = 0;
@@ -876,8 +891,8 @@
           playerTwo: 0,
         };
         player = false;
-        playerNames[0] = prompt("Enter player one's name");
-        playerNames[1] = prompt("Enter player two's name");
+        //playerNames[0] = prompt("Enter player one's name");
+        //playerNames[1] = prompt("Enter player two's name");
         document.getElementById("player-name").innerHTML = playerNames[0];
         document.getElementById("player-one-label").innerHTML = playerNames[0];
         document.getElementById("p1td").style.backgroundColor = 'blue'
@@ -946,7 +961,7 @@
       ["C5", "D4", "E3", "F2"],
       ["C6", "D5", "E4", "F3"],
     ];
-    reset(0);
+ //   reset(0);
   </script>
 </body>
 
