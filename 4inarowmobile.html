@@ -45,9 +45,9 @@
             background-color: #b3c2c6;
             border-radius: 5pt;
             border: solid 1pt black;
-            grid-template-columns: repeat(10, 1fr);
-            grid-template-rows: 1fr;
-            grid-column-gap: 10px;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-row-gap: 5px;
         }
         
         @media only screen and (orientation: portrait) {
@@ -165,7 +165,7 @@
         /*-----screen-----*/
         
         .left {
-            grid-area: 1 / 1 / 1 / 6;
+            
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             grid-template-rows: repeat(7, 1fr);
@@ -177,7 +177,7 @@
         }
         
         .timer {
-            grid-area: 1 / 6 / 1 / 6;
+            
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: repeat(7, 1fr);
@@ -187,7 +187,7 @@
         }
         
         .right {
-            grid-area: 1 / 7 / 1 / 10;
+            
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: repeat(6, 1fr);
@@ -197,14 +197,14 @@
         }
         
         #current-score {
-            grid-area: 1 / 10 / 1 / 10;
+            
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(10, 1fr);
             grid-row-gap: 5px;
         }
         
-        @media only screen and (orientation: portrait) {
+        
             .left {
                 grid-area: 1 / 1 / 2 / 6;
             }
@@ -217,7 +217,7 @@
             #current-score {
                 grid-area: 2 / 5 / 3 / 6;
             }
-        }
+        
         /* -------left-------- */
         
         #player {
