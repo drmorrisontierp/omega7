@@ -394,8 +394,8 @@
             </div>
             <div id="level-form">
                 <label for="level">level</label>
-                <input type="range" name="level" id="level" min="1" max="3" value="1" step="1" oninput="levelText.value = this.value" />
-                <output name="level-text" id="levelText" for="level">1</output>
+                <input type="range" name="level" id="level" min="1" max="5" value="3" step="1" oninput="levelText.value = this.value" />
+                <output name="level-text" id="levelText" for="level">3</output>
             </div>
             <div id="button-form">
                 <button id="start" onclick="start()">Start</button>
@@ -524,27 +524,56 @@
             let _numbers = [];
             let x = 0;
             console.log(level)
-            if (level === '1') {
+            if (level === '1' || level === '2') {
                 _numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 20]
                 return _numbers;
             }
-
-            while (x < 6) {
-                let i = Math.floor(Math.random() * 8 + 2);
-                if (!_numbers.includes(i)) {
-                    _numbers.push(i);
-                    x++;
-                }
+            if (level === '4') {
+                _numbers = ["0.1", "0.2", "0.3", "0.4", "0.5", "2", "3", "4", "5", "10"]
+                return _numbers;
             }
-            while (x < 8) {
-                let i = Math.floor(Math.random() * 9 + 11);
-                if (!_numbers.includes(i)) {
-                    _numbers.push(i);
-                    x++;
+            if (level === '3') {
+                while (x < 6) {
+                    let i = Math.floor(Math.random() * 8 + 2);
+                    if (!_numbers.includes(i)) {
+                        _numbers.push(i);
+                        x++;
+                    }
                 }
+                while (x < 8) {
+                    let i = Math.floor(Math.random() * 9 + 11);
+                    if (!_numbers.includes(i)) {
+                        _numbers.push(i);
+                        x++;
+                    }
+                }
+                _numbers = [..._numbers, 10, 20];
+                return _numbers;
             }
-            _numbers = [..._numbers, 10, 20];
-            return _numbers;
+            if (level === '5') {
+                let allNumbers = [];
+                for (let x = 0.1; x < 10; x += 0.1) {
+                    x = Math.round(x * 10) / 10;
+                    allNumbers.push(x)
+                }
+                console.log(allNumbers)
+                while (_numbers.length < 5) {
+                    let index = Math.floor(Math.random() * allNumbers.length)
+                    if (!_numbers.includes(allNumbers[index])) {
+                        _numbers.push(allNumbers[index])
+                    }
+                }
+                let x = _numbers.length;
+                while (x < 10) {
+                    let i = Math.floor(Math.random() * 8 + 2);
+                    if (!_numbers.includes(i)) {
+                        _numbers.push(i);
+                        x++;
+                    }
+                }
+                console.log(_numbers)
+                return _numbers;
+            }
         }
 
         function createSmallGrid(numbers) {
@@ -577,26 +606,46 @@
         function generateGridNumbers(_numbers, _operators) {
             let x = 0;
             let y = 0;
-            let o;
+            let o = '';
+            let num;
+            let strNum
             let flag = false;
             let gridNumbers = [];
             while (x < 36) {
                 let m = _numbers[Math.floor(Math.random() * _numbers.length)];
                 let n = _numbers[Math.floor(Math.random() * _numbers.length)];
-                o = _operators[Math.floor(Math.random() * _operators.length)];
-                let num = eval(m + o + n);
-                let strNum = num.toString();
-                if (!gridNumbers.includes(num) && n != m) {
-                    if (strNum.includes(".")) {
-                        if (strNum.length < 4) {
-                            gridNumbers.push(num);
-                            x++;
-                        }
+                if (level === '1') {
+                    num = parseInt(m) * parseInt(n)
+                    strNum = num.toString()
+                    if (!gridNumbers.includes(num) && strNum.length < 3) {
+                        gridNumbers.push(num);
+                        x++;
                     }
-                    if (!strNum.includes(".")) {
-                        if (strNum.length < 3) {
-                            gridNumbers.push(num);
-                            x++;
+
+                } else {
+
+                    o = _operators[Math.floor(Math.random() * _operators.length)];
+                    num = eval(m + o + n);
+                    strNum = num.toString();
+                    if (!gridNumbers.includes(num) && n != m) {
+                        if (strNum.includes(".")) {
+                            if (level === '4' || level === '5') {
+                                if (strNum.length < 5) {
+                                    gridNumbers.push(num);
+                                    x++;
+                                }
+                            } else {
+                                if (strNum.length < 4) {
+                                    gridNumbers.push(num);
+                                    x++;
+                                }
+                            }
+                        }
+                        if (!strNum.includes(".")) {
+                            if (strNum.length < 3) {
+                                gridNumbers.push(num);
+                                x++;
+                            }
                         }
                     }
                 }
@@ -604,18 +653,22 @@
 
                 if (y > 100000) {
                     flag = true;
+                    console.log("run again")
                     break;
                 }
 
+
+
             }
             if (flag) {
-
+                let newNumbers = generateNumbers;
                 return generateGridNumbers(_numbers, _operators);
             } else {
 
                 return gridNumbers;
 
             }
+
         }
 
         function createGrid(_numbers) {
@@ -662,17 +715,40 @@
         }
 
 
-        function createOperators(_operators) {
+        // function createOperators(_operators) {
+        //     let target = document.getElementById("operators");
+        //     _operators.slice(0, 2).map((operator, i) => {
+        //         let _id = "O" + (i + 1);
+        //         let _button = document.createElement("button");
+        //         _button.id = _id;
+        //         _button.className = "operator-button";
+        //         _button.innerHTML = operator;
+        //         _button.onclick = () => chooseOperator(_id);
+        //         target.appendChild(_button);
+        //     });
+        // }
+
+        function createOperators() {
+            let buttons = [];
             let target = document.getElementById("operators");
-            _operators.slice(0, 2).map((operator, i) => {
+            ['*', '/'].map((operator, i) => {
                 let _id = "O" + (i + 1);
                 let _button = document.createElement("button");
                 _button.id = _id;
                 _button.className = "operator-button";
                 _button.innerHTML = operator;
                 _button.onclick = () => chooseOperator(_id);
-                target.appendChild(_button);
+                buttons.push(_button)
+
             });
+            if (level === '1') {
+                target.appendChild(buttons[0]);
+                return 0;
+            } else {
+                for (let button of buttons) {
+                    target.appendChild(button)
+                }
+            }
         }
 
         function chooseElement(_id) {
@@ -935,7 +1011,7 @@
                     }
                 }
                 document.getElementById("O1").remove();
-                document.getElementById("O2").remove();
+                if (level !== '1') document.getElementById("O2").remove();
             }
             scoreCount = {
                 playerOne: {
