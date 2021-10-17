@@ -512,18 +512,12 @@
             playerNames[1] = document.getElementById('player-two').value;
             document.getElementById('popup').style.zIndex = -1;
             level = document.getElementById('level').value;
-            if (level == '1') {
-                operators = ['*', '/', '/']
-            }
-            console.log(operators)
             reset(0)
-
         }
 
         function generateNumbers() {
             let _numbers = [];
             let x = 0;
-            console.log(level)
             if (level === '1' || level === '2') {
                 _numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 20]
                 return _numbers;
@@ -571,7 +565,6 @@
                         x++;
                     }
                 }
-                console.log(_numbers)
                 return _numbers;
             }
         }
@@ -595,80 +588,92 @@
                     _button.onclick = () => chooseNumber(_id);
                     _button.style.gridRowStart = row;
                     _button.style.gridRowEnd = row;
-                    _button.style.gridcolumnStart = x;
-                    _button.style.gridcolumnEnd = x;
+                    _button.style.gridColumnStart = x;
+                    _button.style.gridColumnEnd = x;
                     target.appendChild(_button);
                     pointer++;
                 }
             }
         }
 
-        function generateGridNumbers(_numbers, _operators) {
+
+        function generateAllGridNumbers(_numbers) {
             let x = 0;
             let y = 0;
             let o = '';
-            let num;
-            let strNum
+            let digits
             let flag = false;
+            let allGridNumbers = [];
             let gridNumbers = [];
-            while (x < 36) {
-                let m = _numbers[Math.floor(Math.random() * _numbers.length)];
-                let n = _numbers[Math.floor(Math.random() * _numbers.length)];
-                if (level === '1') {
-                    num = parseInt(m) * parseInt(n)
-                    strNum = num.toString()
-                    if (!gridNumbers.includes(num) && strNum.length < 3) {
-                        gridNumbers.push(num);
-                        x++;
-                    }
-
-                } else {
-
-                    o = _operators[Math.floor(Math.random() * _operators.length)];
-                    num = eval(m + o + n);
-                    strNum = num.toString();
-                    if (!gridNumbers.includes(num) && n != m) {
-                        if (strNum.includes(".")) {
-                            if (level === '4' || level === '5') {
-                                if (strNum.length < 5) {
-                                    gridNumbers.push(num);
-                                    x++;
-                                }
-                            } else {
-                                if (strNum.length < 4) {
-                                    gridNumbers.push(num);
-                                    x++;
-                                }
-                            }
-                        }
-                        if (!strNum.includes(".")) {
-                            if (strNum.length < 3) {
-                                gridNumbers.push(num);
-                                x++;
-                            }
+            if (level === '1') {
+                for (let numOne of _numbers) {
+                    for (let numTwo of _numbers) {
+                        let multiNum = (parseFloat(numOne) * parseFloat(numTwo)).toString();
+                        if (multiNum.length < 3 && !allGridNumbers.includes(multiNum)) {
+                            allGridNumbers.push(multiNum)
                         }
                     }
                 }
-                y++;
-
-                if (y > 100000) {
-                    flag = true;
-                    console.log("run again")
-                    break;
-                }
-
-
-
-            }
-            if (flag) {
-                let newNumbers = generateNumbers;
-                return generateGridNumbers(_numbers, _operators);
             } else {
-
-                return gridNumbers;
-
+                switch (level) {
+                    case "2":
+                        digits = 3;
+                        break;
+                    case "3":
+                        digits = 3;
+                        break;
+                    case "4":
+                        digits = 5;
+                        break;
+                    case "5":
+                        digits = 5;
+                        break;
+                }
+                for (let numOne of _numbers) {
+                    for (let numTwo of _numbers) {
+                        if (numOne !== numTwo) {
+                            let divNum = (parseFloat(numOne) / parseFloat(numTwo)).toString();
+                            let multiNum = (parseFloat(numOne) * parseFloat(numTwo)).toString();
+                            if (divNum.includes('.') && !allGridNumbers.includes(divNum) && divNum.length < digits + 1) {
+                                allGridNumbers.push(divNum)
+                            }
+                            if (!divNum.includes('.') && !allGridNumbers.includes(divNum) && divNum.length < digits) {
+                                allGridNumbers.push(divNum)
+                            }
+                            if (multiNum.includes('.') && !allGridNumbers.includes(multiNum) && multiNum.length < digits + 1) {
+                                allGridNumbers.push(multiNum)
+                            }
+                            if (!multiNum.includes('.') && !allGridNumbers.includes(multiNum) && multiNum.length < digits) {
+                                allGridNumbers.push(multiNum)
+                            }
+                        }
+                    }
+                }
             }
+            //console.log(allGridNumbers.length)
+            if (allGridNumbers.length < 36) {
+                console.log("logged rerun")
+                let newNumbers = generateNumbers;
+                return generateAllGridNumbers(newNumbers);
+            } else {
+                return allGridNumbers
+            }
+        }
 
+        function generateGridNumbers(_numbers) {
+            let allNumbers = generateAllGridNumbers(_numbers)
+            let gridNumbers = [];
+            let randomIndices = [];
+            while (randomIndices.length < 36) {
+                let x = Math.floor(Math.random() * allNumbers.length)
+                if (!randomIndices.includes(x)) {
+                    randomIndices.push(x)
+                }
+            }
+            for (let index of randomIndices) {
+                gridNumbers.push(allNumbers[index])
+            }
+            return gridNumbers
         }
 
         function createGrid(_numbers) {
@@ -713,20 +718,6 @@
             });
             return gridDict;
         }
-
-
-        // function createOperators(_operators) {
-        //     let target = document.getElementById("operators");
-        //     _operators.slice(0, 2).map((operator, i) => {
-        //         let _id = "O" + (i + 1);
-        //         let _button = document.createElement("button");
-        //         _button.id = _id;
-        //         _button.className = "operator-button";
-        //         _button.innerHTML = operator;
-        //         _button.onclick = () => chooseOperator(_id);
-        //         target.appendChild(_button);
-        //     });
-        // }
 
         function createOperators() {
             let buttons = [];
@@ -975,15 +966,11 @@
             let bcolor = player ?
                 "rgba(183,202,244,0.907)" :
                 "rgba(192,149,138,0.902)";
-            //   let sbcolor = player ? 'blue' : 'red';
-            //  let stcolor = player ? 'white' : 'black';
 
             document.getElementById("board").style.backgroundColor = bcolor;
             document.getElementById("numbers").style.backgroundColor = bcolor;
             document.getElementById("player").style.backgroundColor = bcolor;
             document.getElementById("buttons").style.backgroundColor = bcolor;
-            // document.getElementById("timer-text").style.backgroundColor = sbcolor;
-            // document.getElementById("timer-text").style.color = stcolor;
             timerDown();
         }
 
@@ -1068,7 +1055,7 @@
             }
             disabledNumbers = [];
             numbers = generateNumbers();
-            gridNumbers = generateGridNumbers(numbers, operators);
+            gridNumbers = generateGridNumbers(numbers);
             createSmallGrid(numbers);
             gridNumbersDict = createGridDict(gridNumbers);
             createGrid(gridNumbersDict);
@@ -1087,7 +1074,7 @@
             document.documentElement.clientHeight ||
             document.body.clientHeight;
 
-        console.log(w, h);
+        //console.log(w, h);
 
         //document.getElementById('screen').style.height = (h - 100).toString() + 'px'
         //document.getElementById('screen').style.width = (w - 200).toString() + 'px'
@@ -1095,6 +1082,7 @@
         let operators = ["*", "/", "/"];
         let numbers = [];
         let gridNumbersDict = {};
+        //let allGridNumbers = [];
         let gridNumbers = [];
         let scores = {
             playerOne: 0,
