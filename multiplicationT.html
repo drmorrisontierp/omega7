@@ -460,6 +460,7 @@ function growTable() {
                 cell.innerHTML = input;
                 cell.className = "verticalButton";
                 cell.id = _id;
+                cell.setAttribute("onClick", "colourVertical(this.id)");
                 cell.style.gridArea = '1/' + (e+1).toString() + '/2/' + (e+2).toString();
                 cell.onclick = functionCall;
                 row.appendChild(cell);
