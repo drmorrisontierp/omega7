@@ -443,7 +443,7 @@ function growTable() {
                 cell.innerHTML = input;
                 cell.className = "horizontalButton";
                 cell.id = _id;
-                cell.onclick = functionCall;
+                cell.onclick = () => colourHorizontal(_id);
                 cell.style.gridArea = '1/1/2/2'
                 row.appendChild(cell);
               //  row.insertCell(e).innerText = input;
