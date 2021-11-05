@@ -43,12 +43,12 @@ body {
 }
 
 /*-----main-----*/
-.left {
+#left {
   grid-area: 1/1/2/2;
     margin-left: 2%;
 }
 
-.right {
+#right {
   grid-area: 1/2/2/3;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -89,7 +89,7 @@ td:hover {
     margin: auto;
 }
 /*-----right-----*/
-.q_and_a {
+#display-screen {
   grid-area: 1/1/2/7;
     margin: 5% 10% 5% 10%;
     padding: 5%;
@@ -230,7 +230,7 @@ td:hover {
         <h2 id="title">Hej</h2>
     </div>
     <div id="main">
-    <div class="left">
+    <div id="left">
 
         <div class="imgbox">
             <table class="multiplication" id="table1">
@@ -247,8 +247,8 @@ td:hover {
             </table>
         </div>
     </div>
-    <div class="right">
-        <div class="q_and_a">
+    <div id="right">
+        <div id="display-screen">
             <form onsubmit="returnAnswer(); return false;">
                 <label id="question" for="answer">............</label>
                 <input type="number" id="answer" name="answer">
