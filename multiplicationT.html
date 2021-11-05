@@ -227,16 +227,16 @@ td:hover {
 
         <div class="imgbox">
             <div class="multiplication" id="table1">
-                <div id="ten" ></div>
-                <div id="nine" ></div>
-                <div id="eight" ></div>
-                <div id="seven" ></div>
-                <div id= "six" ></div>
-                <div id="five" ></div>
-                <div id="four" ></div>
-                <div id="three" ></div>
-                <div id="two" ></div>
-                <div id="one" ></div>
+                <div class="table-row" id="ten" style="grid-area: 1/1/" ></div>
+                <div class="table-row" id="nine" ></div>
+                <div class="table-row" id="eight" ></div>
+                <div class="table-row" id="seven" ></div>
+                <div class="table-row" id= "six" ></div>
+                <div class="table-row" id="five" ></div>
+                <div class="table-row" id="four" ></div>
+                <div class="table-row" id="three" ></div>
+                <div class="table-row" id="two" ></div>
+                <div class="table-row" id="one" ></div>
             </div>
         </div>
     </div>
@@ -454,6 +454,7 @@ function growTable() {
                 cell.className = "horizontalButton";
                 cell.id = _id;
                 cell.onclick = functionCall;
+                cell.style.gridArea = '1/1/2/2'
                 row.appendChild(cell);
               //  row.insertCell(e).innerText = input;
               //  row.childNodes[e].setAttribute("class", "horizontalButton");
@@ -468,6 +469,7 @@ function growTable() {
                 cell.innerHTML = input;
                 cell.className = "verticalButton";
                 cell.id = _id;
+                cell.style.gridArea = (e+1).toString() + '/1/' + (e+2).toString() + '/2'
                 cell.onclick = functionCall;
                 row.appendChild(cell);
                 //row.insertCell(e).innerText = input;
@@ -481,6 +483,7 @@ function growTable() {
                 let cell = document.createElement('button');
                 cell.innerHTML = input;
                 cell.className = "tableBody";
+                cell.style.gridArea = (e+1).toString() + '/1/' + (e+2).toString() + '/2'
                 cell.id = _id;
                 row.appendChild(cell);
                 //row.insertCell(e).innerText = input;
