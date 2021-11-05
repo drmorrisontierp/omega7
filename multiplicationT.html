@@ -123,8 +123,8 @@ td:hover {
     margin-left: 0;
 }
 
-.meter {
-    float: right;
+#meter {
+    grid-area: 3/6/6/8;
     display: flex;
     flex-direction: row;
     font-size: 1.5em;
@@ -269,7 +269,7 @@ td:hover {
                 <button id="clear" onclick="clearStats()">Clear</button>
             </p>
         </div>
-        <div class="meter">
+        <div id="meter">
             <!p id="level"><!/p>
             <!p id="score"><!/p>
             <div class="meter_inner">
