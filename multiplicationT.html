@@ -448,26 +448,41 @@ function growTable() {
                 let input = (e + 1) * (i + 1);
                 let _id = "hbtn" + i.toString();
                 let functionCall = "colourHorizontal('" + _id + "')";
-                row.insertCell(e).innerText = input;
-                row.childNodes[e].setAttribute("class", "horizontalButton");
-                row.childNodes[e].setAttribute("id", _id);
-                row.childNodes[e].setAttribute("onClick", functionCall);
+                let cell = document.createElement('button');
+                cell.innerHTML = input;
+                cell.className = "horizontalButton";
+                cell.id = _id;
+                cell.onclick = functionCall;
+                row.appendChild(cell);
+              //  row.insertCell(e).innerText = input;
+              //  row.childNodes[e].setAttribute("class", "horizontalButton");
+              //  row.childNodes[e].setAttribute("id", _id);
+              //  row.childNodes[e].setAttribute("onClick", functionCall);
             }
             else if (i == 0) {
                 let input = (e + 1) * (i + 1);
                 let _id = "vbtn" + e.toString();
                 let functionCall = "colourVertical('" + _id + "')";
-                row.insertCell(e).innerText = input;
-                row.childNodes[e].setAttribute("class", "verticalButton");
-                row.childNodes[e].setAttribute("id", _id);
-                row.childNodes[e].setAttribute("onClick", functionCall);
+                cell.innerHTML = input;
+                cell.className = "horizontalButton";
+                cell.id = _id;
+                cell.onclick = functionCall;
+                row.appendChild(cell);
+                //row.insertCell(e).innerText = input;
+                //row.childNodes[e].setAttribute("class", "verticalButton");
+                //row.childNodes[e].setAttribute("id", _id);
+                //row.childNodes[e].setAttribute("onClick", functionCall);
             }
             else {
                 let input = (e + 1) * (i + 1);
                 let _id = table_y_axis[i-1] + e.toString();
+                cell.innerHTML = input;
+                cell.className = "horizontalButton";
+                cell.id = _id;
+                row.appendChild(cell);
                 row.insertCell(e).innerText = input;
-                row.childNodes[e].setAttribute("id", _id);
-                row.childNodes[e].setAttribute("class", "tableBody");
+                //row.childNodes[e].setAttribute("id", _id);
+                //row.childNodes[e].setAttribute("class", "tableBody");
             }
         }
     }
