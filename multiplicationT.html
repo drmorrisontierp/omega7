@@ -346,7 +346,7 @@ window.store = {
 let toggle = false;
 let stats = get_stats();
 let count = 45 - stats.products.length;
-document.getElementById('blevel').value = stats.level;
+//document.getElementById('blevel').value = stats.level;
 let calculatedAnswer;
 let table_y_axis = ['b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
 let verticalMemory = [];
@@ -360,7 +360,7 @@ let timer;
 //let timerHeight = 0;
 //levelBoard.appendChild(levelText);
 //scoreBoard.appendChild(score);
-setLevel(4)
+setLevel("4")
 growTable();
 
 function flashColor(id, colorOne, colorTwo) {
