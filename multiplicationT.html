@@ -67,6 +67,17 @@ body {
     max-height: 100vh;
     margin: auto;
 }
+/*-----left------*/
+#table {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, 1fr);
+}
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
+}
 /*-----right-----*/
 #display-screen {
   grid-area: 1/1/2/7;
@@ -203,7 +214,7 @@ body {
     </div>
     <div id="main">
     <div id="left">
-            <div class="multiplication" id="table1">
+            <div id="table">
                 <div class="table-row" id="ten" style="grid-area: 1/1/2/2;" ></div>
                 <div class="table-row" id="nine" style="grid-area: 2/1/3/2;" ></div>
                 <div class="table-row" id="eight" style="grid-area: 3/1/4/2;"></div>
