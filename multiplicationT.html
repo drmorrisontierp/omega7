@@ -125,10 +125,10 @@ td:hover {
 
 #meter {
     grid-area: 3/6/6/8;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
     font-size: 1.5em;
-    margin-right: 20%;
     text-align: center;
     background-color: #e0e0d1;
     padding: 3%;
@@ -136,10 +136,9 @@ td:hover {
     box-shadow: 0 5px #999;
 }
 
-.meter_inner {
+#meter_inner {
+  grid-area: 1/1/2/2;
   display: flex;
-  
-  width: 20px;
   height: 100px;
   border: 2px solid #550;
 }
@@ -150,10 +149,9 @@ td:hover {
   background-color: red;
 }
 
-.timer_inner {
+#timer_inner {
+  grid-area: 1/1/2/2;
   display: flex;
-  
-  width: 20px;
   height: 100px;
   border: 2px solid #550;
 }
@@ -272,10 +270,10 @@ td:hover {
         <div id="meter">
             <!p id="level"><!/p>
             <!p id="score"><!/p>
-            <div class="meter_inner">
+            <div id="meter_inner">
               <div id="meter_bar"></div>
             </div>
-            <div class="timer_inner">
+            <div id="timer_inner">
               <div id="timer_bar"></div>
             </div>
         </div>
