@@ -707,7 +707,7 @@ function get_stats() {
     console.log(statsText)
     if (!statsText){
       statsText = '{"products":[],"product":"","level":1, "timerHeight": 0}'
-    console.log(statsText)
+    console.log('not returned stats', statsText)
     }
     let stats = JSON.parse(statsText);
     console.log('returned stats', stats)
