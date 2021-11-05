@@ -471,6 +471,10 @@
 <script>eruda.add(erudaDom);</script>
 <script>eruda.add(erudaCode);</script>
   <script type="text/javascript" charset="utf-8">
+    
+    function roundToTwo(num) {
+      return +(Math.round(num + "e+2")  + "e-2");
+      }
   
     function start() {
       playerNames[0] = document.getElementById('player-one').value;
@@ -489,27 +493,47 @@
       let _numbers = [];
       let x = 0;
       console.log(level)
-      if (level === '1') {
+      if (level === '1' || level === '2') {
         _numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 20]
         return _numbers;
       }
-
-      while (x < 6) {
-        let i = Math.floor(Math.random() * 8 + 2);
-        if (!_numbers.includes(i)) {
-          _numbers.push(i);
-          x++;
+      if (level === '3') {
+        while (x < 6) {
+          let i = Math.floor(Math.random() * 8 + 2);
+          if (!_numbers.includes(i)) {
+            _numbers.push(i);
+            x++;
+          }
         }
-      }
-      while (x < 8) {
-        let i = Math.floor(Math.random() * 9 + 11);
-        if (!_numbers.includes(i)) {
-          _numbers.push(i);
-          x++;
+        while (x < 8) {
+          let i = Math.floor(Math.random() * 9 + 11);
+          if (!_numbers.includes(i)) {
+            _numbers.push(i);
+            x++;
+          }
         }
+        _numbers = [..._numbers, 10, 20];
+        return _numbers;
       }
-      _numbers = [..._numbers, 10, 20];
-      return _numbers;
+      if (level === '4'){
+        while (x < 3) {
+          let i = Math.floor(Math.random());
+          if (!_numbers.includes(i) ) {
+            _numbers.push(i);
+            x++;
+          }
+        }
+        while (x < 8) {
+          let i = Math.floor(Math.random() * 9 + 11);
+          if (!_numbers.includes(i)) {
+            _numbers.push(i);
+            x++;
+          }
+        }
+        _numbers = [..._numbers, 10, 20];
+        return _numbers;
+      }
+      
     }
 
     function createSmallGrid(numbers) {
@@ -538,6 +562,49 @@
         }
       }
     }
+/*
+    function generateGridNumbers(_numbers, _operators) {
+      let x = 0;
+      let y = 0;
+      let o;
+      let flag = false;
+      let gridNumbers = [];
+      while (x < 36) {
+        let m = _numbers[Math.floor(Math.random() * _numbers.length)];
+        let n = _numbers[Math.floor(Math.random() * _numbers.length)];
+        o = _operators[Math.floor(Math.random() * _operators.length)];
+        let num = eval(m + o + n);
+        let strNum = num.toString();
+        if (!gridNumbers.includes(num) && n != m) {
+          if (strNum.includes(".")) {
+            if (strNum.length < 4) {
+              gridNumbers.push(num);
+              x++;
+            }
+          }
+          if (!strNum.includes(".")) {
+            if (strNum.length < 3) {
+              gridNumbers.push(num);
+              x++;
+            }
+          }
+        }
+        y++;
+
+        if (y > 100000) {
+          flag = true;
+          break;
+        }
+      }
+      if (flag) {
+
+        return generateGridNumbers(_numbers, _operators);
+      } else {
+
+        return gridNumbers;
+      }
+    }
+*/
 
     function generateGridNumbers(_numbers, _operators) {
       let x = 0;
