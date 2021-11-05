@@ -16,9 +16,13 @@
 
 body {
     background-color: #cce6ff;
+    width: 100%;
+    height: 100%;
 }
 
 #all {
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(8, 1fr);
@@ -45,7 +49,7 @@ body {
 /*-----main-----*/
 #left {
   grid-area: 1/1/2/2;
-    margin-left: 2%;
+  display: flex;
 }
 
 #right {
@@ -69,6 +73,7 @@ body {
 }
 /*-----left------*/
 #table {
+  flex: 1;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(10, 1fr);
@@ -80,14 +85,10 @@ body {
 }
 /*-----right-----*/
 #display-screen {
-  grid-area: 1/1/2/7;
-    margin: 5% 10% 5% 10%;
-    
+  grid-area: 1/1/2/8;
     padding: 5%;
     border: 2px solid #550;
     background-color: #cae8cb;
-    border-radius: 20%;
-    box-shadow: 0 5px #999;
 }
 
 #answer {
@@ -105,22 +106,24 @@ body {
     margin-right: 5%;
 }
 
-#numpad {
-  grid-area: 3/3/7/6;
+#numberpad {
+  grid-area: 2/1/7/8;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
 
-#start {
-    grid-area: 3/1/4/3;
-    margin-left: 0;
-}
 
 #meter {
-    grid-area: 3/6/6/8;
+    grid-area: 1/5/6/6;
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-    font-size: 1.5em;
-    text-align: center;
     background-color: #e0e0d1;
     padding: 3%;
     border: 2px solid #550;
@@ -130,9 +133,11 @@ body {
 #meter_inner {
   grid-area: 1/1/2/2;
   display: flex;
+  height: 90%;
   border: 2px solid #550;
 }
 #meter_bar {
+  flex: 1;
   align-self: flex-end;
   height: 10%;
   background-color: red;
@@ -140,69 +145,30 @@ body {
 
 #timer_inner {
   grid-area: 1/2/2/3;
-  display: flex;
+  display: flex
+  flex-direction: column;
+  height: 90%;
   border: 2px solid #550;
 }
 #timer_bar {
+  flex: 1;
   align-self: flex-end;
-  height: 10%;
-  background-color: red;
+  background-color: red; 
+}
+/*----numberpad-----*/
+
+svg{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.keypad-button {
   
-  
+  background-color: black;
 }
 
-.numpad2 {
-    width: 50%;
-    margin-left: 32%;
-}
 
-.button {
-    margin: auto;
-    display: inline-block;
-    padding: 3% 5%;
-    font-size: 1.5em;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #4CAF50;
-    border: 2px solid #550;
-    border-radius: 25%;
-    box-shadow: 0 5px #999;
-}
-
-.button:hover {
-    background-color: #3e8e41;
-}
-
-.button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 4px #666;
-    transform: translateY(3px);
-}
-
-#bstart {
-    margin: auto;
-    display: inline-block;
-    padding: 10% 5%;
-    font-size: 1.5em;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #ff5050;
-    border: 2px solid #550;
-    border-radius: 25%;
-    box-shadow: 0 5px #999;
-}
-
-#bstart:active {
-    background-color: #cc0000;
-    box-shadow: 0 4px #666;
-    transform: translateY(3px);
-}
 
   </style>
 
@@ -236,42 +202,96 @@ body {
                 <input type="number" id="answer" name="answer">
             </form>
         </div>
-        <div id="start">
-            <p>
-                <button id="bstart" onclick="start()">BÖRJA!</button>
-            </p>
-        </div>
-        <div id="meter">
-            <!p id="level"><!/p>
-            <!p id="score"><!/p>
+        <div id="numberpad">
+          <div id="meter">
             <div id="meter_inner">
               <div id="meter_bar"></div>
             </div>
             <div id="timer_inner">
               <div id="timer_bar"></div>
             </div>
-        </div>
-        <div id="numpad">
-            <p>
-                <button class="button" onclick="addValue('1')">1</button>
-                <button class="button" onclick="addValue('2')">2</button>
-                <button class="button" onclick="addValue('3')">3</button>
-            </p>
-            <p>
-                <button class="button" onclick="addValue('4')">4</button>
-                <button class="button" onclick="addValue('5')">5</button>
-                <button class="button" onclick="addValue('6')">6</button>
-            </p>
-            <p>
-                <button class="button" onclick="addValue('7')">7</button>
-                <button class="button" onclick="addValue('8')">8</button>
-                <button class="button" onclick="addValue('9')">9</button>
-            </p>
-            <p>
-                <button class="button" onclick="deleteValue()">del</button>
-                <button class="button" onclick="addValue('0')">0</button>
-                <button class="button" onclick="returnAnswer()">enter</button>
-            </p>
+          </div>
+          <div id="bstart" class="keypad-button" style="grid-area:1/4/3/5;"  onclick="start()" >
+            <svg xmlns="http://www.w3.org/2000/svg">
+            <rect x="4%" y="2%" width="92%" height="98%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">START</text> 
+            </svg>
+          </div>
+          <div class="keypad-button" style="grid-area:4/1/5/2;" onclick="deleteValue()">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="4%" width="92%" height="92%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">del</text>
+            </svg>
+          </div>
+          <div class="keypad-button" style="grid-area:4/2/5/3;" onclick="addValue('0')">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="4%" width="92%" height="92%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">0</text>
+            </svg>
+          </div>
+          <div class="keypad-button" style="grid-area:3/3/5/5;" onclick="returnAnswer()">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="52%" y="2%" width="46%" height="96%" style="fill:red;"/>
+              <rect x="2%" y="52%" width="52%" height="46%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">enter</text>
+            </svg>
+          </div>
+          <div class="keypad-button" style="grid-area:3/1/4/2;" onclick="addValue('1')">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="4%" width="92%" height="96%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">1</text>
+            </svg>
+          </div>
+          <div class="keypad-button" style="grid-area:3/2/4/3;" onclick="addValue('2')">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="4%" width="92%" height="96%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">2</text>
+            </svg>
+          </div>
+          <div class="keypad-button" style="grid-area:3/3/4/4;" onclick="addValue('3')">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="4%" width="92%" height="96%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">3</text>
+            </svg>
+          </div>
+            
+          <div class="keypad-button" style="grid-area:2/1/3/2;" onclick="addValue('4')">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="4%" width="92%" height="96%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">4</text>
+            </svg>
+          </div>
+          <div class="keypad-button" style="grid-area:2/2/3/3;" onclick="addValue('5')">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="4%" width="92%" height="96%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">5</text>
+            </svg>    
+          </div>
+          <div class="keypad-button" style="grid-area:2/3/3/4;" onclick="addValue('6')">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="4%" width="92%" height="96%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">6</text>
+            </svg>
+          </div>
+               
+          <div class="keypad-button" style="grid-area:1/1/2/2;" onclick="addValue('7')">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="4%" width="92%" height="96%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">7</text>
+            </svg>
+          </div>
+          <div class="keypad-button" style="grid-area:1/2/2/3;" onclick="addValue('8')">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="4%" width="92%" height="96%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">8</text>
+            </svg>
+          </div>
+          <div class="keypad-button" style="grid-area:1/3/2/4;" onclick="addValue('9')">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <rect x="4%" y="5%" width="92%" height="96%" style="fill:red;"/>
+              <text id="start-text" x="0" y="50" fill="black">9</text>
+            </svg>
+          </div>
         </div>
       
     </div>
@@ -424,7 +444,7 @@ function timerStart() {
   //  let timerHeight = 0;
   //  document.getElementById('timer_bar').style.height = '0%';
     timer = setInterval(() => {
-      console.log(stats.timerHeight)
+      //console.log(stats.timerHeight)
       document.getElementById('timer_bar').style.height = stats.timerHeight.toString() + '%'
       stats.timerHeight += 1;
     }, 700)
@@ -583,10 +603,11 @@ function changeTable() {
 function start() {
     changeTable();
     let button = document.getElementById("bstart");
-    let buttonText = "STOPPA!";
+    console.log(button.id)
+    let buttonText = "STOP";
     questionText = newQuestion();
     replaceText("question", questionText);
-    replaceText("bstart", buttonText);
+    replaceText("start-text", buttonText);
     count = 45 - stats.products.length;
     meter();
     button.setAttribute("onClick", "stop()");
@@ -597,6 +618,7 @@ function start() {
 
 
 function stop() {
+  console.log("stop")
     clearTableBody("tableBody");
     clearTableBody("verticalButton");
     clearTableBody("horizontalButton");
@@ -604,10 +626,10 @@ function stop() {
     horizontalMemory = [];
     stats.products.push(questionText);
     let button = document.getElementById("bstart");
-    let buttonText = "BÖRJA!";
+    let buttonText = "START";
     questionText = "............";
     replaceText("question", questionText);
-    replaceText("bstart", buttonText);
+    replaceText("start-text", buttonText);
     button.setAttribute("onClick", "start()");
     toggle = false;
     clearInterval(timer)
