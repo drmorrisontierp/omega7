@@ -82,6 +82,7 @@ body {
 #display-screen {
   grid-area: 1/1/2/7;
     margin: 5% 10% 5% 10%;
+    
     padding: 5%;
     border: 2px solid #550;
     background-color: #cae8cb;
@@ -457,7 +458,7 @@ function growTable() {
                 cell.innerHTML = input;
                 cell.className = "verticalButton";
                 cell.id = _id;
-                cell.style.gridArea = (e+1).toString() + '/1/' + (e+2).toString() + '/2'
+                cell.style.gridArea = '1/' + (e+1).toString() + '/2/' + (e+2).toString();
                 cell.onclick = functionCall;
                 row.appendChild(cell);
                 //row.insertCell(e).innerText = input;
@@ -471,7 +472,7 @@ function growTable() {
                 let cell = document.createElement('button');
                 cell.innerHTML = input;
                 cell.className = "tableBody";
-                cell.style.gridArea = (e+1).toString() + '/1/' + (e+2).toString() + '/2'
+                cell.style.gridArea = '1/' + (e+1).toString() + '/1/' + (e+2).toString();
                 cell.id = _id;
                 row.appendChild(cell);
                 //row.insertCell(e).innerText = input;
