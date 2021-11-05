@@ -464,7 +464,7 @@ function growTable() {
                 let _id = "vbtn" + e.toString();
                 let functionCall = "colourVertical('" + _id + "')";
                 cell.innerHTML = input;
-                cell.className = "horizontalButton";
+                cell.className = "verticalButton";
                 cell.id = _id;
                 cell.onclick = functionCall;
                 row.appendChild(cell);
@@ -477,10 +477,10 @@ function growTable() {
                 let input = (e + 1) * (i + 1);
                 let _id = table_y_axis[i-1] + e.toString();
                 cell.innerHTML = input;
-                cell.className = "horizontalButton";
+                cell.className = "tableBody";
                 cell.id = _id;
                 row.appendChild(cell);
-                row.insertCell(e).innerText = input;
+                //row.insertCell(e).innerText = input;
                 //row.childNodes[e].setAttribute("id", _id);
                 //row.childNodes[e].setAttribute("class", "tableBody");
             }
