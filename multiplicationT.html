@@ -446,10 +446,6 @@ function growTable() {
                 cell.setAttribute("onClick", "colourHorizontal(this.id)");
                 cell.style.gridArea = '1/1/2/2'
                 row.appendChild(cell);
-              //  row.insertCell(e).innerText = input;
-              //  row.childNodes[e].setAttribute("class", "horizontalButton");
-              //  row.childNodes[e].setAttribute("id", _id);
-              //  row.childNodes[e].setAttribute("onClick", functionCall);
             }
             else if (i == 0) {
                 let input = (e + 1) * (i + 1);
@@ -462,10 +458,6 @@ function growTable() {
                 cell.setAttribute("onClick", "colourVertical(this.id)");
                 cell.style.gridArea = '1/' + (e+1).toString() + '/2/' + (e+2).toString();
                 row.appendChild(cell);
-                //row.insertCell(e).innerText = input;
-                //row.childNodes[e].setAttribute("class", "verticalButton");
-                //row.childNodes[e].setAttribute("id", _id);
-                //row.childNodes[e].setAttribute("onClick", functionCall);
             }
             else {
                 let input = (e + 1) * (i + 1);
@@ -476,9 +468,6 @@ function growTable() {
                 cell.style.gridArea = '1/' + (e+1).toString() + '/1/' + (e+2).toString();
                 cell.id = _id;
                 row.appendChild(cell);
-                //row.insertCell(e).innerText = input;
-                //row.childNodes[e].setAttribute("id", _id);
-                //row.childNodes[e].setAttribute("class", "tableBody");
             }
         }
     }
