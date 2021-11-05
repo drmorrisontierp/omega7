@@ -18,7 +18,14 @@ body {
     background-color: #cce6ff;
 }
 
+#all {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, 1fr);
+}
+
 .top {
+  grid-area: 1/1/2/2;
     margin: 2% 0 2% 40%;
 }
 
