@@ -360,8 +360,9 @@ let timer;
 //let timerHeight = 0;
 //levelBoard.appendChild(levelText);
 //scoreBoard.appendChild(score);
-setLevel("4")
+
 growTable();
+setLevel("4")
 
 function flashColor(id, colorOne, colorTwo) {
   let target = document.getElementById(id)
@@ -464,6 +465,7 @@ function growTable() {
                 let input = (e + 1) * (i + 1);
                 let _id = "vbtn" + e.toString();
                 let functionCall = "colourVertical('" + _id + "')";
+                let cell = document.createElement('button');
                 cell.innerHTML = input;
                 cell.className = "verticalButton";
                 cell.id = _id;
@@ -477,6 +479,7 @@ function growTable() {
             else {
                 let input = (e + 1) * (i + 1);
                 let _id = table_y_axis[i-1] + e.toString();
+                let cell = document.createElement('button');
                 cell.innerHTML = input;
                 cell.className = "tableBody";
                 cell.id = _id;
