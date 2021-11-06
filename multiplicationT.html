@@ -386,7 +386,7 @@ function buttonUp(id) {
   let label = id[2];
   let svg = createSVGElement('svg');
   let base = createSVGElement('rect');
-  let text = document.createElement('text');
+  let text = createSVGElement('text');
   text.innerText = label;
   setAttributes(base, {
    'rx' : 5,
@@ -398,8 +398,8 @@ function buttonUp(id) {
    'fill' : 'blue',
  });
  setAttributes(text, {
-   'x' : 40,
-   'y' : 50,
+   'x' : '40%',
+   'y' : '50%',
    'fill' : 'black'
  })
  svg.appendChild(base);
