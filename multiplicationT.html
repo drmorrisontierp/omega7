@@ -219,7 +219,7 @@ svg{
           </div>
           <div class="keypad-button" style="grid-area:4/1/5/2;" onclick="deleteValue()">
             <svg xmlns="http://www.w3.org/2000/svg">
-              <rect x="4%" y="4%" width="92%" height="92%" style="fill:red;"/>
+              <rect rx="20" ry="20" x="4%" y="4%" width="92%" height="92%" style="fill:red;"/>
               <text id="start-text" x="0" y="50" fill="black">del</text>
             </svg>
           </div>
@@ -242,7 +242,7 @@ svg{
               <text id="start-text" x="0" y="50" fill="black">1</text>
             </svg>
           </div>
-          <div class="keypad-button" style="grid-area:3/2/4/3;" onclick="addValue('2')">
+          <div class="keypad-button" id="kb2" style="grid-area:3/2/4/3;" onclick="addValue('2')">
             <svg xmlns="http://www.w3.org/2000/svg">
               <rect x="4%" y="4%" width="92%" height="96%" style="fill:red;"/>
               <text id="start-text" x="0" y="50" fill="black">2</text>
@@ -373,6 +373,34 @@ let timer;
 growTable();
 setLevel("4");
 console.log(document.getElementById('hbtn9'))
+buttonUp('kb4')
+
+function createSVGElement(tag) {
+  return document.createElementNS('http://www.w3.org/2000/svg', tag)
+}
+
+// FUNCTION
+function setAttributes (el, atts) {
+    Object.entries(atts).forEach(([key, value]) => { // note () around [k,v]!!!
+        el.setAttribute(key, value);
+    });
+};
+
+function buttonUp(id) {
+  let svg = createSVGElement('svg');
+  let base = createSVGElement('rect');
+  setAttributes(base, {
+   'rx' : 20,
+   'ry' : 20,
+   'x' : '4%',
+   'y' : '4%',
+   'width' : '92%',
+   'height' : '96%',
+   'fill' : 'blue',
+ });
+ document.getElementById(id).appendChild(svg)
+ 
+}
 
 function flashColor(id, colorOne, colorTwo) {
   let target = document.getElementById(id)
