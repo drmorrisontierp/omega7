@@ -387,7 +387,8 @@ function buttonUp(id) {
   let svg = createSVGElement('svg');
   let base = createSVGElement('rect');
   let text = createSVGElement('text');
-  text.innerText = label;
+  let node = document.createTextNode(label);
+  text.appendChild(node)
   setAttributes(base, {
    'rx' : 5,
    'ry' : 5,
