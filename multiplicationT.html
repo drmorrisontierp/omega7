@@ -725,6 +725,10 @@ function changeTable() {
 
 
 function start() {
+  buttonDown('bstart');
+  setTimeout(() => {
+    buttonUp('bstart')
+  }, 250);
     changeTable();
     let button = document.getElementById("bstart");
     let buttonText = "STOP";
@@ -741,6 +745,10 @@ function start() {
 
 
 function stop() {
+  buttonDown('bstart');
+  setTimeout(() => {
+    buttonUp('bstart')
+  }, 250);
   console.log("stop")
     clearTableBody("tableBody");
     clearTableBody("verticalButton");
