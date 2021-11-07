@@ -377,11 +377,12 @@ function drawButton(id) {
    'fill' : 'url(#Bob)',
  });
  setAttributes(text, {
-   'x' : '33%',
-   'y' : '68%',
+   'x' : '50%',
+   'y' : '62%',
    'fill' : 'white',
    'stroke' : 'black',
    'font-size': "60",
+   'text-anchor': 'middle'
  })
  svg.appendChild(shadow);
  svg.appendChild(base);
@@ -396,14 +397,23 @@ function drawButton(id) {
 function buttonDown(id) {
   console.log('down', id)
   let svg = document.getElementById(id).children[0];
-  let base = svg.children[0];
-  setAttributes(base, {
-    'x' : '5%',
-    'y': '7%',
-    'width' : '90%',
-    'height' : '92%',
-    'fill': 'blue',
-  })
+  let shadow = svg.children[0];
+  let base = svg.children[1];
+  let front = svg.children[2];
+  let text = svg.children[3];
+  setAttributes(shadow, {
+    'fill': 'transparent',
+  });
+  setAttributes(front, {
+    'x' : '6%',
+   'y' : '6%',
+   'width' : '88%',
+   'height' : '88%',
+  });
+  setAttributes(text, {
+    'x' : '48%',
+   'y' : '65%',
+  });
 }
 
 function buttonUp(id) {
