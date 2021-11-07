@@ -317,7 +317,6 @@ function createSVGElement(tag) {
   return document.createElementNS('http://www.w3.org/2000/svg', tag)
 }
 
-// FUNCTION
 function setAttributes (el, atts) {
     Object.entries(atts).forEach(([key, value]) => { // note () around [k,v]!!!
         el.setAttribute(key, value);
@@ -359,7 +358,9 @@ function buttonDown(id) {
   let base = svg.children[0];
   setAttributes(base, {
     'y': '7%',
-    'fill': 'red',
+    'width' : '90%',
+    'height' : '92%',
+    'fill': 'blue',
   })
 }
 
@@ -368,8 +369,10 @@ function buttonUp(id) {
   let svg = document.getElementById(id).children[0];
   let base = svg.children[0];
   setAttributes(base, {
-    'y': '0',
-    'fill': 'blue',
+    'x' : '4%',
+    'y' : '0',
+    'width' : '92%',
+    'height' : '96%',
   })
 }
 
