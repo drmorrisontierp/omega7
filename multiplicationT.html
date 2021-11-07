@@ -223,7 +223,7 @@ svg{
           <div class="keypad-button" id="kbd" style="grid-area:4/1/5/2;" onclick="deleteValue('kbd')"></div>
           <div class="keypad-button" id="kb0" style="grid-area:4/2/5/3;" onclick="addValue('0', 'kb0')"></div>
           
-          <div class="keypad-button" style="grid-area:3/3/5/5;" onclick="returnAnswer()">
+          <div id="kbe" class="keypad-button" style="grid-area:3/3/5/5;" onclick="returnAnswer('kbe')">
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" >
                <path d="M57,2 L93,2 Q98,2 98,7 L98,93 Q98,98 93,98 L7,98 Q2,98 2,93 L2,57 Q2,52 7,52 L47,52 Q52,52 52,47 L52,7 Q52,2 57,2" transform="translate(-2 2)" fill="#00000037"/>
                <path d="M57,2 L93,2 Q98,2 98,7 L98,93 Q98,98 93,98 L7,98 Q2,98 2,93 L2,57 Q2,52 7,52 L47,52 Q52,52 52,47 L52,7 Q52,2 57,2"/>
@@ -370,8 +370,8 @@ function drawButton(id) {
    'fill' : 'black',
  });
  setAttributes(front, {
-   'rx' : 5,
-   'ry' : 5,
+   'rx' : '5%',
+   'ry' : '5%',
    'x' : '8%',
    'y' : '4%',
    'width' : '86%',
@@ -399,6 +399,18 @@ function buttonDown(id) {
   let shadow = svg.children[0];
   let front = svg.children[2];
   let text = svg.children[3];
+  if (id == 'kbe') {
+    setAttributes(shadow, {
+    'fill': 'transparent',
+  });
+  setAttributes(front, {
+    'd' : 'M59,2 L92,2 Q97,2 97,7 L97,91 Q97,95 92,95 L9,95 Q4,95 4,90 L4,57 Q4,52 9,52 L49,52 Q54,52 54,47 L54,7 Q54,2 59,2',
+  });
+  setAttributes(text, {
+    'x' : '48',
+   'y' : '79',
+  });
+  } else {
   setAttributes(shadow, {
     'fill': 'transparent',
   });
@@ -412,7 +424,7 @@ function buttonDown(id) {
     'x' : '48%',
    'y' : '65%',
   });
-}
+}}
 
 function buttonUp(id) {
   console.log('up')
@@ -420,6 +432,18 @@ function buttonUp(id) {
   let shadow = svg.children[0];
   let front = svg.children[2];
   let text = svg.children[3];
+  if (id == 'kbe') {
+    setAttributes(shadow, {
+    'fill': 'transparent',
+  });
+  setAttributes(front, {
+    'd' : 'M59,2 L92,2 Q97,2 97,7 L97,91 Q97,95 92,95 L9,95 Q4,95 4,90 L4,57 Q4,52 9,52 L49,52 Q54,52 54,47 L54,7 Q54,2 59,2',
+  });
+  setAttributes(text, {
+    'x' : '48',
+   'y' : '79',
+  });
+  } else {
   setAttributes(shadow, {
     'fill': '#00000037',
   });
@@ -433,7 +457,7 @@ function buttonUp(id) {
     'x' : '50%',
    'y' : '62%',
   });
-}
+}}
 
 
 function flashColor(id, colorOne, colorTwo) {
@@ -728,7 +752,11 @@ function rightAnswer() {
 }
 
 
-function returnAnswer() {
+function returnAnswer(id) {
+  buttonDown(id);
+  setTimeout(() => {
+    buttonUp(id)
+  }, 250);
     if (toggle) {
         let answer = document.getElementById("answer").value;
         if (answer) {
