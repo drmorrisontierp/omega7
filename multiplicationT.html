@@ -405,6 +405,7 @@ function buttonDown(id) {
   let base = svg,children[1];
   let front = svg.children[2];
   let text = svg.children[3];
+  console.log("this far")
   if (id == 'kbe') {
     setAttributes(shadow, {
     'fill': 'transparent',
@@ -416,7 +417,7 @@ function buttonDown(id) {
     'x' : '48',
    'y' : '83',
   });
-  /*} else if (id == 'bstart') {
+  } else if (id == 'bstart') {
     setAttributes(shadow, {
     'fill': 'transparent',
   });
@@ -433,7 +434,7 @@ function buttonDown(id) {
     'x' : '48',
    'y' : '83',
   });
-  */
+  
   } else {
   setAttributes(shadow, {
     'fill': 'transparent',
@@ -725,10 +726,10 @@ function changeTable() {
 
 
 function start() {
-  buttonDown('bstart');
-  setTimeout(() => {
-    buttonUp('bstart')
-  }, 250);
+//  buttonDown('bstart');
+//  setTimeout(() => {
+//    buttonUp('bstart')
+//  }, 250);
     changeTable();
     let button = document.getElementById("bstart");
     let buttonText = "STOP";
@@ -745,10 +746,10 @@ function start() {
 
 
 function stop() {
-  buttonDown('bstart');
-  setTimeout(() => {
-    buttonUp('bstart')
-  }, 250);
+//  buttonDown('bstart');
+//  setTimeout(() => {
+//    buttonUp('bstart')
+//  }, 250);
   console.log("stop")
     clearTableBody("tableBody");
     clearTableBody("verticalButton");
