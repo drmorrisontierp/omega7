@@ -456,10 +456,12 @@ function buttonDown(id) {
 function buttonUp(id) {
   console.log('up')
   let svg = document.getElementById(id).children[0];
-  let shadow = svg.children[0];
-  let base = svg.children[1];
-  let front = svg.children[2];
-  let text = svg.children[3];
+  let x = 0;
+  if (id !== 'bstart') x = 1;
+  let shadow = svg.children[x];
+  let base = svg.children[x+1];
+  let front = svg.children[x+2];
+  let text = svg.children[x+3];
   let color = toggle ? '#320808' : '#0e2b10';
   if (id == 'kbe') {
     setAttributes(shadow, {
@@ -478,7 +480,7 @@ function buttonUp(id) {
     'fill': '#00000037',
   });
   setAttributes(base, {
-    'fill': '#0e2b10',
+    'fill': color,
   });
   setAttributes(front, {
   'x' : '8%',
