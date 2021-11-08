@@ -843,7 +843,7 @@ function returnAnswer(id) {
                 meter();
                 replaceText("question", questionText);
                 document.getElementById("answer").value = "";
-                document.getElementById("answer").focus();
+               // document.getElementById("answer").focus(); //Mac or windows only?
             }
             else {
                 //wrongAnswer();
@@ -864,11 +864,11 @@ function returnAnswer(id) {
                 }
                 meter();
                 document.getElementById("answer").value = "";
-                document.getElementById("answer").focus();
+              //  document.getElementById("answer").focus(); //Mac or windows only?
             }
         }
         else {
-            document.getElementById("answer").focus();
+            //document.getElementById("answer").focus(); //Mac or windows only?
         }
         //timerStart();
     }
