@@ -400,7 +400,7 @@ function drawButton(id) {
 
 function buttonDown(id) {
   let x = 0;
-  if (id = 'bstart') x = 1;
+//  if (id = 'bstart') x = 1;
   
   let svg = document.getElementById(id).children[0];
   let shadow = svg.children[x];
@@ -460,7 +460,7 @@ function buttonUp(id) {
   console.log('up')
   let svg = document.getElementById(id).children[0];
   let x = 0;
-  if (id == 'bstart') x = 1;
+ // if (id == 'bstart') x = 1;
   let shadow = svg.children[x];
   let base = svg.children[x+1];
   let front = svg.children[x+2];
