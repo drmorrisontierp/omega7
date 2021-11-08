@@ -450,7 +450,9 @@ function buttonDown(id) {
    'y' : '65%',
   });
 }}
-
+          //  <rect x="0" y="4%" rx="5%" ry="5%" width="90%" height="100%" fill="#00000037"/>
+         //   <rect x="4%" y="2%" rx="5%" ry="5%" width="91%" height="96%" fill="#0e2b10"/>
+         //   <rect x="8%" y="2%" rx="5%" ry="5%" width="86%" height="93%" fill="url(#Bob)"/>
 function buttonUp(id) {
   console.log('up')
   let svg = document.getElementById(id).children[0];
@@ -479,10 +481,10 @@ function buttonUp(id) {
     'fill': color,
   });
   setAttributes(front, {
-  'x' : '4%',
+  'x' : '8%',
    'y' : '2%',
-   'width' : '91%',
-   'height' : '96%',
+   'width' : '86%',
+   'height' : '93%',
   });
   setAttributes(text, {
     'x' : '50%',
