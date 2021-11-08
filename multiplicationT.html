@@ -140,7 +140,7 @@ body {
 }
 #timer_bar {
   flex: 1;
-  align-self: flex-end;
+ /* align-self: flex-end;*/
   background-color: red; 
 }
 /*----numberpad-----*/
@@ -199,10 +199,6 @@ svg{
               <div id="timer_bar"></div>
             </div>
           </div>
-          
-          
-            
-  
           
           <div id="bstart" class="keypad-button" style="grid-area:1/4/3/5;"  onclick="start('bstart')" >
             <svg xmlns="http://www.w3.org/2000/svg">
@@ -311,10 +307,7 @@ let table_y_axis = ['b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
 let verticalMemory = [];
 let horizontalMemory = [];
 let questionText = "";
-let score = document.createTextNode(" / 45");
-let levelText = document.createTextNode("Nivå");
-let levelBoard = document.getElementById("level")
-let scoreBoard = document.getElementById("score");
+
 let timer;
 //let timerHeight = 0;
 //levelBoard.appendChild(levelText);
@@ -453,9 +446,7 @@ function buttonDown(id) {
    'y' : '65%',
   });
 }}
-          //  <rect x="0" y="4%" rx="5%" ry="5%" width="90%" height="100%" fill="#00000037"/>
-         //   <rect x="4%" y="2%" rx="5%" ry="5%" width="91%" height="96%" fill="#0e2b10"/>
-         //   <rect x="8%" y="2%" rx="5%" ry="5%" width="86%" height="93%" fill="url(#Bob)"/>
+
 function buttonUp(id) {
   console.log('up')
   let svg = document.getElementById(id).children[0];
@@ -748,7 +739,7 @@ function start(id) {
     count = 45 - stats.products.length;
     meter();
     button.setAttribute("onClick", "stop('bstart')");
-    document.getElementById("answer").focus();
+  //  document.getElementById("answer").focus(); //Mac or windows only?
     toggle = true;
     timerStart()
 }
