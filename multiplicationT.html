@@ -305,7 +305,7 @@ let toggle = false;
 let stats = get_stats();
 console.log('stats', stats)
 let count = 45 - stats.products.length;
-//document.getElementById('blevel').value = stats.level;
+document.getElementById('timer_bar').style.height = (100-stats.timerHeight).toString() + '%';
 let calculatedAnswer;
 let table_y_axis = ['b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
 let verticalMemory = [];
