@@ -300,6 +300,7 @@ window.store = {
     
 let toggle = false;
 let stats = get_stats();
+console.log('stats', stats)
 let count = 45 - stats.products.length;
 //document.getElementById('blevel').value = stats.level;
 let calculatedAnswer;
@@ -309,7 +310,7 @@ let horizontalMemory = [];
 let questionText = "";
 
 let timer;
-//let timerHeight = 0;
+let timerHeight = 0;
 //levelBoard.appendChild(levelText);
 //scoreBoard.appendChild(score);
 
