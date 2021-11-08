@@ -100,7 +100,7 @@ body {
   height: 100%;
   display: grid;
   overflow: hidden;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr) 0.5fr 0.5fr;
   grid-template-rows: repeat(4, 1fr);
 }
 
@@ -121,7 +121,7 @@ body {
 }
 
 #meter_inner {
-  /*grid-area: 1/1/2/2;*/
+  grid-area: 1/6/5/7;
   display: flex;
   flex: 1;
   height: 90%;
@@ -134,9 +134,9 @@ body {
 }
 
 #timer_inner {
- /* grid-area: 1/2/2/3;*/
+ grid-area: 1/7/5/8;
  flex: 1;
- display: block;
+ display: flex;
  flex-direction: column;
   height: 90%;
   border: 2px solid #550;
@@ -194,14 +194,14 @@ svg{
             </form>
         </div>
         <div id="numberpad">
-          <div id="meter">
+          <!div id="meter">
             <div id="meter_inner">
               <div id="meter_bar"></div>
             </div>
             <div id="timer_inner">
               <div id="timer_bar"></div>
             </div>
-          </div>
+          <!/div>
           
           <div id="bstart" class="keypad-button" style="grid-area:1/4/3/5;"  onclick="start('bstart')" >
             <svg xmlns="http://www.w3.org/2000/svg">
