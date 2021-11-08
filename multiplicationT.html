@@ -310,7 +310,7 @@ let horizontalMemory = [];
 let questionText = "";
 
 let timer;
-let timerHeight = 0;
+//let timerHeight = 0;
 //levelBoard.appendChild(levelText);
 //scoreBoard.appendChild(score);
 
@@ -569,6 +569,7 @@ function meter() {
 
 function timerStart() {
   //  let timerHeight = 0;
+  stats.timerHeight = 0;
   //  document.getElementById('timer_bar').style.height = '0%';
     timer = setInterval(() => {
       //console.log(stats.timerHeight)
@@ -763,7 +764,7 @@ function stop(id) {
     questionText = "............";
     replaceText("question", questionText);
     replaceText("start-text", buttonText);
-    button.setAttribute("onClick", "start()");
+    button.setAttribute("onClick", "start('bstart')");
     toggle = false;
     clearInterval(timer)
     saveStats()
