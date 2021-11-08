@@ -400,7 +400,7 @@ function drawButton(id) {
 
 function buttonDown(id) {
   let x = 0;
-//  if (id = 'bstart') x = 1;
+  if (id == 'bstart') x = 1;
   
   let svg = document.getElementById(id).children[0];
   let shadow = svg.children[x];
@@ -418,8 +418,8 @@ function buttonDown(id) {
     'x' : '48',
    'y' : '83',
   });
-  } /*
-  if (id === 'bstart') {
+  }
+  if (id == 'bstart') {
     console.log('bstart')
     setAttributes(shadow, {
     'fill': 'transparent',
@@ -437,7 +437,7 @@ function buttonDown(id) {
     'x' : '155%',
    'y' : '-7%',
   });
-  } */
+  }
   if (id !== 'bstart' && id !== 'kbe') {
   setAttributes(shadow, {
     'fill': 'transparent',
@@ -460,7 +460,7 @@ function buttonUp(id) {
   console.log('up')
   let svg = document.getElementById(id).children[0];
   let x = 0;
- // if (id == 'bstart') x = 1;
+  if (id == 'bstart') x = 1;
   let shadow = svg.children[x];
   let base = svg.children[x+1];
   let front = svg.children[x+2];
@@ -478,7 +478,7 @@ function buttonUp(id) {
    'y' : '81',
   });
   } 
-  /*if (id === 'bstart') {
+  if (id == 'bstart') {
   setAttributes(shadow, {
     'fill': '#00000037',
   });
@@ -495,7 +495,7 @@ function buttonUp(id) {
     'x' : '150%',
    'y' : '-8%',
   });
-  }*/
+  }
   if (id !== 'bstart' && id !== 'kbe'){
   setAttributes(shadow, {
     'fill': '#00000037',
@@ -735,10 +735,10 @@ function changeTable() {
 
 
 function start(id) {
-  //buttonDown(id);
-  //setTimeout(() => {
- //   buttonUp(id)
-//  }, 250);
+  buttonDown(id);
+  setTimeout(() => {
+    buttonUp(id)
+  }, 250);
     changeTable();
     let button = document.getElementById("bstart");
     let buttonText = "STOP";
@@ -755,10 +755,10 @@ function start(id) {
 
 
 function stop(id) {
- // buttonDown(id);
- //   setTimeout(() => {
- //   buttonUp(id)
- //   }, 250);
+  buttonDown(id);
+    setTimeout(() => {
+    buttonUp(id)
+    }, 250);
   console.log("stop")
     clearTableBody("tableBody");
     clearTableBody("verticalButton");
