@@ -780,9 +780,9 @@ function addValue(val, id) {
   setTimeout(() => {
     buttonUp(id)
   }, 250);
-    if (toggle) {
+    
         document.getElementById("answer").value += val;
-    }
+    
 
 }
 
@@ -792,11 +792,11 @@ function deleteValue(id) {
   setTimeout(() => {
     buttonUp(id)
   }, 250);
-    if (toggle) {
+    
         let oldString = document.getElementById("answer").value;
         let newString = oldString.slice(0, -1);
         document.getElementById("answer").value = newString;
-    }
+    
 }
 
 
@@ -815,8 +815,8 @@ function returnAnswer(id) {
   setTimeout(() => {
     buttonUp(id)
   }, 250);
-    if (toggle) {
         let answer = document.getElementById("answer").value;
+    if (toggle) {
         if (answer) {
             intAnswer = parseInt(answer);
             if (intAnswer == calculatedAnswer) {
@@ -867,6 +867,10 @@ function returnAnswer(id) {
             //document.getElementById("answer").focus(); //Mac or windows only?
         }
         //timerStart();
+    } else {
+      if (answer == '911') {
+        clearStats()
+      }
     }
 }
 
