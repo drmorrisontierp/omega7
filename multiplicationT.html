@@ -204,7 +204,7 @@ svg{
             
   
           
-          <div id="bstart" class="keypad-button" style="grid-area:1/4/3/5;"  onclick="start()" >
+          <div id="bstart" class="keypad-button" style="grid-area:1/4/3/5;"  onclick="start('bstart')" >
             <svg xmlns="http://www.w3.org/2000/svg">
               <defs>
               <linearGradient id="Bob">
@@ -419,7 +419,7 @@ function buttonDown(id) {
    'y' : '83',
   });
   } 
-  if (id == 'bstart') {
+  if (id === 'bstart') {
     console.log('bstart')
     setAttributes(shadow, {
     'fill': 'transparent',
@@ -734,10 +734,10 @@ function changeTable() {
 }
 
 
-function start() {
-  buttonDown('bstart');
+function start(id) {
+  buttonDown(id);
   setTimeout(() => {
-    buttonUp('bstart')
+    buttonUp(id)
   }, 250);
     changeTable();
     let button = document.getElementById("bstart");
@@ -747,17 +747,17 @@ function start() {
     replaceText("start-text", buttonText);
     count = 45 - stats.products.length;
     meter();
-    button.setAttribute("onClick", "stop()");
+    button.setAttribute("onClick", "stop('bstart')");
     document.getElementById("answer").focus();
     toggle = true;
     timerStart()
 }
 
 
-function stop() {
-  buttonDown('bstart');
+function stop(id) {
+  buttonDown(id);
     setTimeout(() => {
-    buttonUp('bstart')
+    buttonUp(id)
     }, 250);
   console.log("stop")
     clearTableBody("tableBody");
