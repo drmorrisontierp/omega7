@@ -419,7 +419,8 @@ function buttonDown(id) {
     'x' : '48',
    'y' : '83',
   });
-  } else if (id == 'bstart') {
+  } 
+  if (id == 'bstart') {
     setAttributes(shadow, {
     'fill': 'transparent',
   });
@@ -437,7 +438,8 @@ function buttonDown(id) {
    'y' : '83%',
   });
   
-  } else {
+  } 
+  if (id !== 'bstart' && id !== 'kbe') {
   setAttributes(shadow, {
     'fill': 'transparent',
   });
@@ -476,8 +478,8 @@ function buttonUp(id) {
     'x' : '50',
    'y' : '81',
   });
-  
-  } else if (id == 'bstart') {
+  } 
+  if (id == 'bstart') {
   setAttributes(shadow, {
     'fill': '#00000037',
   });
@@ -494,7 +496,8 @@ function buttonUp(id) {
     'x' : '50%',
    'y' : '62%',
   });
-  } else {
+  }
+  if (id !== 'bstart' && id !== 'kbe'){
   setAttributes(shadow, {
     'fill': '#00000037',
   });
