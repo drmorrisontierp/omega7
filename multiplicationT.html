@@ -825,7 +825,6 @@ function returnAnswer(id) {
                     else {
                         stats.level = 1;
                     }
-                    document.getElementById('blevel').value = stats.level
                     changeTable();
                     stats.products = newProducts();
                     stats.timerHeight = 0;
@@ -851,6 +850,7 @@ function returnAnswer(id) {
         stats.level = parseInt(answer[2]);
         changeTable();
       }
+                document.getElementById("answer").value = "";
     }}
 }
 
