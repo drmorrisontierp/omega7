@@ -540,6 +540,7 @@ function timerStart() {
       if (stats.timerHeight == 100) {
         if (stats.level > 1) stats.level --;
         stats.timerHeight = 0;
+        document.getElementById('timer_bar').style.height = '100%'
         stop('bstart')
       }
     }, 700)
