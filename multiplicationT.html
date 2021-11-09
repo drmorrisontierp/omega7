@@ -743,7 +743,7 @@ function addValue(val, id) {
     buttonUp(id)
   }, 250);
     
-  document.getElementById("answer").value += val;
+  document.getElementById("answer").innerText += val;
 }
 
 
@@ -753,9 +753,9 @@ function deleteValue(id) {
     buttonUp(id)
   }, 250);
     
-    let oldString = document.getElementById("answer").value;
+    let oldString = document.getElementById("answer").innerText;
     let newString = oldString.slice(0, -1);
-    document.getElementById("answer").value = newString;
+    document.getElementById("answer").innerText = newString;
     
 }
 
@@ -775,7 +775,7 @@ function returnAnswer(id) {
   setTimeout(() => {
     buttonUp(id)
   }, 250);
-        let answer = document.getElementById("answer").value;
+        let answer = document.getElementById("answer").innerText;
     if (toggle) {
         if (answer) {
             intAnswer = parseInt(answer);
@@ -783,7 +783,6 @@ function returnAnswer(id) {
                 flashColor('answer', '#d9d9d9', '#008000');
                 if (stats.products.length < 1) {
                     stats.level++;
-                    document.getElementById('blevel').value = stats.level;
                     changeTable();
                     stats.timerHeight = 0;
                 }
@@ -797,7 +796,7 @@ function returnAnswer(id) {
                 count = 45 - stats.products.length;
                 meter();
                 replaceText("question", questionText);
-                document.getElementById("answer").value = "";
+                document.getElementById("answer").innerText = "";
                // todo document.getElementById("answer").focus(); //Mac or windows only?
             }
             else {
@@ -816,7 +815,7 @@ function returnAnswer(id) {
                     count = 45 - stats.products.length
                 }
                 meter();
-                document.getElementById("answer").value = "";
+                document.getElementById("answer").innerText = "";
               // todo document.getElementById("answer").focus(); //Mac or windows only?
             }
         }
@@ -835,7 +834,7 @@ function returnAnswer(id) {
         stats.level = parseInt(answer[2]);
         changeTable();
       }
-      document.getElementById("answer").value = "";
+      document.getElementById("answer").innerText = "";
     }
   }
 }
