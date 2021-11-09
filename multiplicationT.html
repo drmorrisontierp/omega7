@@ -846,6 +846,10 @@ function returnAnswer(id) {
       if (answer == '911') {
         clearStats()
       }
+      if (answer.slice(0,1) == '77') {
+        stats.level = parseInt(answer[2]);
+        changeTable();
+      }
     }
 }
 
