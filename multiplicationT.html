@@ -32,7 +32,7 @@ body {
   grid-area: 1/1/2/2;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-rows: repeat(2, 1fr);
 }
 
 /*-----top------*/
@@ -43,16 +43,17 @@ body {
 
 /*-----main-----*/
 #left {
-  grid-area: 1/1/2/2;
+  grid-area: 1/1/3/2;
   display: flex;
 }
 
 #right {
-  grid-area: 1/2/2/3;
+  grid-area: 1/2/3/3;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
 }
+
 
 /*-----left------*/
 #table {
