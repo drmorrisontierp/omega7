@@ -845,6 +845,7 @@ function returnAnswer(id) {
         clearStats()
       }
       if (answer.slice(0,1) == '77') {
+        console.log(answer)
         stats.level = parseInt(answer[2]);
         changeTable();
       }
