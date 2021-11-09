@@ -537,6 +537,10 @@ function timerStart() {
      // console.log('theight',stats.timerHeight)
       document.getElementById('timer_bar').style.height = (100 - stats.timerHeight).toString() + '%'
       stats.timerHeight += 1;
+      if (stats.timerHeight == 100) {
+        stats.level --;
+        stop()
+      }
     }, 700)
 }
 
