@@ -841,16 +841,17 @@ function returnAnswer(id) {
         }
         //timerStart();
     } else {
+      if (answer.length == 3) {
       if (answer == '911') {
         clearStats()
       }
-      console.log(answer)
-      if (answer.slice(0,1) == '77') {
+      console.log(answer.slice(0,1))
+      if (answer.slice(0,2) == '77') {
         console.log(answer)
         stats.level = parseInt(answer[2]);
         changeTable();
       }
-    }
+    }}
 }
 
 
