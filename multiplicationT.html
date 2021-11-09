@@ -539,7 +539,8 @@ function timerStart() {
       stats.timerHeight += 1;
       if (stats.timerHeight == 100) {
         stats.level --;
-        stop()
+        stats.timerHeight = 0;
+        stop('bstart')
       }
     }, 700)
 }
