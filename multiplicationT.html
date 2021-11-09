@@ -538,7 +538,7 @@ function timerStart() {
       document.getElementById('timer_bar').style.height = (100 - stats.timerHeight).toString() + '%'
       stats.timerHeight += 1;
       if (stats.timerHeight == 100) {
-        stats.level --;
+        if (stats.level > 1) stats.level --;
         stats.timerHeight = 0;
         stop('bstart')
       }
