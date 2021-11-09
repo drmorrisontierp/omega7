@@ -542,6 +542,7 @@ function timerStart() {
         stats.timerHeight = 0;
         document.getElementById('timer_bar').style.height = '100%';
         document.getElementById('answer').value = '';
+        changeTable();
         stop('bstart')
       }
     }, 700)
