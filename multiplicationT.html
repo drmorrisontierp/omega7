@@ -300,7 +300,7 @@ function createSVGElement(tag) {
 }
 
 function setAttributes (el, atts) {
-    Object.entries(atts).forEach(([key, value]) => { // note () around [k,v]!!!
+    Object.entries(atts).forEach(([key, value]) => {
         el.setAttribute(key, value);
     });
 };
@@ -387,7 +387,6 @@ function buttonDown(id) {
   });
   }
   if (id == 'bstart') {
-    console.log('bstart')
     setAttributes(shadow, {
     'fill': 'transparent',
   });
@@ -528,21 +527,12 @@ function replaceText(id, string) {
 
 
 function meter() {
-  //console.log(count)
   let meterHeight = 100*(count/45);
   console.log('meter', meterHeight.toString() + 'px')
   document.getElementById('meter_bar').style.height = meterHeight.toString() + 'px';
-  
-  //  let scoreText = count + " / 45";
-  //  let levelText = "Nivå " + stats.level;
-  //  replaceText("score", scoreText);
-  //  replaceText("level", levelText);
 }
 
 function timerStart() {
-  //  let timerHeight = 0;
- // stats.timerHeight = 0;
-  //  document.getElementById('timer_bar').style.height = '0%';
     timer = setInterval(() => {
      // console.log('theight',stats.timerHeight)
       document.getElementById('timer_bar').style.height = (100 - stats.timerHeight).toString() + '%'
@@ -686,16 +676,6 @@ function changeTable() {
             row.childNodes[e].innerText = ''
         }
     }
-  /*  for (let i = 1; i < max; i++) {
-        let row = document.getElementById(rows[i]);
-        for (let e = 1; e < max; e++) {
-            row.deleteCell(e);
-            let _id = table_y_axis[i - 1] + e.toString();
-            row.insertCell(e).innerText = "";
-            row.childNodes[e].setAttribute("id", _id);
-            row.childNodes[e].setAttribute("class", "tableBody");
-        }
-    } */
 }
 
 
@@ -713,7 +693,7 @@ function start(id) {
     count = 45 - stats.products.length;
     meter();
     button.setAttribute("onClick", "stop('bstart')");
-  //  document.getElementById("answer").focus(); //Mac or windows only?
+  // todo document.getElementById("answer").focus(); //Mac or windows only?
     toggle = true;
     timerStart()
 }
@@ -750,9 +730,7 @@ function addValue(val, id) {
     buttonUp(id)
   }, 250);
     
-        document.getElementById("answer").value += val;
-    
-
+  document.getElementById("answer").value += val;
 }
 
 
@@ -762,9 +740,9 @@ function deleteValue(id) {
     buttonUp(id)
   }, 250);
     
-        let oldString = document.getElementById("answer").value;
-        let newString = oldString.slice(0, -1);
-        document.getElementById("answer").value = newString;
+    let oldString = document.getElementById("answer").value;
+    let newString = oldString.slice(0, -1);
+    document.getElementById("answer").value = newString;
     
 }
 
@@ -789,7 +767,6 @@ function returnAnswer(id) {
         if (answer) {
             intAnswer = parseInt(answer);
             if (intAnswer == calculatedAnswer) {
-                //rightAnswer();
                 flashColor('answer', '#d9d9d9', '#008000');
                 if (stats.products.length < 1) {
                     stats.level++;
@@ -808,10 +785,9 @@ function returnAnswer(id) {
                 meter();
                 replaceText("question", questionText);
                 document.getElementById("answer").value = "";
-               // document.getElementById("answer").focus(); //Mac or windows only?
+               // todo document.getElementById("answer").focus(); //Mac or windows only?
             }
             else {
-                //wrongAnswer();
                 flashColor('answer', '#d9d9d9', '#ff0000')
                 stats.products.push(questionText)
                 if (stats.products.length == 50) {
@@ -828,11 +804,11 @@ function returnAnswer(id) {
                 }
                 meter();
                 document.getElementById("answer").value = "";
-              //  document.getElementById("answer").focus(); //Mac or windows only?
+              // todo document.getElementById("answer").focus(); //Mac or windows only?
             }
         }
         else {
-            //document.getElementById("answer").focus(); //Mac or windows only?
+            //todo document.getElementById("answer").focus(); //Mac or windows only?
         }
         //timerStart();
     } else {
@@ -846,8 +822,9 @@ function returnAnswer(id) {
         stats.level = parseInt(answer[2]);
         changeTable();
       }
-                document.getElementById("answer").value = "";
-    }}
+      document.getElementById("answer").value = "";
+    }
+  }
 }
 
 
@@ -876,9 +853,6 @@ function clearStats() {
  return 0
 }
 
-    </script>
-
-
-
+</script>
 </body>
 </html>
