@@ -844,6 +844,7 @@ function returnAnswer(id) {
       if (answer == '911') {
         clearStats()
       }
+      console.log(answer)
       if (answer.slice(0,1) == '77') {
         console.log(answer)
         stats.level = parseInt(answer[2]);
