@@ -47,7 +47,7 @@ body {
 }
 @media screen and (orientation: portrait) {
   #table {grid-area: 1/1/2/3;}
-  #right {grid-area: 2/1/3/3;}
+  #numberpad {grid-area: 2/1/3/3;}
 }
 
 /*-----left------*/
@@ -160,7 +160,6 @@ svg{
                 <div class="table-row" id="one" style="grid-area: 10/1/11/2;"></div>
         
     </div>
-    <div id="right">
         <div id="numberpad">
         <div id="display-screen">
           <svg xmlns="http://www.w3.org/2000/svg">
@@ -225,7 +224,6 @@ svg{
           <div class="keypad-button" id="kb9" style="grid-area:2/3/3/4;" onclick="addValue('9', 'kb9')"></div>
         </div>
       
-    </div>
     </div>
 <script src="//cdn.jsdelivr.net/npm/eruda"></script>
 <script>eruda.init();</script>
