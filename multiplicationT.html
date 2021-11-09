@@ -286,9 +286,6 @@ let horizontalMemory = [];
 let questionText = "";
 
 let timer;
-//let timerHeight = 0;
-//levelBoard.appendChild(levelText);
-//scoreBoard.appendChild(score);
 
 growTable();
 
@@ -425,7 +422,6 @@ function buttonDown(id) {
 }}
 
 function buttonUp(id) {
-  console.log('up')
   let svg = document.getElementById(id).children[0];
   let x = 0;
   if (id == 'bstart') x = 1;
@@ -548,7 +544,7 @@ function timerStart() {
  // stats.timerHeight = 0;
   //  document.getElementById('timer_bar').style.height = '0%';
     timer = setInterval(() => {
-      console.log('theight',stats.timerHeight)
+     // console.log('theight',stats.timerHeight)
       document.getElementById('timer_bar').style.height = (100 - stats.timerHeight).toString() + '%'
       stats.timerHeight += 1;
     }, 700)
