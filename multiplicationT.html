@@ -63,7 +63,7 @@ body {
 }
 /*-----right-----*/
 #display-screen {
-  grid-area: 1/1/2/8;
+  grid-area: 1/1/2/7;
     padding: 5%;
     border: 2px solid #550;
     background-color: #cae8cb;
@@ -93,7 +93,7 @@ body {
 }
 
 #meter_inner {
-  grid-area: 1/5/5/6;
+  grid-area: 2/5/6/6;
   display: flex;
   height: 90%;
   border: 2px solid #550;
@@ -108,7 +108,7 @@ body {
 }
 
 #timer_inner {
- grid-area: 1/6/5/7;
+ grid-area: 2/6/6/7;
  display: flex;
   height: 90%;
   border: 2px solid #550;
@@ -137,7 +137,7 @@ svg{
 @media screen and (max-width : 500px){
   #numberpad {
     grid-template-columns: repeat(4, 60px) 30px 30px;
-    grid-template-rows: repeat(4, 60px);
+    grid-template-rows: 90px repeat(4, 60px);
 }
 
 
@@ -161,6 +161,7 @@ svg{
         
     </div>
     <div id="right">
+        <div id="numberpad">
         <div id="display-screen">
           <svg xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -177,7 +178,6 @@ svg{
             <text id="answer" x="56%" y="50%" text-anchor="middle" stroke="black" fill="white">ANS</text> 
             </svg>
         </div>
-        <div id="numberpad">
             <div id="meter_inner">
               <div id="meter_bar"></div>
             </div>
