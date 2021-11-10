@@ -13,9 +13,12 @@
     margin: 0;
     padding: 0;
 }
-
+html {
+  height: 100%;
+  width: 100%;
+}
 body {
-    background-color: #cce6ff;
+    background-color: black;
 width: 100%;
 height: 100%;
 }
@@ -42,6 +45,7 @@ height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(10, 1fr);
+  justify-self: center;
 }
 .table-row {
   display: grid;
@@ -131,7 +135,7 @@ svg{
 
 @media screen and (orientation: landscape) {
   #table {grid-area: 1/1/2/2; margin-right: 5%;}
-  #numberpad {grid-area: 1/2/2/3;}
+  #numberpad {grid-area: 1/2/2/3; margin-top: 5%;}
 }
 
 @media screen and (max-width : 500px){
