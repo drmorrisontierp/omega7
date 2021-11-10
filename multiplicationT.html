@@ -489,10 +489,13 @@ function buttonUp(id) {
 
 
 function flashColor(id, colorOne, colorTwo) {
-  let target = document.getElementById(id)
-  target.fill = colorTwo;
+  setAttributes({
+    'fill' : colorTwo,
+  })
   setTimeout(() => {
-    target.style.backgroundColor = colorOne;
+    setAttributes({
+      'fill' : colorOne,
+    });
   }, 500)
 }
 
