@@ -377,6 +377,27 @@ function drawButton(id) {
  document.getElementById(id).appendChild(svg)
 }
 
+function drawTableButton(id, label) {
+  let svg = createSVGElement('svg');
+  let shadow = createSVGElement('rect');
+  let base = createSVGElement('rect');
+  let front = createSVGElement('rect');
+  let text = createSVGElement('text');
+  let node = document.createTextNode(label);
+  text.appendChild(node)
+  setAttributes(shadow, {
+   'rx' : '5%',
+   'ry' : '5%',
+   'x' : '0%',
+   'y' : '6%',
+   'width' : '90%',
+   'height' : '100%',
+   'fill' : '#00000037',
+ });
+
+}
+
+
 function buttonDown(id) {
   let x = 0;
   if (id == 'bstart') x = 1;
