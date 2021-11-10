@@ -809,9 +809,7 @@ function returnAnswer(id) {
                 meter();
                 replaceText("question", questionText);
                 document.getElementById("answer").innerHTML = "";
-               // todo document.getElementById("answer").focus(); //Mac or windows only?
-            }
-            else {
+            } else {
                 flashColor('answer', '#d9d9d9', '#ff0000')
                 stats.products.push(questionText)
                 if (stats.products.length == 50) {
@@ -828,13 +826,11 @@ function returnAnswer(id) {
                 }
                 meter();
                 document.getElementById("answer").innerHTML = "";
-              // todo document.getElementById("answer").focus(); //Mac or windows only?
             }
         }
         else {
-            //todo document.getElementById("answer").focus(); //Mac or windows only?
+          console.log('else')
         }
-        //timerStart();
     } else {
       if (answer.length == 3) {
       if (answer == '911') {
@@ -846,7 +842,8 @@ function returnAnswer(id) {
         stats.level = parseInt(answer[2]);
         changeTable();
       }
-      document.getElementById("answer").innerHTML = "";
+      //document.getElementById("answer").innerHTML = "";
+      replaceText('answer', '')
     }
   }
 }
