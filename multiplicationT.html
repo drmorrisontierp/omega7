@@ -802,7 +802,7 @@ function returnAnswer(id) {
                 count = 45 - stats.products.length;
                 meter();
                 replaceText("question", questionText);
-                document.getElementById("answer").innerHTML = "";
+                replaceText("answer", questionText);
             } else {
                 flashColor('answer-field', 'cyan', '#ff0000')
                 stats.products.push(questionText)
