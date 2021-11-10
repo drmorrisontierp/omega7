@@ -490,7 +490,7 @@ function buttonUp(id) {
 
 function flashColor(id, colorOne, colorTwo) {
   let target = document.getElementById(id)
-  target.style.backgroundColor = colorTwo;
+  target.fill = colorTwo;
   setTimeout(() => {
     target.style.backgroundColor = colorOne;
   }, 500)
@@ -791,7 +791,7 @@ function returnAnswer(id) {
         if (answer) {
             intAnswer = parseInt(answer);
             if (intAnswer == calculatedAnswer) {
-                flashColor('answer', '#d9d9d9', '#008000');
+                flashColor('answer-field', '#d9d9d9', '#008000');
                 if (stats.products.length < 1) {
                     stats.level++;
                     changeTable();
@@ -809,7 +809,7 @@ function returnAnswer(id) {
                 replaceText("question", questionText);
                 document.getElementById("answer").innerHTML = "";
             } else {
-                flashColor('answer', '#d9d9d9', '#ff0000')
+                flashColor('answer-field', '#d9d9d9', '#ff0000')
                 stats.products.push(questionText)
                 if (stats.products.length == 50) {
                     if (stats.level > 1) {
