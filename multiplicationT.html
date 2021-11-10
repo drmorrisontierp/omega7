@@ -623,6 +623,7 @@ function growTable() {
                 cell.setAttribute("onClick", "colourHorizontal(this.id)");
                 cell.style.gridArea = '1/1/2/2'
                 row.appendChild(cell);
+                drawTableButton(_id,input)
             }
             else if (i == 0) {
                 let input = (e + 1) * (i + 1);
