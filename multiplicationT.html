@@ -379,20 +379,29 @@ function drawButton(id) {
 
 function drawTableButton(id, label) {
   let svg = createSVGElement('svg');
-  let shadow = createSVGElement('rect');
   let base = createSVGElement('rect');
-  let front = createSVGElement('rect');
+  let top = createSVGElement('rect');
+  let shade = createSVGElement('rect');
   let text = createSVGElement('text');
   let node = document.createTextNode(label);
   text.appendChild(node)
-  setAttributes(shadow, {
-   'rx' : '5%',
-   'ry' : '5%',
+  setAttributes(base, {
+   'rx' : '2%',
+   'ry' : '2%',
    'x' : '0%',
    'y' : '6%',
-   'width' : '90%',
+   'width' : '100%',
    'height' : '100%',
-   'fill' : '#00000037',
+   'fill' : '#000000',
+ });
+ setAttributes(top, {
+   'rx' : '2%',
+   'ry' : '2%',
+   'x' : '4%',
+   'y' : '4%',
+   'width' : '100%',
+   'height' : '100%',
+   'fill' : '#562c19',
  });
 
 }
