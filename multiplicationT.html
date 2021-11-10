@@ -9,10 +9,10 @@
   <meta name="Michael Morrison" content="SitePoint">
 
   <style type="text/css">
-/** {
+{
     margin: 0;
     padding: 0;
-}*/
+}
 
 body {
     background-color: #cce6ff;
@@ -138,7 +138,11 @@ svg{
     grid-template-columns: repeat(4, 78px) 39px 39px;
     grid-template-rows: 84px repeat(4, 74px);
 }
-
+.table-row {
+  grid-template-columns: repeat(10, 35px);
+  grid-template-rows: 35px;
+}
+}
 
   </style>
 
@@ -410,10 +414,11 @@ function drawTableButton(id, label) {
    'y' : '6%',
    'width' : '84%',
    'height' : '84%',
-   'fill' : 'url(#Flat)',
+   'fill' : '#ffffff33'
+   //'fill' : 'url(#Flat)',
  });
  svg.appendChild(base);
- svg.appendChild(front);
+ svg.appendChild(top);
  svg.appendChild(shade);
  svg.appendChild(text);
  document.getElementById(id).appendChild(svg)
@@ -616,9 +621,9 @@ function growTable() {
                 let input = (e + 1) * (i + 1);
                 let _id = "hbtn" + i.toString();
                 let functionCall = "colourHorizontal('" + _id + "')";
-                let cell = document.createElement('button');
-                cell.innerHTML = input;
-                cell.className = "horizontalButton";
+                let cell = document.createElement('div');
+                //cell.innerHTML = input;
+                //cell.className = "horizontalButton";
                 cell.id = _id;
                 cell.setAttribute("onClick", "colourHorizontal(this.id)");
                 cell.style.gridArea = '1/1/2/2'
