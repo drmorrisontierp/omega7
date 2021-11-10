@@ -735,7 +735,7 @@ function stop(id) {
     questionText = "............";
     
     replaceText("question", "............");
-    replaceText("answer", "............");
+ //   replaceText("answer", "............");
     replaceText("start-text", buttonText);
     button.setAttribute("onClick", "start('bstart')");
     toggle = false;
@@ -751,6 +751,10 @@ function addValue(val, id) {
     buttonUp(id)
   }, 250);
     
+  let answer = document.getElementById("answer").innerHTML;
+  if (answer.includes('.')) {
+    document.getElementById('answer').innerHTML = "";
+  }
   document.getElementById("answer").innerHTML += val;
 }
 
