@@ -641,7 +641,7 @@ function growTable() {
                 let functionCall = "colourHorizontal('" + _id + "')";
                 let cell = document.createElement('div');
                 //cell.innerHTML = input;
-                //cell.className = "horizontalButton";
+                cell.className = "horizontalButton";
                 cell.id = _id;
                 
                 cell.setAttribute("onClick", "colourHorizontal(this.id)");
@@ -655,7 +655,7 @@ function growTable() {
                 let functionCall = "colourVertical('" + _id + "')";
                 let cell = document.createElement('div');
                 //cell.innerHTML = input;
-                //cell.className = "verticalButton";
+                cell.className = "verticalButton";
                 cell.id = _id;
                 cell.setAttribute("onClick", "colourVertical(this.id)");
                 cell.style.gridArea = (row).toString() + '/' + (e+1).toString() + '/'+ (row+1).toString() + '/' + (e+2).toString();
@@ -746,7 +746,7 @@ function colourHorizontal(text) {
 
 
 function changeTable() {
-    let rows = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+    let rows = ["b", "c", "d", "e", "f", "g", "h", "i", "j"];
     let max = stats.level;
     clearTableBody("tableBody");
     clearTableBody("verticalButton");
@@ -754,10 +754,11 @@ function changeTable() {
     verticalMemory = [];
     horizontalMemory = [];
     for (let i = 1; i < 10; i++) {
-        let row = document.getElementById(rows[i]);
+        let row = rows[i];
         for (let e = 1; e < 10; e++) {
-            let _id = ((i+1) * (e +1)).toString();
-            row.childNodes[e].innerText = _id;
+            let value = ((i+1) * (e +1)).toString();
+            let id = row + (e + 1).toString();
+            document.getElementById(id).innerText = value;
         }
     }
     for (let i = 1; i < max; i++) {
