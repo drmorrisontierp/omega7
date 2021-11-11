@@ -864,14 +864,14 @@ function addValue(val, id) {
   }, 250);
     
   let answer = document.getElementById("answer").innerHTML;
-  if (answer.length < 3){
   if (answer.includes('.')) {
     document.getElementById('answer').innerHTML = "";
-  } else {
+  }
+  if (answer.length < 3){
   answer += val;
   replaceText('answer', answer)
 }
-}}
+}
 
 function deleteValue(id) {
   buttonDown(id);
