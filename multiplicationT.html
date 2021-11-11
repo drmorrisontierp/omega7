@@ -936,6 +936,8 @@ function returnAnswer(id) {
         }
     } else {
       if (answer.length == 3) {
+      if (answer == '110') timerOn = false;
+      if (answer == '111') timerOn = true;
       if (answer == '911') {
         clearStats()
       }
