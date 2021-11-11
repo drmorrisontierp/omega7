@@ -762,10 +762,10 @@ function colourVertical(text) {
 function colourHorizontal(text) {
     if (toggle) {
       console.log('pressed horix')
-        clearTableBody('horizontalButton', '#562c19')
+        tableButtonsUp('horizontalButton')
         clearTableBody('tableBody', '#7b7853')
         let button = document.getElementById(text);
-        button.style.backgroundColor = "#ff9999";
+        tableButtonDown(text)
         let id_number = text[4];
         horizontalMemory = []
         for (let i = 0; i < 9; i++) {
