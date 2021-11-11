@@ -878,9 +878,11 @@ function deleteValue(id) {
   }, 250);
     
     let oldString = document.getElementById("answer").innerHTML;
+    
     if (oldString.length > 0) {
     let newString = oldString.slice(0, -1);
-    document.getElementById("answer").innerHTML = newString;
+    //document.getElementById("answer").innerHTML = newString;
+    replaceText('answer', newString)
     }
 }
 
