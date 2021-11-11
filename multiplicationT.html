@@ -935,7 +935,8 @@ function returnAnswer(id) {
                     count = 45 - stats.products.length
                 }
                 meter();
-                document.getElementById("answer").innerHTML = "";
+               // document.getElementById("answer").innerHTML = "";
+               replaceText('answer', '')
             }
         }
         else {
