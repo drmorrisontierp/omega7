@@ -758,6 +758,7 @@ function changeTable() {
         for (let e = 1; e < 10; e++) {
             let value = ((i+1) * (e +1)).toString();
             let id = row + (e + 1).toString();
+            console.log(id)
             document.getElementById(id).innerText = value;
         }
     }
@@ -766,6 +767,7 @@ function changeTable() {
         for (let e = 1; e < max; e++) {
             //let _id = table_y_axis[i - 1] + e.toString();
             let id = row + e.toString();
+            console.log('id', id)
             document.getElementById(id).innerText = ''
         }
     }
