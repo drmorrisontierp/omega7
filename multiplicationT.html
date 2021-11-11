@@ -746,14 +746,14 @@ function colourHorizontal(text) {
 
 
 function changeTable() {
-    let rows = ["b", "c", "d", "e", "f", "g", "h", "i", "j"];
+    let rows = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
     let max = stats.level;
     clearTableBody("tableBody");
     clearTableBody("verticalButton");
     clearTableBody("horizontalButton");
     verticalMemory = [];
     horizontalMemory = [];
-    for (let i = 0; i < 9; i++) {
+    for (let i = 1; i < 10; i++) {
         let row = rows[i];
         for (let e = 1; e < 10; e++) {
             let value = ((i+1) * (e +1)).toString();
