@@ -563,7 +563,6 @@ function buttonUp(id) {
 
 function tableButtonUp(id) {
   let svg = document.getElementById(id).children[0];
-  let x = 0;
   let shade = svg.children[2];
   let text = svg.children[3];
   setAttributes(shade, {
@@ -573,7 +572,6 @@ function tableButtonUp(id) {
    'y' : '2%',
    'width' : '90%',
    'height' : '92%',
-   //'fill' : '#ffffff33'
    'fill' : 'url(#Flat)',
  });
   setAttributes(text, {
@@ -582,9 +580,8 @@ function tableButtonUp(id) {
   });
   }
   
-  function tableButtonUp(id) {
+  function tableButtonDown(id) {
   let svg = document.getElementById(id).children[0];
-  let x = 0;
   let shade = svg.children[2];
   let text = svg.children[3];
   setAttributes(shade, {
