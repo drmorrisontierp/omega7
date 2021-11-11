@@ -743,12 +743,12 @@ function colourHorizontal(text) {
         }
         console.log(horizontalMemory)
         for (let i = 0; i < verticalMemory.length; i++) {
-            verticalMemory[i].style.backgroundColor = "#ff9999";
+            verticalMemory[i].setAttribute('fill', '#ff9999');
         }
         for (let i = 0; i < verticalMemory.length; i++) {
             for (let j = 0; j < horizontalMemory.length; j++) {
                 if (verticalMemory[i] === horizontalMemory[j]) {
-                    verticalMemory[i].style.backgroundColor = "#ff0000";
+                    verticalMemory[i].setAttribute('fill','#ff0000');
                 //    verticalMemory[i].style.color = "#ffffff";
                 }
             }
