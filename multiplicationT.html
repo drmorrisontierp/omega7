@@ -81,7 +81,7 @@ body {
  display: flex;
   height: 90%;
   border: 2px solid #550;
-  background-image: linear-gradient(to right, red, orange, red);
+  background-image: linear-gradient(to right, #068700, #7ffc8c, #068700);
 }
 #timer_bar {
   display: flex;
@@ -893,6 +893,7 @@ function returnAnswer(id) {
         let answer = document.getElementById("answer").innerHTML;
     if (toggle) {
         if (answer) {
+          let levelMod = stats.level*2;
             intAnswer = parseInt(answer);
             if (intAnswer == calculatedAnswer) {
                 flashColor('answer-field', 'cyan', '#008000');
@@ -900,10 +901,12 @@ function returnAnswer(id) {
                     stats.level++;
                     changeTable();
                     stats.timerHeight = 0;
+                    stop('bstart')
+                    return 0
                 }
                 newQuestion();
                 clearInterval(timer)
-                stats.timerHeight -= 10;
+                stats.timerHeight -= levelMod;
                 if (stats.timerHeight < 0) {
                   stats.timerHeight = 0;
                 }
