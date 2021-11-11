@@ -660,7 +660,7 @@ function meter() {
 }
 
 function timerStart() {
-  levelMod = 4/stats.level;
+  levelMod = 6/stats.level;
     timer = setInterval(() => {
       document.getElementById('timer_bar').style.height = (100 - stats.timerHeight).toString() + '%'
       stats.timerHeight += 1;
