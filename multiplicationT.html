@@ -688,18 +688,18 @@ function growTable() {
 }
 
 
-function clearTableBody(className) {
+function clearTableBody(className, color) {
     let tableBodies = document.getElementsByClassName(className);
     for (let i = 0; i < tableBodies.length; i++) {
-        tableBodies[i].children[0].children[1].setAttribute('fill', '#7b7853');
+        tableBodies[i].children[0].children[1].setAttribute('fill', color);
     }
 }
 
 
 function colourVertical(text) {
     if (toggle) {
-        clearTableBody("verticalButton")
-        clearTableBody("tableBody")
+        clearTableBody('verticalButton', '#562c19')
+        clearTableBody('tableBody', '#7b7853')
         let button = document.getElementById(text);
         button.style.backgroundColor = "#ff9999";
         let id_number = text[4];
@@ -728,8 +728,8 @@ function colourVertical(text) {
 function colourHorizontal(text) {
     if (toggle) {
       console.log('pressed horix')
-        clearTableBody("horizontalButton")
-        clearTableBody("tableBody")
+        clearTableBody('horizontalButton', '#562c19')
+        clearTableBody('tableBody', '#7b7853')
         let button = document.getElementById(text);
         button.style.backgroundColor = "#ff9999";
         let id_number = text[4];
@@ -759,9 +759,9 @@ function colourHorizontal(text) {
 function changeTable() {
     let rows = ["a", "b", "c", "d", "e", "f", "g", "h", "k", "l"];
     let max = stats.level;
-    clearTableBody("tableBody");
-    clearTableBody("verticalButton");
-    clearTableBody("horizontalButton");
+    clearTableBody('tableBody', '#7b7853');
+    clearTableBody('verticalButton', '#562c19');
+    clearTableBody('horizontalButton', '#562c19');
     verticalMemory = [];
     horizontalMemory = [];
     for (let i = 1; i < 10; i++) {
@@ -808,9 +808,9 @@ function stop(id) {
     buttonUp(id)
     }, 250);
   console.log("stop")
-    clearTableBody("tableBody");
-    clearTableBody("verticalButton");
-    clearTableBody("horizontalButton");
+    clearTableBody('tableBody', '#7b7853');
+    clearTableBody('verticalButton', '#562c19');
+    clearTableBody('horizontalButton', '#562c19');
     verticalMemory = [];
     horizontalMemory = [];
     stats.products.push(questionText);
