@@ -783,7 +783,7 @@ function changeTable() {
             let value = ((i+1) * (e +1)).toString();
             let id = row + (e).toString();
             console.log(id)
-            document.getElementById(id).innerText = value;
+            document.getElementById(id).children[3].innerText = value;
         }
     }
     for (let i = 1; i < max; i++) {
@@ -792,7 +792,9 @@ function changeTable() {
             //let _id = table_y_axis[i - 1] + e.toString();
             let id = row + e.toString();
             console.log('id', id)
-            document.getElementById(id).innerText = ''
+            console.log(document.getElementById(id).children)
+            
+            document.getElementById(id).children[3].innerText = ''
         }
     }
 }
