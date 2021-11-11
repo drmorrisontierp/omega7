@@ -707,18 +707,18 @@ function colourVertical(text) {
         verticalMemory = []
         for (let i = 0; i < table_y_axis.length; i++) {
             let _id = table_y_axis[i] + id_number;
-            let tableBody = document.getElementById(_id);
+            let tableBody = document.getElementById(_id).children[0].children[1];
             verticalMemory.push(tableBody);
-            tableBody.style.backgroundColor = "#ff9999";
+            tableBody.setAttribute('fill', '#ff9999');
         }
         for (let i = 0; i < horizontalMemory.length; i++) {
-            horizontalMemory[i].style.backgroundColor = "#ff9999";
+            horizontalMemory[i].setAttribute('fill', '#ff9999');
         }
         for (let i = 0; i < verticalMemory.length; i++) {
             for (let j = 0; j < horizontalMemory.length; j++) {
                 if (verticalMemory[i] === horizontalMemory[j]) {
-                    verticalMemory[i].style.backgroundColor = "#ff0000";
-                    verticalMemory[i].style.color = "#ffffff";
+                    verticalMemory[i].setAttribute('fill', '#ff0000');
+                  //  verticalMemory[i].style.color = "#ffffff";
                 }
             }
         }
