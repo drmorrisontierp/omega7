@@ -445,7 +445,7 @@ setAttributes(top, {
    'text-anchor': 'middle',
    'font-size': '1.5em',
    'fill' : 'black',
- }
+ })}
  svg.appendChild(base);
  svg.appendChild(top);
  svg.appendChild(shade);
@@ -680,11 +680,12 @@ function growTable() {
                 let input = (e + 1) * (i + 1);
                 let _id = table_y_axis[i-1] + e.toString();
                 let cell = document.createElement('div');
-                cell.innerHTML = input;
+                //cell.innerHTML = input;
                 cell.className = "tableBody";
                 cell.style.gridArea = (row).toString() + '/' + (e+1).toString() + '/' + (row+1).toString() + '/' + (e+2).toString();
                 cell.id = _id;
                 table.appendChild(cell);
+                drawTableButton(_id,'body',input)
             }
         }
     }
