@@ -561,8 +561,10 @@ function buttonUp(id) {
   });
 }}
 
-function tableButtonUp(id) {
-  let svg = document.getElementById(id).children[0];
+function tableButtonsUp(className) {
+  let buttons = document.getElementsByClassName(className);
+  for (let i = 0; i < buttons.length; i++) {
+  let svg = buttons[i].children[0];
   let shade = svg.children[2];
   let text = svg.children[3];
   setAttributes(shade, {
@@ -579,18 +581,19 @@ function tableButtonUp(id) {
    'fill', 'black',
   });
   }
-  
+}
+
   function tableButtonDown(id) {
   let svg = document.getElementById(id).children[0];
   let shade = svg.children[2];
   let text = svg.children[3];
   setAttributes(shade, {
-   'rx' : '5%',
-   'ry' : '5%',
-   'x' : '6%',
+   'rx' : '2%',
+   'ry' : '2%',
+   'x' : '2%',
    'y' : '2%',
-   'width' : '90%',
-   'height' : '92%',
+   'width' : '96%',
+   'height' : '96%',
    'fill' : '#00000033'
  });
   setAttributes(text, {
@@ -729,10 +732,10 @@ function clearTableBody(className, color) {
 
 function colourVertical(text) {
     if (toggle) {
-        clearTableBody('verticalButton', '#562c19')
+        tableButtonsUp('verticalButton')
         clearTableBody('tableBody', '#7b7853')
         let button = document.getElementById(text);
-        button.style.backgroundColor = "#ff9999";
+        tableButtonDown(text);
         let id_number = text[4];
         verticalMemory = []
         for (let i = 0; i < table_y_axis.length; i++) {
