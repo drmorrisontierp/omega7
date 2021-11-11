@@ -762,10 +762,11 @@ function changeTable() {
         }
     }
     for (let i = 1; i < max; i++) {
-        let row = document.getElementById(rows[i]);
+        let row = rows[i];
         for (let e = 1; e < max; e++) {
-            let _id = table_y_axis[i - 1] + e.toString();
-            row.childNodes[e].innerText = ''
+            //let _id = table_y_axis[i - 1] + e.toString();
+            let id = row + e.toString();
+            document.getElementById(id).innerText = ''
         }
     }
 }
