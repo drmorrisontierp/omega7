@@ -395,7 +395,6 @@ function drawTableButton(id, use, label) {
    'y' : '6%',
    'width' : '82%',
    'height' : '82%',
-   //'fill' : '#ffffff33'
    'fill' : 'url(#Flat)',
  });
  setAttributes(top, {
@@ -432,7 +431,6 @@ setAttributes(shade, {
    'y' : '2%',
    'width' : '90%',
    'height' : '92%',
-   //'fill' : '#ffffff33'
    'fill' : 'url(#Flat)',
  });
  setAttributes(text, {
@@ -658,13 +656,11 @@ function replaceText(id, string) {
 
 function meter() {
   let meterHeight = 100*(count/45);
-  //console.log('meter', meterHeight.toString() + 'px')
   document.getElementById('meter_bar').style.height = meterHeight.toString() + '%';
 }
 
 function timerStart() {
     timer = setInterval(() => {
-     // console.log('theight',stats.timerHeight)
       document.getElementById('timer_bar').style.height = (100 - stats.timerHeight).toString() + '%'
       stats.timerHeight += 1;
       if (stats.timerHeight == 100) {
@@ -751,7 +747,6 @@ function colourVertical(text) {
             for (let j = 0; j < horizontalMemory.length; j++) {
                 if (verticalMemory[i] === horizontalMemory[j]) {
                     verticalMemory[i].setAttribute('fill', '#ff0000');
-                  //  verticalMemory[i].style.color = "#ffffff";
                 }
             }
         }
@@ -950,7 +945,6 @@ function returnAnswer(id) {
         stats.level = parseInt(answer[2]);
         changeTable();
       }
-      //document.getElementById("answer").innerHTML = "";
       replaceText('answer', '')
     }
   }
