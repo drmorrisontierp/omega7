@@ -660,6 +660,7 @@ function meter() {
 }
 
 function timerStart() {
+  levelMod = 4/stats.level;
     timer = setInterval(() => {
       document.getElementById('timer_bar').style.height = (100 - stats.timerHeight).toString() + '%'
       stats.timerHeight += 1;
@@ -671,7 +672,7 @@ function timerStart() {
         changeTable();
         stop('bstart')
       }
-    }, 700)
+    }, 700*levelMod)
 }
 
 function growTable() {
