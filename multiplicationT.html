@@ -384,7 +384,7 @@ function drawButton(id) {
  document.getElementById(id).appendChild(svg)
 }
 
-function drawTableButton(id, label) {
+function drawTableButton(id, use, label) {
   let svg = createSVGElement('svg');
   let base = createSVGElement('rect');
   let top = createSVGElement('rect');
@@ -400,17 +400,8 @@ function drawTableButton(id, label) {
    'width' : '100%',
    'height' : '100%',
    'fill' : '#000000',
- });
- setAttributes(top, {
-   'rx' : '2%',
-   'ry' : '2%',
-   'x' : '4%',
-   'y' : '4%',
-   'width' : '93%',
-   'height' : '92%',
-   'fill' : '#562c19',
- });
- setAttributes(shade, {
+  });
+  setAttributes(shade, {
    'rx' : '5%',
    'ry' : '5%',
    'x' : '8%',
@@ -420,13 +411,41 @@ function drawTableButton(id, label) {
    //'fill' : '#ffffff33'
    'fill' : 'url(#Flat)',
  });
+ if (use == 'button') {
+ setAttributes(top, {
+   'rx' : '2%',
+   'ry' : '2%',
+   'x' : '4%',
+   'y' : '4%',
+   'width' : '93%',
+   'height' : '92%',
+   'fill' : '#562c19',
+ });
+ 
  setAttributes(text, {
    'x' : '50%',
    'y' : '70%',
    'text-anchor': 'middle',
    'font-size': '1.5em',
    'fill' : 'black',
- })
+ })} else {
+setAttributes(top, {
+   'rx' : '2%',
+   'ry' : '2%',
+   'x' : '4%',
+   'y' : '4%',
+   'width' : '93%',
+   'height' : '92%',
+   'fill' : '#562c19',
+ });
+ 
+ setAttributes(text, {
+   'x' : '50%',
+   'y' : '70%',
+   'text-anchor': 'middle',
+   'font-size': '1.5em',
+   'fill' : 'black',
+ }
  svg.appendChild(base);
  svg.appendChild(top);
  svg.appendChild(shade);
