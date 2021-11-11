@@ -401,6 +401,7 @@ function drawTableButton(id, use, label) {
    'height' : '100%',
    'fill' : '#000000',
   });
+ if (use == 'button') {
   setAttributes(shade, {
    'rx' : '5%',
    'ry' : '5%',
@@ -411,7 +412,6 @@ function drawTableButton(id, use, label) {
    //'fill' : '#ffffff33'
    'fill' : 'url(#Flat)',
  });
- if (use == 'button') {
  setAttributes(top, {
    'rx' : '2%',
    'ry' : '2%',
@@ -421,7 +421,7 @@ function drawTableButton(id, use, label) {
    'height' : '92%',
    'fill' : '#562c19',
  });
- 
+
  setAttributes(text, {
    'x' : '50%',
    'y' : '70%',
@@ -438,7 +438,16 @@ setAttributes(top, {
    'height' : '96%',
    'fill' : '#7b7853',
  });
- 
+setAttributes(shade, {
+   'rx' : '5%',
+   'ry' : '5%',
+   'x' : '6%',
+   'y' : '2%',
+   'width' : '90%',
+   'height' : '92%',
+   //'fill' : '#ffffff33'
+   'fill' : 'url(#Flat)',
+ });
  setAttributes(text, {
    'x' : '50%',
    'y' : '70%',
