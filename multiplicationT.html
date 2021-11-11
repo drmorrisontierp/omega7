@@ -661,7 +661,7 @@ function growTable() {
                 cell.setAttribute("onClick", "colourHorizontal(this.id)");
                 cell.style.gridArea = row.toString() + '/1/' + (row+1).toString() +'/2'
                 table.appendChild(cell);
-                drawTableButton(_id,input)
+                drawTableButton(_id,'button' input)
             }
             else if (i == 0) {
                 let input = (e + 1) * (i + 1);
@@ -674,7 +674,7 @@ function growTable() {
                 cell.setAttribute("onClick", "colourVertical(this.id)");
                 cell.style.gridArea = (row).toString() + '/' + (e+1).toString() + '/'+ (row+1).toString() + '/' + (e+2).toString();
                 table.appendChild(cell);
-                drawTableButton(_id,input)
+                drawTableButton(_id,'button',input)
             }
             else {
                 let input = (e + 1) * (i + 1);
