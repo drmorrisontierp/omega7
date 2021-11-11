@@ -291,7 +291,7 @@ let horizontalMemory = [];
 let questionText = "";
 
 let timer;
-
+let timerOn = true;
 growTable();
 
 for (let x = 0; x < 10; x ++){
@@ -660,6 +660,7 @@ function meter() {
 }
 
 function timerStart() {
+  if(timerOn){
   levelMod = 6/stats.level;
     timer = setInterval(() => {
       document.getElementById('timer_bar').style.height = (100 - stats.timerHeight).toString() + '%'
@@ -672,7 +673,7 @@ function timerStart() {
         changeTable();
         stop('bstart')
       }
-    }, 700*levelMod)
+    }, 700*levelMod)}
 }
 
 function growTable() {
