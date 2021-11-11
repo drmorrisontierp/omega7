@@ -738,7 +738,7 @@ function colourHorizontal(text) {
             let _id = table_y_axis[id_number - 1] + (i + 1).toString();
             let tableBody = document.getElementById(_id).children[0].children[1];
             horizontalMemory.push(tableBody);
-            tableBody.style.backgroundColor = "red";
+            tableBody.fill = "red";
         }
         for (let i = 0; i < verticalMemory.length; i++) {
             verticalMemory[i].style.backgroundColor = "#ff9999";
