@@ -954,6 +954,7 @@ function returnAnswer(id) {
       console.log(answer.slice(0,1))
       if (answer.slice(0,2) == '77') {
         console.log(answer)
+        clearStats()
         stats.level = parseInt(answer[2]);
         changeTable();
       }
