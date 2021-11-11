@@ -67,13 +67,13 @@ body {
   height: 90%;
   border: 2px solid #550;
   background-color: black;
-  background-image: linear-gradient(to right, gray, black, gray)
+  background-image: linear-gradient(to right, gray, black, gray);
 }
 #meter_bar {
   flex: 1;
   align-self: flex-end;
   background-color: blue;
-  background-image: linear-gradient(to right, blue, cyan, blue)
+  background-image: linear-gradient(to right, blue, cyan, blue);
 }
 
 #timer_inner {
@@ -81,7 +81,7 @@ body {
  display: flex;
   height: 90%;
   border: 2px solid #550;
-  background-image: linear-gradient(to right, red, orange, red)
+  background-image: linear-gradient(to right, red, orange, red);
 }
 #timer_bar {
   display: flex;
@@ -432,11 +432,11 @@ function drawTableButton(id, use, label) {
 setAttributes(top, {
    'rx' : '2%',
    'ry' : '2%',
-   'x' : '4%',
-   'y' : '4%',
-   'width' : '93%',
-   'height' : '92%',
-   'fill' : '#562c19',
+   'x' : '2%',
+   'y' : '2%',
+   'width' : '96%',
+   'height' : '96%',
+   'fill' : '#7b7853',
  });
  
  setAttributes(text, {
@@ -661,7 +661,7 @@ function growTable() {
                 cell.setAttribute("onClick", "colourHorizontal(this.id)");
                 cell.style.gridArea = row.toString() + '/1/' + (row+1).toString() +'/2'
                 table.appendChild(cell);
-                drawTableButton(_id,'button' input)
+                drawTableButton(_id,'button' ,input)
             }
             else if (i == 0) {
                 let input = (e + 1) * (i + 1);
