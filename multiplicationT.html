@@ -561,6 +561,46 @@ function buttonUp(id) {
   });
 }}
 
+function tableButtonUp(id) {
+  let svg = document.getElementById(id).children[0];
+  let x = 0;
+  let shade = svg.children[2];
+  let text = svg.children[3];
+  setAttributes(shade, {
+   'rx' : '5%',
+   'ry' : '5%',
+   'x' : '6%',
+   'y' : '2%',
+   'width' : '90%',
+   'height' : '92%',
+   //'fill' : '#ffffff33'
+   'fill' : 'url(#Flat)',
+ });
+  setAttributes(text, {
+   'fill', 'black',
+   'fill', 'black',
+  });
+  }
+  
+  function tableButtonUp(id) {
+  let svg = document.getElementById(id).children[0];
+  let x = 0;
+  let shade = svg.children[2];
+  let text = svg.children[3];
+  setAttributes(shade, {
+   'rx' : '5%',
+   'ry' : '5%',
+   'x' : '6%',
+   'y' : '2%',
+   'width' : '90%',
+   'height' : '92%',
+   'fill' : '#00000033'
+ });
+  setAttributes(text, {
+   'fill', 'white',
+   'fill', 'white',
+  });
+  } 
 
 function flashColor(id, colorOne, colorTwo) {
   let base = document.getElementById(id);
