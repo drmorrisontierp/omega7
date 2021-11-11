@@ -956,6 +956,7 @@ function returnAnswer(id) {
         console.log(answer)
         stats = {"products":[],"product":"","level":1, "timerHeight": 0};
         stats.level = parseInt(answer[2]);
+        meter();
         changeTable();
       }
       replaceText('answer', '')
