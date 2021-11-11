@@ -788,8 +788,8 @@ function changeTable() {
     let rows = ["a", "b", "c", "d", "e", "f", "g", "h", "k", "l"];
     let max = stats.level;
     clearTableBody('tableBody', '#7b7853');
-    clearTableBody('verticalButton', '#562c19');
-    clearTableBody('horizontalButton', '#562c19');
+    tableButtonsUp('verticalButton');
+    tableButtonsUp('horizontalButton');
     verticalMemory = [];
     horizontalMemory = [];
     for (let i = 1; i < 10; i++) {
