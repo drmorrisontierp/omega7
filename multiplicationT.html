@@ -728,6 +728,7 @@ function colourVertical(text) {
 
 function colourHorizontal(text) {
     if (toggle) {
+      console.log('pressed horix')
         clearTableBody("horizontalButton")
         clearTableBody("tableBody")
         let button = document.getElementById(text);
@@ -740,6 +741,7 @@ function colourHorizontal(text) {
             horizontalMemory.push(tableBody);
             tableBody.fill = "red";
         }
+        console.log(horizontalMemory)
         for (let i = 0; i < verticalMemory.length; i++) {
             verticalMemory[i].style.backgroundColor = "#ff9999";
         }
