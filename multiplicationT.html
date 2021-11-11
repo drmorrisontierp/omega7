@@ -691,8 +691,7 @@ function growTable() {
 function clearTableBody(className) {
     let tableBodies = document.getElementsByClassName(className);
     for (let i = 0; i < tableBodies.length; i++) {
-        tableBodies[i].style.backgroundColor = "#f5f5f0";
-        tableBodies[i].style.color = "#000000"
+        tableBodies[i].children[0].children[1].setAttribute('fill', '#7b7853');
     }
 }
 
