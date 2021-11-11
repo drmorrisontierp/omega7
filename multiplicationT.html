@@ -893,7 +893,7 @@ function returnAnswer(id) {
         let answer = document.getElementById("answer").innerHTML;
     if (toggle) {
         if (answer) {
-          let levelMod = stats.level*2;
+          let levelMod = stats.level*1.5;
             intAnswer = parseInt(answer);
             if (intAnswer == calculatedAnswer) {
                 flashColor('answer-field', 'cyan', '#008000');
@@ -902,6 +902,7 @@ function returnAnswer(id) {
                     changeTable();
                     stats.timerHeight = 0;
                     stop('bstart')
+                    newQuestion()
                     return 0
                 }
                 newQuestion();
