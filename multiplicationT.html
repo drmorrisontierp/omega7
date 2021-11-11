@@ -39,15 +39,13 @@ body {
 /*-----left------*/
 #table {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat (10, 30px);
+  grid-template-rows: repeat(10, 30px);
   justify-self: center;
+  background-color: white;
 }
-.table-row {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 1fr;
-}
+
+
 /*-----right-----*/
 #display-screen {
   grid-area: 1/1/2/7;
@@ -61,8 +59,8 @@ body {
   grid-area: 2/1/7/8;
   display: grid;
   overflow: hidden;
-  grid-template-columns: repeat(4, 1fr) 0.5fr 0.5fr;
-  grid-template-rows: 1.5fr repeat(4, 1fr);
+  grid-template-columns: repeat(4, 100px) 50px 50px;
+  grid-template-rows: 150px repeat(4, 100px);
   justify-self: center;
   /*grid-template-columns: repeat(4, 1fr) 0.5fr 0.5fr;
   grid-template-rows: repeat(4, 1fr);*/
@@ -122,7 +120,7 @@ svg{
   #table {grid-area: 1/1/2/2; margin-right: 5%;}
   #numberpad {grid-area: 1/2/2/3; margin-top: 5%;}
 }
-/*
+
 @media screen and (max-width : 500px){
   #numberpad {
     grid-template-columns: repeat(4, 70px) 35px 35px;
@@ -134,6 +132,16 @@ svg{
 }
 }
 
+@media screen and (min-width: 1401px){
+  #numberpad {
+    grid-template-columns: repeat(4, 100px) 50px 50px;
+    grid-template-rows: 120px repeat(4, 100px);
+}
+.table-row {
+  grid-template-columns: repeat(10, 70px);
+  grid-template-rows: 70px;
+}
+}
 
 @media screen and (min-width: 500, max-width : 1400px){
   #numberpad {
@@ -146,7 +154,7 @@ svg{
 }
 }
 
-*/
+
 
 
   </style>
@@ -156,16 +164,7 @@ svg{
 <body>
     <div id="main">
             <div id="table">
-                <div class="table-row" id="ten" style="grid-area: 1/1/2/2;" ></div>
-                <div class="table-row" id="nine" style="grid-area: 2/1/3/2;" ></div>
-                <div class="table-row" id="eight" style="grid-area: 3/1/4/2;"></div>
-                <div class="table-row" id="seven" style="grid-area: 4/1/5/2;"></div>
-                <div class="table-row" id= "six" style="grid-area: 5/1/6/2;"></div>
-                <div class="table-row" id="five" style="grid-area: 6/1/7/2;"></div>
-                <div class="table-row" id="four" style="grid-area: 7/1/8/2;"></div>
-                <div class="table-row" id="three" style="grid-area: 8/1/9/2;"></div>
-                <div class="table-row" id="two" style="grid-area: 9/1/10/2;"></div>
-                <div class="table-row" id="one" style="grid-area: 10/1/11/2;"></div>
+              
         
     </div>
         <div id="numberpad">
@@ -629,9 +628,12 @@ function timerStart() {
 }
 
 function growTable() {
-    let rows = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+    //let rows = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+        let rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let table = document.getElementById('table'); //new
     for (let i = 0; i < 10; i++) {
-        let row = document.getElementById(rows[i]);
+      let row = rows[i]
+        //let row = document.getElementById(rows[i]); //old
         for (let e = 0; e < 10; e++) {
             if (e == 0) {
                 let input = (e + 1) * (i + 1);
@@ -641,32 +643,34 @@ function growTable() {
                 //cell.innerHTML = input;
                 //cell.className = "horizontalButton";
                 cell.id = _id;
+                
                 cell.setAttribute("onClick", "colourHorizontal(this.id)");
-                cell.style.gridArea = '1/1/2/2'
-                row.appendChild(cell);
+                cell.style.gridArea = row.toString() + '/1/' + (row+1).toString() +'/2'
+                table.appendChild(cell);
                 drawTableButton(_id,input)
             }
             else if (i == 0) {
                 let input = (e + 1) * (i + 1);
                 let _id = "vbtn" + e.toString();
                 let functionCall = "colourVertical('" + _id + "')";
-                let cell = document.createElement('button');
-                cell.innerHTML = input;
-                cell.className = "verticalButton";
+                let cell = document.createElement('div');
+                //cell.innerHTML = input;
+                //cell.className = "verticalButton";
                 cell.id = _id;
                 cell.setAttribute("onClick", "colourVertical(this.id)");
-                cell.style.gridArea = '1/' + (e+1).toString() + '/2/' + (e+2).toString();
-                row.appendChild(cell);
+                cell.style.gridArea = (row).toString() + '/' + (e+1).toString() + '/'+ (row+1).toString() + '/' + (e+2).toString();
+                table.appendChild(cell);
+                drawTableButton(_id,input)
             }
             else {
                 let input = (e + 1) * (i + 1);
                 let _id = table_y_axis[i-1] + e.toString();
-                let cell = document.createElement('button');
+                let cell = document.createElement('div');
                 cell.innerHTML = input;
                 cell.className = "tableBody";
-                cell.style.gridArea = '1/' + (e+1).toString() + '/1/' + (e+2).toString();
+                cell.style.gridArea = (row).toString() + '/' + (e+1).toString() + '/' + (row+1).toString() + '/' + (e+2).toString();
                 cell.id = _id;
-                row.appendChild(cell);
+                table.appendChild(cell);
             }
         }
     }
