@@ -757,7 +757,7 @@ function changeTable() {
         let row = rows[i];
         for (let e = 1; e < 10; e++) {
             let value = ((i+1) * (e +1)).toString();
-            let id = row + (e + 1).toString();
+            let id = row + (e).toString();
             console.log(id)
             document.getElementById(id).innerText = value;
         }
