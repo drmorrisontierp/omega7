@@ -34,8 +34,8 @@ body {
 /*-----left------*/
 #table {
   display: grid;
-  grid-template-columns: repeat(10, 30px);
-  grid-template-rows: repeat(10, 30px);
+  grid-template-columns: repeat(10, 55px);
+  grid-template-rows: repeat(10, 55px);
   justify-self: center;
   background-color: white;
 }
@@ -54,9 +54,10 @@ body {
   grid-area: 2/1/7/8;
   display: grid;
   overflow: hidden;
-  grid-template-columns: repeat(4, 100px) 50px 50px;
-  grid-template-rows: 150px repeat(4, 100px);
+  grid-template-columns: repeat(4, 78px) 39px 39px;
+  grid-template-rows: 110px repeat(4, 78px);
   justify-self: center;
+  
   /*grid-template-columns: repeat(4, 1fr) 0.5fr 0.5fr;
   grid-template-rows: repeat(4, 1fr);*/
 }
@@ -112,8 +113,8 @@ svg{
 }
 
 @media screen and (orientation: landscape) {
-  #table {grid-area: 1/1/2/2; margin-right: 5%;}
-  #numberpad {grid-area: 1/2/2/3; margin-top: 5%;}
+  #table {grid-area: 1/1/2/2; margin-right: 2%;margin-left: 2%;}
+  #numberpad {grid-area: 1/2/2/3; margin-top: 2%;align-self: center;}
 }
 
 @media screen and (max-width : 500px){
@@ -127,17 +128,15 @@ svg{
   }
 }
 
-@media screen and (min-width: 1401px){
+
+@media screen and (min-width: 500, max-width : 2000px){
   #numberpad {
     grid-template-columns: repeat(4, 100px) 50px 50px;
     grid-template-rows: 120px repeat(4, 100px);
   }
-}
-
-@media screen and (min-width: 500, max-width : 1400px){
-  #numberpad {
-    grid-template-columns: repeat(4, 100px) 50px 50px;
-    grid-template-rows: 120px repeat(4, 100px);
+    #table {
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
   }
 }
 
