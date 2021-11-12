@@ -951,9 +951,7 @@ function returnAnswer(id) {
       if (answer == '911') {
         clearStats()
       }
-      console.log(answer.slice(0,1))
       if (answer.slice(0,2) == '77') {
-        console.log(answer)
         stats = {"products":[],"product":"","level":1, "timerHeight": 0};
         stats.level = parseInt(answer[2]);
         meter();
