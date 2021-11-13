@@ -7,198 +7,136 @@
   <title>Klingberg Multiplikation</title>
   <meta name="description" content="A site to train multiplication">
   <meta name="Michael Morrison" content="SitePoint">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style type="text/css">
-* {
+{
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #cce6ff;
+    background-color: black;
 }
 
-.top {
-    margin: 2% 0 2% 40%;
+
+#main {
+  grid-area: 1/1/2/2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 
-#title {
-    font-size: 2em;
+/*-----main-----*/
+
+
+
+/*-----left------*/
+#table {
+  display: grid;
+  grid-template-columns: repeat(10, 55px);
+  grid-template-rows: repeat(10, 55px);
+  justify-self: center;
+  background-color: white;
 }
 
-.left {
-    float: left;
-    width: 50%;
-    margin-left: 2%;
-}
 
-.right {
-    width: 50%;
-    margin-left: 45%;
-}
-
-.imgbox {
-    margin: 0 10% 0 10%;
-    display: grid;
-    height: 100%;
-}
-
-table {
-  table-layout: fixed;
-  background-color: #666;
-  text-align: center;
-  font-weight: 600;
-  box-shadow: 0 5px #999;
-}
-td {
-  background-color: #f5f5f0;
-  padding: 1.5% 0 1.5% 0;
-  border: 1px solid black;
-}
-td:hover {
-  background-color: #d6d6c2;
-  font-weight: 800;
-}
-.theader {
-  background-color: #e0e0d1;
-}
-
-.center-fit {
-    border: 2px solid #555;
-    box-shadow: 0 5px #999;
-    max-width: 100%;
-    max-height: 100vh;
-    margin: auto;
-}
-
-.q_and_a {
-    margin: 5% 10% 5% 10%;
-    padding: 5%;
+/*-----right-----*/
+#display-screen {
+  grid-area: 1/1/2/7;
     border: 2px solid #550;
-    background-color: #cae8cb;
-    border-radius: 20%;
-    box-shadow: 0 5px #999;
+    background-color: gray;
 }
 
-#answer {
-    background-color: #d9d9d9;
-    width : 35%;
-    position: center;
-    text-indent: 10%;
-    margin: auto;
-    font-size: 2.5em;
-}
 
-#question {
-    float: left;
-    font-size: 2.5em;
-    margin-right: 5%;
-}
 
-.numpad {
-    margin-left: 35%;
-    width: 50%;
-}
-
-.start {
-    float: left;
-    margin-left: 0;
-}
-
-.meter {
-    float: right;
-    display: flex;
-    flex-direction: row;
-    font-size: 1.5em;
-    margin-right: 20%;
-    text-align: center;
-    background-color: #e0e0d1;
-    padding: 3%;
-    border: 2px solid #550;
-    box-shadow: 0 5px #999;
-}
-
-.meter_inner {
-  display: flex;
+#numberpad {
+  grid-area: 2/1/7/8;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(4, 78px) 39px 39px;
+  grid-template-rows: 110px repeat(4, 78px);
+  justify-self: center;
   
-  width: 20px;
-  height: 100px;
+  /*grid-template-columns: repeat(4, 1fr) 0.5fr 0.5fr;
+  grid-template-rows: repeat(4, 1fr);*/
+}
+
+#meter_inner {
+  grid-area: 2/5/6/6;
+  display: flex;
+  height: 90%;
   border: 2px solid #550;
+  background-color: black;
+  background-image: linear-gradient(to right, gray, black, gray);
 }
 #meter_bar {
+  flex: 1;
   align-self: flex-end;
-  width: 20px;
-  height: 10px;
-  background-color: red;
+  background-color: blue;
+  background-image: linear-gradient(to right, blue, cyan, blue);
 }
 
-.timer_inner {
-  display: flex;
-  
-  width: 20px;
-  height: 100px;
+#timer_inner {
+ grid-area: 2/6/6/7;
+ display: flex;
+  height: 90%;
   border: 2px solid #550;
+  background-image: linear-gradient(to right, #068700, #7ffc8c, #068700);
 }
 #timer_bar {
-  align-self: flex-end;
-  width: 20px;
-  height: 10px;
-  background-color: red;
-  
-  
+  display: flex;
+  align-self: flex-start;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, gray, black, gray)
+}
+/*----numberpad-----*/
+
+svg{
+  display: block;
+  width: 100%;
+  height: 100%;
+  viewBox: 0 0 100 100;
+  preserveAspectRatio: none;
 }
 
-.numpad2 {
-    width: 50%;
-    margin-left: 32%;
+.keypad-button {
+  background-color: gray;
 }
 
-.button {
-    margin: auto;
-    display: inline-block;
-    padding: 3% 5%;
-    font-size: 1.5em;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #4CAF50;
-    border: 2px solid #550;
-    border-radius: 25%;
-    box-shadow: 0 5px #999;
+@media screen and (orientation: portrait) {
+  #table {grid-area: 1/1/2/3; margin-bottom: 2%;}
+  #numberpad {grid-area: 2/1/3/3;}
 }
 
-.button:hover {
-    background-color: #3e8e41;
+@media screen and (orientation: landscape) {
+  #table {grid-area: 1/1/2/2; margin-right: 2%;margin-left: 2%;}
+  #numberpad {grid-area: 1/2/2/3; margin-top: 2%;align-self: center;}
 }
 
-.button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 4px #666;
-    transform: translateY(3px);
+@media screen and (max-width : 500px){
+  #numberpad {
+    grid-template-columns: repeat(4, 64px) 32px 32px;
+    grid-template-rows: 82px repeat(4, 64px);
+  }
+  #table {
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+  }
 }
 
-#bstart {
-    margin: auto;
-    display: inline-block;
-    padding: 10% 5%;
-    font-size: 1.5em;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #ff5050;
-    border: 2px solid #550;
-    border-radius: 25%;
-    box-shadow: 0 5px #999;
-}
 
-#bstart:active {
-    background-color: #cc0000;
-    box-shadow: 0 4px #666;
-    transform: translateY(3px);
+@media screen and (min-width: 500, max-width : 2000px){
+  #numberpad {
+    grid-template-columns: repeat(4, 100px) 50px 50px;
+    grid-template-rows: 120px repeat(4, 100px);
+  }
+    #table {
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+  }
 }
 
   </style>
@@ -206,83 +144,81 @@ td:hover {
 </head>
 
 <body>
-    <div class="top">
-        <h2 id="title">Hej</h2>
-    </div>
-    <div class="left">
-
-        <div class="imgbox">
-            <table class="multiplication" id="table1">
-                <tr id="ten" ></tr>
-                <tr id="nine" ></tr>
-                <tr id="eight" ></tr>
-                <tr id="seven" ></tr>
-                <tr id= "six" ></tr>
-                <tr id="five" ></tr>
-                <tr id="four" ></tr>
-                <tr id="three" ></tr>
-                <tr id="two" ></tr>
-                <tr id="one" ></tr>
-            </table>
+  <div id="main">
+  <div id="table"></div>
+    <div id="numberpad">
+      <div id="display-screen">
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="Hope">
+              <stop offset="0%" stop-color="#5f777d" stop-opacity="1"/>
+              <stop offset="50%" stop-color="#b2ced5" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#3f484a" stop-opacity="1"/>
+            </linearGradient>
+            <linearGradient id="Glass">
+              <stop offset="0%" stop-color="#5f777d" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#b2ced5" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#3f484a" stop-opacity="0.2"/>
+            </linearGradient>
+            <linearGradient id="Flat">
+              <stop offset="0%" stop-color="white" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="gray" stop-opacity="0.3"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" rx="2%" ry="2%" width="100%" height="100%" fill="url(#Hope)" stroke="black" stroke-width="2%"/>
+            <rect x="4%" y="8%" rx="2%" ry="2%" width="44%" height="84%" fill="cyan" stroke="black" stroke-width="2%"/>
+            <rect id="answer-field" x="52%" y="8%" rx="2%" ry="2%" width="44%" height="84%" fill="cyan" stroke="black" stroke-width="2%"/>
+            <text id="question" x="25%" y="65%" text-anchor="middle" font-size="2em" stroke="black" fill="black">...........</text> 
+            <text id="answer" x="73%" y="65%" text-anchor="middle" font-size="2em" stroke="black" fill="black">...........</text> 
+            <rect x="4%" y="8%" rx="2%" ry="2%" width="44%" height="84%" fill="url(#Glass)"/>
+            <rect x="52%" y="8%" rx="2%" ry="2%" width="44%" height="84%" fill="url(#Glass)"/>
+            </svg>
         </div>
-    </div>
-    <div class="right">
-        <div class="q_and_a">
-            <form onsubmit="returnAnswer(); return false;">
-                <label id="question" for="answer">............</label>
-                <input type="number" id="answer" name="answer">
-            </form>
-        </div>
-        <div class="start">
-            <p>
-                <button id="bstart" onclick="start()">BÖRJA!</button>
-                <select id="blevel" value="4" onchange="setLevel(this.value)">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                </select>
-                <button id="clear" onclick="clearStats()">Clear</button>
-            </p>
-        </div>
-        <div class="meter">
-            <!p id="level"><!/p>
-            <!p id="score"><!/p>
-            <div class="meter_inner">
+            <div id="meter_inner">
               <div id="meter_bar"></div>
             </div>
-            <div class="timer_inner">
+            <div id="timer_inner">
               <div id="timer_bar"></div>
             </div>
-        </div>
-        <div class="numpad">
-            <p>
-                <button class="button" onclick="addValue('1')">1</button>
-                <button class="button" onclick="addValue('2')">2</button>
-                <button class="button" onclick="addValue('3')">3</button>
-            </p>
-            <p>
-                <button class="button" onclick="addValue('4')">4</button>
-                <button class="button" onclick="addValue('5')">5</button>
-                <button class="button" onclick="addValue('6')">6</button>
-            </p>
-            <p>
-                <button class="button" onclick="addValue('7')">7</button>
-                <button class="button" onclick="addValue('8')">8</button>
-                <button class="button" onclick="addValue('9')">9</button>
-            </p>
-        </div>
-
-        <div class="numpad2">
-            <p>
-                <button class="button" onclick="deleteValue()">del</button>
-                <button class="button" onclick="addValue('0')">0</button>
-                <button class="button" onclick="returnAnswer()">enter</button>
-            </p>
+          
+          <div id="bstart" class="keypad-button" style="grid-area:2/4/4/5;"  onclick="start('bstart')" >
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <defs>
+              <linearGradient id="Bob">
+                <stop offset="0%" stop-color="white" stop-opacity="0.5"/>
+                <stop offset="50%" stop-color="#242424" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="white" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="4%" rx="5%" ry="5%" width="90%" height="100%" fill="#00000037"/>
+            <rect x="4%" y="2%" rx="5%" ry="5%" width="91%" height="96%" fill="#0e2b10"/>
+            <rect x="8%" y="2%" rx="5%" ry="5%" width="86%" height="93%" fill="url(#Bob)"/>
+              <text id="start-text" x="100%" y="-17%" text-anchor="middle" transform="rotate(90)" stroke="black" font-size="2em" fill="white">START</text> 
+            </svg>
+          </div>
+          <div class="keypad-button" id="kbd" style="grid-area:5/1/6/2;" onclick="deleteValue('kbd')"></div>
+          <div class="keypad-button" id="kb0" style="grid-area:5/2/6/3;" onclick="addValue('0', 'kb0')"></div>
+          
+          <div id="kbe" class="keypad-button" style="grid-area:4/3/6/5;" onclick="returnAnswer('kbe')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" >
+               <path d="M57,2 L93,2 Q98,2 98,7 L98,93 Q98,98 93,98 L7,98 Q2,98 2,93 L2,57 Q2,52 7,52 L47,52 Q52,52 52,47 L52,7 Q52,2 57,2" transform="translate(-2 2)" fill="#00000037"/>
+               <path d="M57,2 L93,2 Q98,2 98,7 L98,93 Q98,98 93,98 L7,98 Q2,98 2,93 L2,57 Q2,52 7,52 L47,52 Q52,52 52,47 L52,7 Q52,2 57,2" fill="#0e2b10"/>
+               <path d="M59,2 L92,2 Q97,2 97,7 L97,91 Q97,95 92,95 L9,95 Q4,95 4,90 L4,57 Q4,52 9,52 L49,52 Q55,52 55,47 L55,7 Q55,2 59,2" fill="url(#Bob)"/>
+              <text id="enter" x="50" y="81" text-anchor="middle" font-size="2em" stroke="black" fill="white">enter</text>
+            </svg>
+          </div>
+          
+          <div class="keypad-button" id="kb1" style="grid-area:4/1/5/2;" onclick="addValue('1', 'kb1')"></div>
+          <div class="keypad-button" id="kb2" style="grid-area:4/2/5/3;" onclick="addValue('2', 'kb2')"></div>
+          <div class="keypad-button" id="kb3" style="grid-area:4/3/5/4;" onclick="addValue('3', 'kb3')"></div>
+            
+          <div class="keypad-button" id="kb4" style="grid-area:3/1/4/2;" onclick="addValue('4', 'kb4')"></div>
+          <div class="keypad-button" id="kb5" style="grid-area:3/2/4/3;" onclick="addValue('5', 'kb5')"></div>
+          <div class="keypad-button" id="kb6" style="grid-area:3/3/4/4;" onclick="addValue('6', 'kb6')"></div>
+               
+          <div class="keypad-button" id="kb7" style="grid-area:2/1/3/2;" onclick="addValue('7', 'kb7')"></div>
+          <div class="keypad-button" id="kb8" style="grid-area:2/2/3/3;" onclick="addValue('8', 'kb8')"></div>
+          <div class="keypad-button" id="kb9" style="grid-area:2/3/3/4;" onclick="addValue('9', 'kb9')"></div>
         </div>
       
     </div>
@@ -343,29 +279,334 @@ window.store = {
     
 let toggle = false;
 let stats = get_stats();
+console.log('stats', stats)
 let count = 45 - stats.products.length;
-document.getElementById('blevel').value = stats.level;
+document.getElementById('timer_bar').style.height = (100-stats.timerHeight).toString() + '%';
 let calculatedAnswer;
 let table_y_axis = ['b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l'];
 let verticalMemory = [];
 let horizontalMemory = [];
 let questionText = "";
-let score = document.createTextNode(" / 45");
-let levelText = document.createTextNode("Nivå");
-let levelBoard = document.getElementById("level")
-let scoreBoard = document.getElementById("score");
-let timer;
-//let timerHeight = 0;
-//levelBoard.appendChild(levelText);
-//scoreBoard.appendChild(score);
 
+let timer;
+let timerOn = true;
 growTable();
 
+for (let x = 0; x < 10; x ++){
+  let id = 'kb' + x;
+  drawButton(id)
+}
+drawButton('kbd')
+
+function createSVGElement(tag) {
+  return document.createElementNS('http://www.w3.org/2000/svg', tag)
+}
+
+function setAttributes (el, atts) {
+    Object.entries(atts).forEach(([key, value]) => {
+        el.setAttribute(key, value);
+    });
+};
+
+function drawButton(id) {
+  let label = id[2];
+  if (label  == 'd'){
+    label = 'del'
+  }
+  let svg = createSVGElement('svg');
+  let shadow = createSVGElement('rect');
+  let base = createSVGElement('rect');
+  let front = createSVGElement('rect');
+  let text = createSVGElement('text');
+  let node = document.createTextNode(label);
+  text.appendChild(node)
+  setAttributes(shadow, {
+   'rx' : '5%',
+   'ry' : '5%',
+   'x' : '0%',
+   'y' : '6%',
+   'width' : '90%',
+   'height' : '100%',
+   'fill' : '#00000037',
+ });
+
+  setAttributes(base, {
+   'rx' : '5%',
+   'ry' : '5%',
+   'x' : '4%',
+   'y' : '4%',
+   'width' : '92%',
+   'height' : '92%',
+   'fill' : 'black',
+ });
+  if (id == 'kbd') {
+    setAttributes(base, {
+   'fill' : '#320808',
+ });
+  }
+ setAttributes(front, {
+   'rx' : '5%',
+   'ry' : '5%',
+   'x' : '8%',
+   'y' : '4%',
+   'width' : '86%',
+   'height' : '86%',
+   'fill' : 'url(#Bob)',
+ });
+ setAttributes(text, {
+   'x' : '50%',
+   'y' : '62%',
+   'fill' : 'white',
+   'stroke' : 'black',
+   'text-anchor': 'middle',
+   'font-size' : '2em',
+ })
+ svg.appendChild(shadow);
+ svg.appendChild(base);
+ svg.appendChild(front);
+ svg.appendChild(text);
+ document.getElementById(id).appendChild(svg)
+}
+
+function drawTableButton(id, use, label) {
+  let svg = createSVGElement('svg');
+  let base = createSVGElement('rect');
+  let top = createSVGElement('rect');
+  let shade = createSVGElement('rect');
+  let text = createSVGElement('text');
+  let node = document.createTextNode(label);
+  text.appendChild(node)
+  setAttributes(base, {
+   'rx' : '2%',
+   'ry' : '2%',
+   'x' : '0%',
+   'y' : '0%',
+   'width' : '100%',
+   'height' : '100%',
+   'fill' : '#000000',
+  });
+ if (use == 'button') {
+  setAttributes(shade, {
+   'rx' : '5%',
+   'ry' : '5%',
+   'x' : '12%',
+   'y' : '6%',
+   'width' : '82%',
+   'height' : '82%',
+   'fill' : 'url(#Flat)',
+ });
+ setAttributes(top, {
+   'rx' : '2%',
+   'ry' : '2%',
+   'x' : '4%',
+   'y' : '4%',
+   'width' : '93%',
+   'height' : '92%',
+   'fill' : '#562c19',
+ });
+
+ setAttributes(text, {
+   'x' : '50%',
+   'y' : '70%',
+   'text-anchor': 'middle',
+   'font-size': '1.5em',
+   'fill' : 'black',
+   'stroke': 'black',
+ })} else {
+setAttributes(top, {
+   'rx' : '2%',
+   'ry' : '2%',
+   'x' : '2%',
+   'y' : '2%',
+   'width' : '96%',
+   'height' : '96%',
+   'fill' : '#7b7853',
+ });
+setAttributes(shade, {
+   'rx' : '5%',
+   'ry' : '5%',
+   'x' : '6%',
+   'y' : '2%',
+   'width' : '90%',
+   'height' : '92%',
+   'fill' : 'url(#Flat)',
+ });
+ setAttributes(text, {
+   'x' : '50%',
+   'y' : '70%',
+   'text-anchor': 'middle',
+   'font-size': '1.3em',
+   'fill' : 'black',
+   'stroke' : 'black',
+ })}
+ svg.appendChild(base);
+ svg.appendChild(top);
+ svg.appendChild(shade);
+ svg.appendChild(text);
+ document.getElementById(id).appendChild(svg)
+}
+
+
+function buttonDown(id) {
+  let x = 0;
+  if (id == 'bstart') x = 1;
+  
+  let svg = document.getElementById(id).children[0];
+  let shadow = svg.children[x];
+  let base = svg.children[x+1];
+  let front = svg.children[x+2];
+  let text = svg.children[x+3];
+  if (id == 'kbe') {
+    setAttributes(shadow, {
+    'fill': 'transparent',
+  });
+  setAttributes(front, {
+    'd' : 'M59,3 L92,3 Q97,3 97,7 L97,93 Q97,97 92,97 L8,97 Q3,97 3,92 L3,57 Q3,53 8,53 L49,53 Q54,53 54,47 L54,7 Q54,2 59,2',
+  });
+  setAttributes(text, {
+    'x' : '48',
+   'y' : '83',
+  });
+  }
+  if (id == 'bstart') {
+    setAttributes(shadow, {
+    'fill': 'transparent',
+  });
+  setAttributes(base, {
+    'fill': 'black',
+  });
+  setAttributes(front, {
+     'x' : '6%',
+   'y' : '6%',
+   'width' : '88%',
+   'height' : '88%',
+  });
+  setAttributes(text, {
+    'x' : '98%',
+   'y' : '-15%',
+  });
+  }
+  if (id !== 'bstart' && id !== 'kbe') {
+  setAttributes(shadow, {
+    'fill': 'transparent',
+  });
+  setAttributes(front, {
+    'x' : '6%',
+   'y' : '6%',
+   'width' : '88%',
+   'height' : '88%',
+  });
+  setAttributes(text, {
+    'x' : '48%',
+   'y' : '65%',
+  });
+}}
+
+function buttonUp(id) {
+  let svg = document.getElementById(id).children[0];
+  let x = 0;
+  if (id == 'bstart') x = 1;
+  let shadow = svg.children[x];
+  let base = svg.children[x+1];
+  let front = svg.children[x+2];
+  let text = svg.children[x+3];
+  let color = toggle ? '#320808' : '#0e2b10';
+  if (id == 'kbe') {
+    setAttributes(shadow, {
+    'fill': '#00000037',
+  });
+  setAttributes(front, {
+    'd' : 'M59,2 L92,2 Q97,2 97,7 L97,91 Q97,95 92,95 L9,95 Q4,95 4,90 L4,57 Q4,52 9,52 L49,52 Q54,52 54,47 L54,7 Q54,2 59,2',
+  });
+  setAttributes(text, {
+    'x' : '50',
+   'y' : '81',
+  });
+  } 
+  if (id == 'bstart') {
+  setAttributes(shadow, {
+    'fill': '#00000037',
+  });
+  setAttributes(base, {
+    'fill': color,
+  });
+  setAttributes(front, {
+  'x' : '8%',
+   'y' : '2%',
+   'width' : '86%',
+   'height' : '93%',
+  });
+  setAttributes(text, {
+    'x' : '100%',
+   'y' : '-17%',
+  });
+  }
+  if (id !== 'bstart' && id !== 'kbe'){
+  setAttributes(shadow, {
+    'fill': '#00000037',
+  });
+  setAttributes(front, {
+  'x' : '8%',
+   'y' : '4%',
+   'width' : '86%',
+   'height' : '86%',
+  });
+  setAttributes(text, {
+    'x' : '50%',
+   'y' : '62%',
+  });
+}}
+
+function tableButtonsUp(className) {
+  let buttons = document.getElementsByClassName(className);
+  for (let i = 0; i < buttons.length; i++) {
+  let svg = buttons[i].children[0];
+  let shade = svg.children[2];
+  let text = svg.children[3];
+  setAttributes(shade, {
+   'rx' : '5%',
+   'ry' : '5%',
+   'x' : '12%',
+   'y' : '6%',
+   'width' : '82%',
+   'height' : '82%',
+   'fill' : 'url(#Flat)',
+ });
+  setAttributes(text, {
+   'fill': 'black',
+   'stroke': 'black',
+  });
+  }
+}
+
+  function tableButtonDown(id) {
+  let svg = document.getElementById(id).children[0];
+  let shade = svg.children[2];
+  let text = svg.children[3];
+  setAttributes(shade, {
+   'rx' : '2%',
+   'ry' : '2%',
+   'x' : '2%',
+   'y' : '2%',
+   'width' : '96%',
+   'height' : '96%',
+   'fill' : '#00000011'
+ });
+  setAttributes(text, {
+   'fill': 'white',
+   'stroke': 'white',
+  });
+  } 
+
 function flashColor(id, colorOne, colorTwo) {
-  let target = document.getElementById(id)
-  target.style.backgroundColor = colorTwo;
+  let base = document.getElementById(id);
+  setAttributes(base, {
+    'fill' : colorTwo,
+  })
   setTimeout(() => {
-    target.style.backgroundColor = colorOne;
+    setAttributes(base, {
+      'fill' : colorOne,
+    });
   }, 500)
 }
 
@@ -374,12 +615,9 @@ function shuffle(array) {
 }
 
 function setLevel(x) {
-  
-  console.log(x)
   level = parseInt(x);
   stats.level = level;
   changeTable();
-  console.log(stats.level)
 }
 
 function newProducts() {
@@ -390,7 +628,6 @@ function newProducts() {
             products.push(product);
         }
     }
-    console.log(products)
     return products;
 }
 
@@ -416,246 +653,264 @@ function replaceText(id, string) {
 
 
 function meter() {
-  console.log(count)
   let meterHeight = 100*(count/45);
-  console.log(meterHeight.toString() + 'px')
-  document.getElementById('meter_bar').style.height = meterHeight.toString() + 'px';
-  
-  //  let scoreText = count + " / 45";
-  //  let levelText = "Nivå " + stats.level;
-  //  replaceText("score", scoreText);
-  //  replaceText("level", levelText);
+  document.getElementById('meter_bar').style.height = meterHeight.toString() + '%';
 }
 
 function timerStart() {
-  //  let timerHeight = 0;
-  //  document.getElementById('timer_bar').style.height = '0%';
+  if(timerOn){
+  levelMod = 6/stats.level;
     timer = setInterval(() => {
-      console.log(stats.timerHeight)
-      document.getElementById('timer_bar').style.height = stats.timerHeight.toString() + '%'
+      document.getElementById('timer_bar').style.height = (100 - stats.timerHeight).toString() + '%'
       stats.timerHeight += 1;
-    }, 700)
+      if (stats.timerHeight == 100) {
+        if (stats.level > 1) stats.level --;
+        stats.timerHeight = 0;
+        document.getElementById('timer_bar').style.height = '100%';
+        document.getElementById('answer').value = '';
+        changeTable();
+        stop('bstart')
+      }
+    }, 700*levelMod)}
 }
 
 function growTable() {
-    let rows = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+  let rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let table = document.getElementById('table');
     for (let i = 0; i < 10; i++) {
-        let row = document.getElementById(rows[i]);
-        for (let e = 0; e < 10; e++) {
-            if (e == 0) {
-                let input = (e + 1) * (i + 1);
-                let _id = "hbtn" + i.toString();
-                let functionCall = "colourHorizontal('" + _id + "')";
-                row.insertCell(e).innerText = input;
-                row.childNodes[e].setAttribute("class", "horizontalButton");
-                row.childNodes[e].setAttribute("id", _id);
-                row.childNodes[e].setAttribute("onClick", functionCall);
-            }
-            else if (i == 0) {
-                let input = (e + 1) * (i + 1);
-                let _id = "vbtn" + e.toString();
-                let functionCall = "colourVertical('" + _id + "')";
-                row.insertCell(e).innerText = input;
-                row.childNodes[e].setAttribute("class", "verticalButton");
-                row.childNodes[e].setAttribute("id", _id);
-                row.childNodes[e].setAttribute("onClick", functionCall);
-            }
-            else {
-                let input = (e + 1) * (i + 1);
-                let _id = table_y_axis[i-1] + e.toString();
-                row.insertCell(e).innerText = input;
-                row.childNodes[e].setAttribute("id", _id);
-                row.childNodes[e].setAttribute("class", "tableBody");
-            }
+      let row = 11 - rows[i]
+      for (let e = 0; e < 10; e++) {
+        if (e == 0) {
+          let input = (e + 1) * (i + 1);
+          let _id = "hbtn" + i.toString();
+          let functionCall = "colourHorizontal('" + _id + "')";
+          let cell = document.createElement('div');
+          cell.className = "horizontalButton";
+          cell.id = _id;
+          cell.setAttribute("onClick", "colourHorizontal(this.id)");
+          cell.style.gridArea = row.toString() + '/1/' + (row+1).toString() +'/2'
+          table.appendChild(cell);
+          drawTableButton(_id,'button' ,input)
+        } else if (i == 0) {
+          let input = (e + 1) * (i + 1);
+          let _id = "vbtn" + e.toString();
+          let functionCall = "colourVertical('" + _id + "')";
+          let cell = document.createElement('div');
+          cell.className = "verticalButton";
+          cell.id = _id;
+          cell.setAttribute("onClick", "colourVertical(this.id)");
+          cell.style.gridArea = (row).toString() + '/' + (e+1).toString() + '/'+ (row+1).toString() + '/' + (e+2).toString();
+            table.appendChild(cell);
+            drawTableButton(_id,'button',input)
+        } else {
+          let input = (e + 1) * (i + 1);
+          let _id = table_y_axis[i-1] + e.toString();
+          let cell = document.createElement('div');
+          cell.className = "tableBody";
+          cell.style.gridArea = (row).toString() + '/' + (e+1).toString() + '/' + (row+1).toString() + '/' + (e+2).toString();
+          cell.id = _id;
+          table.appendChild(cell);
+          drawTableButton(_id,'body',input)
         }
+      }
     }
     document.getElementById('hbtn0').removeAttribute("onclick");
-}
+  }
 
 
-function clearTableBody(className) {
+function clearTableBody(className, color) {
     let tableBodies = document.getElementsByClassName(className);
     for (let i = 0; i < tableBodies.length; i++) {
-        tableBodies[i].style.backgroundColor = "#f5f5f0";
-        tableBodies[i].style.color = "#000000"
+        tableBodies[i].children[0].children[1].setAttribute('fill', color);
     }
 }
 
 
 function colourVertical(text) {
     if (toggle) {
-        clearTableBody("verticalButton")
-        clearTableBody("tableBody")
+        tableButtonsUp('verticalButton')
+        clearTableBody('tableBody', '#7b7853')
         let button = document.getElementById(text);
-        button.style.backgroundColor = "#ff9999";
+        tableButtonDown(text);
         let id_number = text[4];
         verticalMemory = []
         for (let i = 0; i < table_y_axis.length; i++) {
             let _id = table_y_axis[i] + id_number;
-            let tableBody = document.getElementById(_id);
+            let tableBody = document.getElementById(_id).children[0].children[1];
             verticalMemory.push(tableBody);
-            tableBody.style.backgroundColor = "#ff9999";
+            tableBody.setAttribute('fill', '#ff9999');
         }
         for (let i = 0; i < horizontalMemory.length; i++) {
-            horizontalMemory[i].style.backgroundColor = "#ff9999";
+            horizontalMemory[i].setAttribute('fill', '#ff9999');
         }
         for (let i = 0; i < verticalMemory.length; i++) {
             for (let j = 0; j < horizontalMemory.length; j++) {
                 if (verticalMemory[i] === horizontalMemory[j]) {
-                    verticalMemory[i].style.backgroundColor = "#ff0000";
-                    verticalMemory[i].style.color = "#ffffff";
+                    verticalMemory[i].setAttribute('fill', '#ff0000');
                 }
             }
         }
-        document.getElementById("answer").focus();
     }
 }
 
 
 function colourHorizontal(text) {
     if (toggle) {
-        clearTableBody("horizontalButton")
-        clearTableBody("tableBody")
+      console.log('pressed horix')
+        tableButtonsUp('horizontalButton')
+        clearTableBody('tableBody', '#7b7853')
         let button = document.getElementById(text);
-        button.style.backgroundColor = "#ff9999";
+        tableButtonDown(text)
         let id_number = text[4];
         horizontalMemory = []
         for (let i = 0; i < 9; i++) {
             let _id = table_y_axis[id_number - 1] + (i + 1).toString();
-            let tableBody = document.getElementById(_id);
+            let tableBody = document.getElementById(_id).children[0].children[1];
             horizontalMemory.push(tableBody);
-            tableBody.style.backgroundColor = "#ff9999";
+            tableBody.setAttribute('fill', '#ff9999');
         }
+        console.log(horizontalMemory)
         for (let i = 0; i < verticalMemory.length; i++) {
-            verticalMemory[i].style.backgroundColor = "#ff9999";
+            verticalMemory[i].setAttribute('fill', '#ff9999');
         }
         for (let i = 0; i < verticalMemory.length; i++) {
             for (let j = 0; j < horizontalMemory.length; j++) {
                 if (verticalMemory[i] === horizontalMemory[j]) {
-                    verticalMemory[i].style.backgroundColor = "#ff0000";
-                    verticalMemory[i].style.color = "#ffffff";
+                    verticalMemory[i].setAttribute('fill','#ff0000');
                 }
             }
         }
-        document.getElementById("answer").focus();
     }
 }
 
 
 function changeTable() {
-    let rows = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+    let rows = ["a", "b", "c", "d", "e", "f", "g", "h", "k", "l"];
     let max = stats.level;
-    clearTableBody("tableBody");
-    clearTableBody("verticalButton");
-    clearTableBody("horizontalButton");
+    clearTableBody('tableBody', '#7b7853');
+    tableButtonsUp('verticalButton');
+    tableButtonsUp('horizontalButton');
     verticalMemory = [];
     horizontalMemory = [];
     for (let i = 1; i < 10; i++) {
-        let row = document.getElementById(rows[i]);
+        let row = rows[i];
         for (let e = 1; e < 10; e++) {
-            let _id = ((i+1) * (e +1)).toString();
-            row.childNodes[e].innerText = _id;
+            let value = ((i+1) * (e +1)).toString();
+            let id = row + (e).toString();
+            document.getElementById(id).children[0].children[3].innerHTML = value;
         }
     }
     for (let i = 1; i < max; i++) {
-        let row = document.getElementById(rows[i]);
+        let row = rows[i];
         for (let e = 1; e < max; e++) {
-            let _id = table_y_axis[i - 1] + e.toString();
-            row.childNodes[e].innerText = ''
+            let id = row + e.toString();
+            document.getElementById(id).children[0].children[3].innerHTML = ''
         }
     }
-  /*  for (let i = 1; i < max; i++) {
-        let row = document.getElementById(rows[i]);
-        for (let e = 1; e < max; e++) {
-            row.deleteCell(e);
-            let _id = table_y_axis[i - 1] + e.toString();
-            row.insertCell(e).innerText = "";
-            row.childNodes[e].setAttribute("id", _id);
-            row.childNodes[e].setAttribute("class", "tableBody");
-        }
-    } */
 }
 
 
-function start() {
+function start(id) {
+  buttonDown(id);
+  setTimeout(() => {
+    buttonUp(id)
+  }, 250);
     changeTable();
     let button = document.getElementById("bstart");
-    let buttonText = "STOPPA!";
+    let buttonText = "STOP";
     questionText = newQuestion();
     replaceText("question", questionText);
-    replaceText("bstart", buttonText);
+    replaceText("answer", '');
+    replaceText("start-text", buttonText);
     count = 45 - stats.products.length;
     meter();
-    button.setAttribute("onClick", "stop()");
-    document.getElementById("answer").focus();
+    button.setAttribute("onClick", "stop('bstart')");
     toggle = true;
     timerStart()
 }
 
 
-function stop() {
-    clearTableBody("tableBody");
-    clearTableBody("verticalButton");
-    clearTableBody("horizontalButton");
+function stop(id) {
+  buttonDown(id);
+    setTimeout(() => {
+    buttonUp(id)
+    }, 250);
+  console.log("stop")
+    clearTableBody('tableBody', '#7b7853');
+    clearTableBody('verticalButton', '#562c19');
+    clearTableBody('horizontalButton', '#562c19');
     verticalMemory = [];
     horizontalMemory = [];
     stats.products.push(questionText);
     let button = document.getElementById("bstart");
-    let buttonText = "BÖRJA!";
-    questionText = "............";
-    replaceText("question", questionText);
-    replaceText("bstart", buttonText);
-    button.setAttribute("onClick", "start()");
+    let buttonText = "START";
+    replaceText("question", "............");
+    replaceText("answer", "............");
+    replaceText("start-text", buttonText);
+    button.setAttribute("onClick", "start('bstart')");
     toggle = false;
     clearInterval(timer)
     saveStats()
 }
 
 
-function addValue(val) {
-    if (toggle) {
-        document.getElementById("answer").value += val;
+function addValue(val, id) {
+  console.log(id)
+  buttonDown(id);
+  setTimeout(() => {
+    buttonUp(id)
+  }, 250);
+    
+  let answer = document.getElementById("answer").innerHTML;
+  if (answer.includes('.')) {
+    replaceText('answer', "");
+  }
+  if (answer.length < 3){
+  answer += val;
+  replaceText('answer', answer)
+}
+}
+
+function deleteValue(id) {
+  buttonDown(id);
+  setTimeout(() => {
+    buttonUp(id)
+  }, 250);
+    
+    let oldString = document.getElementById("answer").innerHTML;
+    
+    if (oldString.length > 0) {
+    let newString = oldString.slice(0, -1);
+    //document.getElementById("answer").innerHTML = newString;
+    replaceText('answer', newString)
     }
-
 }
 
 
-function deleteValue() {
+
+function returnAnswer(id) {
+  buttonDown(id);
+  setTimeout(() => {
+    buttonUp(id)
+  }, 250);
+        let answer = document.getElementById("answer").innerHTML;
     if (toggle) {
-        let oldString = document.getElementById("answer").value;
-        let newString = oldString.slice(0, -1);
-        document.getElementById("answer").value = newString;
-    }
-}
-
-
-function wrongAnswer() {
-    flashColor('answer', '#d9d9d9', '#ff0000')
-}
-
-
-function rightAnswer() {
-    flashColor('answer', '#d9d9d9', '#008000');
-}
-
-
-function returnAnswer() {
-    if (toggle) {
-        let answer = document.getElementById("answer").value;
         if (answer) {
+          let levelMod = stats.level*1.2;
             intAnswer = parseInt(answer);
             if (intAnswer == calculatedAnswer) {
-                //rightAnswer();
-                flashColor('answer', '#d9d9d9', '#008000');
+                flashColor('answer-field', 'cyan', '#008000');
                 if (stats.products.length < 1) {
                     stats.level++;
-                    document.getElementById('blevel').value = stats.level;
                     changeTable();
                     stats.timerHeight = 0;
+                    stop('bstart')
+                    newQuestion()
+                    return 0
                 }
                 newQuestion();
                 clearInterval(timer)
-                stats.timerHeight -= 10;
+                stats.timerHeight -= levelMod;
                 if (stats.timerHeight < 0) {
                   stats.timerHeight = 0;
                 }
@@ -663,12 +918,9 @@ function returnAnswer() {
                 count = 45 - stats.products.length;
                 meter();
                 replaceText("question", questionText);
-                document.getElementById("answer").value = "";
-                document.getElementById("answer").focus();
-            }
-            else {
-                //wrongAnswer();
-                flashColor('answer', '#d9d9d9', '#ff0000')
+                replaceText("answer", '');
+            } else {
+                flashColor('answer-field', 'cyan', '#ff0000')
                 stats.products.push(questionText)
                 if (stats.products.length == 50) {
                     if (stats.level > 1) {
@@ -677,22 +929,35 @@ function returnAnswer() {
                     else {
                         stats.level = 1;
                     }
-                    document.getElementById('blevel').value = stats.level
                     changeTable();
                     stats.products = newProducts();
                     stats.timerHeight = 0;
                     count = 45 - stats.products.length
                 }
                 meter();
-                document.getElementById("answer").value = "";
-                document.getElementById("answer").focus();
+               // document.getElementById("answer").innerHTML = "";
+               replaceText('answer', '')
             }
         }
         else {
-            document.getElementById("answer").focus();
+          console.log('else')
         }
-        //timerStart();
+    } else {
+      if (answer.length == 3) {
+      if (answer == '110') timerOn = false;
+      if (answer == '111') timerOn = true;
+      if (answer == '911') {
+        clearStats()
+      }
+      if (answer.slice(0,2) == '77') {
+        stats = {"products":[],"product":"","level":1, "timerHeight": 0};
+        stats.level = parseInt(answer[2]);
+        meter();
+        changeTable();
+      }
+      replaceText('answer', '')
     }
+  }
 }
 
 
@@ -721,9 +986,6 @@ function clearStats() {
  return 0
 }
 
-    </script>
-
-
-
+</script>
 </body>
 </html>
